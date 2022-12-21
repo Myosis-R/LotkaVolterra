@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2019/dev/Debian) (preloaded format=xelatex 2021.5.13)  19 DEC 2022 10:46
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2019/dev/Debian) (preloaded format=xelatex 2021.5.13)  19 DEC 2022 14:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -459,20 +459,20 @@ Package: lastpage 2015/03/29 v1.2m Refers to last page's name (HMM; JPG)
 )) (./rapport.aux)
 \openout1 = `rapport.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
@@ -513,66 +513,70 @@ Package caption Info: End \AtBeginDocument code.
 
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 9.
-LaTeX Font Info:    Try loading font information for TU+phv on input line 11.
-LaTeX Font Info:    No file TUphv.fd. on input line 11.
+(lastpage)             ! on input line 10.
+LaTeX Font Info:    Try loading font information for TU+phv on input line 12.
+LaTeX Font Info:    No file TUphv.fd. on input line 12.
 
 LaTeX Font Warning: Font shape `TU/phv/b/n' undefined
-(Font)              using `TU/lmr/m/n' instead on input line 11.
+(Font)              using `TU/lmr/m/n' instead on input line 12.
 
 
 LaTeX Font Warning: Font shape `TU/phv/m/n' undefined
-(Font)              using `TU/lmr/m/n' instead on input line 11.
+(Font)              using `TU/lmr/m/n' instead on input line 12.
 
 
 LaTeX Font Warning: Font shape `TU/phv/m/sc' undefined
 (Font)              using `TU/phv/m/n' instead on input line 13.
 
-LaTeX Font Info:    Try loading font information for TU+ptm on input line 14.
-LaTeX Font Info:    No file TUptm.fd. on input line 14.
-
-LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
-(Font)              using `TU/lmr/m/n' instead on input line 14.
-
-Package lettrine.sty Info: Targeted height = 14.626pt
-(lettrine.sty)             (no accent, loversize=0),
-(lettrine.sty)             Lettrine height = 14.62598pt (L);
-(lettrine.sty)             reported on input line 14.
-
-LaTeX Warning: Reference `fig:example' on page 1 undefined on input line 22.
-
-LaTeX Font Info:    Try loading font information for U+msa on input line 22.
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+(./rapport.toc
+LaTeX Font Info:    Try loading font information for U+msa on input line 2.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 22.
+LaTeX Font Info:    Try loading font information for U+msb on input line 2.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+esint on input line 22.
+LaTeX Font Info:    Try loading font information for U+esint on input line 2.
 
 (/usr/share/texlive/texmf-dist/tex/latex/esint/uesint.fd
 File: uesint.fd 
-)
+))
+\tf@toc=\write3
+\openout3 = `rapport.toc'.
 
-LaTeX Font Warning: Font shape `TU/phv/bx/sc' undefined
-(Font)              using `TU/phv/m/n' instead on input line 53.
+LaTeX Font Info:    Try loading font information for TU+ptm on input line 16.
+LaTeX Font Info:    No file TUptm.fd. on input line 16.
 
 
-LaTeX Warning: Citation `Maxwell1865' on page 1 undefined on input line 81.
+LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
+(Font)              using `TU/lmr/m/n' instead on input line 16.
+
+Package lettrine.sty Info: Targeted height = 14.626pt
+(lettrine.sty)             (no accent, loversize=0),
+(lettrine.sty)             Lettrine height = 14.96861pt (C);
+(lettrine.sty)             reported on input line 16.
+! Extra }, or forgotten $.
+l.31 \dfrac {\mathrm {d}}{\mathrm {d} t}}
+                                         X(t)=X(t) {\Big (}R+AX(t){\Big )}
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
 
 No file rapport.bbl.
 
 AED: lastpage setting LastPage
 
-LaTeX Warning: File `logo_gips_unit.png' not found on input line 98.
+LaTeX Warning: File `logo_gips_unit.png' not found on input line 109.
 
 ! Unable to load picture or PDF file 'logo_gips_unit.png'.
 <to be read again> 
                    }
-l.98 \end{document}
-                   
+l.109 \end{document}
+                    
 The requested image couldn't be read because
 it was not a recognized image format.
 
@@ -583,8 +587,8 @@ See the graphics package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.98 \end{document}
-                   
+l.109 \end{document}
+                    
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
@@ -594,21 +598,19 @@ File: logo_gips_unit.png Graphic file (type bmp)
 [1
 
 
+
 ] (./rapport.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: There were undefined references.
-
  ) 
 Here is how much of TeX's memory you used:
- 14004 strings out of 494827
- 251828 string characters out of 6174700
+ 13961 strings out of 494827
+ 251188 string characters out of 6174700
  453992 words of memory out of 5000000
- 17812 multiletter control sequences out of 15000+600000
- 540762 words of font info for 71 fonts, out of 8000000 for 9000
+ 17785 multiletter control sequences out of 15000+600000
+ 536366 words of font info for 52 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 49i,13n,45p,606b,446s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 49i,13n,45p,607b,446s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on rapport.pdf (1 page).
