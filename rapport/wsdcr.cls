@@ -128,7 +128,7 @@
 \RequirePackage{lastpage}  % Number of pages in the document
 \pagestyle{fancy}          % Enables the custom headers/footers
 % Headers
-\lhead{\includegraphics[width=.8in]{logo_gips_unit.png}}%
+%\lhead{\includegraphics[width=.8in]{logo_gips_unit.png}}%
 \chead{}%
 \rhead{\small\sffamily\bfseries\@title--- \thepage/\pageref{LastPage}}
 % Footers

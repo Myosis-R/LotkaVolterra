@@ -14,11 +14,11 @@ class Model_glv:
         self.A = np.ones((nb_species,nb_species))
         self.S = np.ones((nb_species,nb_species)) # copy for bifurcation
         self.R = np.ones(nb_species)
-        self.nb_dots = 100
+        self.nb_dots = 1000
         
         self.dt = 1e-2
 
-    def glv(self,X):
+    def glv(self,X): #problem with one dot !!!!
         return X*(self.R.reshape((self.nb_species,1))+self.S@X)
     
     def Jglv(self,X): #one dot
@@ -62,10 +62,18 @@ class Model_glv:
         # 4d Chaotic Lotka-Voltera
         elif self.nb_species == 4 :
             self.R = np.array([1,0.72,1.53,1.27])
-            self.A = np.array([[-1.    , -1.09  , -1.52  , -0.    ],
-                                   [-0.    , -0.72  , -0.3168, -0.9792],
-                                   [-3.5649, -0.    , -1.53  , -0.7191],
-                                   [-1.5367, -0.6477, -0.4445, -1.27  ]])
+#            self.A = np.array([[-1.    , -1.09  , -1.52  , -0.    ],
+#                                   [-0.    , -0.72  , -0.3168, -0.9792],
+#                                   [-3.5649, -0.    , -1.53  , -0.7191],
+#                                   [-1.5367, -0.6477, -0.4445, -1.27  ]])
+            #limit cycle
+            self.A = np.array([[-1.      , -1.0355  , -1.444   , -0.      ],
+                                   [-0.      , -0.72    , -0.30096 , -0.93024 ],
+                                   [-3.386655, -0.      , -1.53    , -0.683145],
+                                   [-1.459865, -0.615315, -0.422275, -1.27    ]])
+
+
+
         else :
             sys.exit('no gen params')
         self.S = self.A # copy for bifurcation
@@ -91,33 +99,25 @@ class Model_glv:
         print(self.equilibrium_points)
     
     def plot4D(self):
-        steps = int(1e7)
-        X = np.random.random((self.nb_species,steps))
-        Y = np.random.random((self.nb_species,steps))
-        X[:,0] = np.random.random(self.nb_species)
-        Y[:,0] = X[:,0]+1e-4
+        steps = int(2e5)
+        X = np.zeros((self.nb_species,steps,10))
+        X[:,0,:] = np.random.random((self.nb_species,10))
 
         for i in range(steps-1):
-            X[:,i+1] = self.step(X[:,i])
-            Y[:,i+1] = self.step(Y[:,i])
+            X[:,i+1,:] = self.step(X[:,i,:])
 
         fig, axes = plt.subplots(3,2)
-        axes[0,0].plot(X[0,:],X[1,:],'r')
-        axes[1,0].plot(X[0,:],X[2,:],'r')
-        axes[2,0].plot(X[0,:],X[3,:],'r')
-        axes[0,1].plot(X[1,:],X[2,:],'r')
-        axes[1,1].plot(X[1,:],X[3,:],'r')
-        axes[2,1].plot(X[2,:],X[3,:],'r')
-        axes[0,0].plot(Y[0,:],Y[1,:],'b')
-        axes[1,0].plot(Y[0,:],Y[2,:],'b')
-        axes[2,0].plot(Y[0,:],Y[3,:],'b')
-        axes[0,1].plot(Y[1,:],Y[2,:],'b')
-        axes[1,1].plot(Y[1,:],Y[3,:],'b')
-        axes[2,1].plot(Y[2,:],Y[3,:],'b')
+        start = int(1e5)
+        axes[0,0].plot(X[0,start:],X[1,start:])
+        axes[1,0].plot(X[0,start:],X[2,start:])
+        axes[2,0].plot(X[0,start:],X[3,start:])
+        axes[0,1].plot(X[1,start:],X[2,start:])
+        axes[1,1].plot(X[1,start:],X[3,start:])
+        axes[2,1].plot(X[2,start:],X[3,start:])
         plt.show()
         
     def evolution(self):
-        steps = int(1e3)
+        steps = int(1e4)
         x = np.random.random((self.nb_species,self.nb_dots))
         for i in range(steps):
             x = self.step(x)
@@ -162,22 +162,33 @@ class Model_glv:
         ax.plot(lya_exp_plot[:test,0])
         plt.show()
 
-    def bifurcations(self):
-        n = int(100)
+    def bifurcations(self,min,max):
+        n = int(20)
         bif = np.zeros((n,self.nb_species,self.nb_dots))
-        s = np.linspace(-1/2,4,n)#np.linspace(0.8,1.3,n)
+        s = np.linspace(min,max,n)#np.linspace(0.8,1.3,n)
         for i in range(n): 
             self.S = s[i]*(self.A-np.diag(np.diag(self.A)))+np.diag(np.diag(self.A))
             bif[i,:,:] = self.evolution()
             print(i)
-            
-        fig = plt.figure()
-        ax = fig.add_subplot(111, projection='3d')
-        fig.tight_layout()
-        for i in range(n):
-            ax.scatter(s[i]*np.ones(self.nb_dots),bif[i,0,:],bif[i,1,:])
-        plt.show()
-
+        
+        if self.nb_species == 2 :
+            fig = plt.figure()
+            ax = fig.add_subplot(111, projection='3d')
+            fig.tight_layout()
+            for i in range(n):
+                ax.scatter(s[i]*np.ones(self.nb_dots),bif[i,0,:],bif[i,1,:])
+            ax.set_xlabel(r'$s$')
+            ax.set_ylabel(r'$x$')
+            ax.set_zlabel(r'$y$')
+            plt.show()
+        else :
+            fig,ax = plt.subplots()
+            fig.tight_layout()
+            for i in range(n):
+                ax.scatter(s[i]*np.ones(self.nb_dots),bif[i,0,:])
+            ax.set_xlabel(r'$s$')
+            ax.set_ylabel(r'$x$')
+            plt.show()
         self.S = self.A
     
     def vector_field_2D(self,x_min,y_min,x_max,y_max,dx): #grid unclear
@@ -205,11 +216,12 @@ class Model_glv:
 
         
 def main():
-    model_1 = Model_glv(2)
+    model_1 = Model_glv(4)
     model_1.gen_params()
     #model_1.equilibrium_points()
     #model_1.lyapunov_exponent()
-    model_1.bifurcations()
+    #model_1.bifurcations(0.5,1.5)
+    model_1.plot4D()
     #model_1.vector_field_2D(0,0,6,6,0.2)
     #model_1.print_vector_field()
 

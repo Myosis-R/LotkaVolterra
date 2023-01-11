@@ -5,7 +5,6 @@
 \affil{\textit{Université Paul Sabatier}\\
 \textit{Toulouse, France}}
 \date{28 Decembre, 2022}
-\bibliographystyle{IEEEtran}
 
 \begin{document}
 
@@ -13,13 +12,18 @@
 \tableofcontents
 \section{Introduction}
 
-\lettrine{C}{ette} étude des équations de prédation de Lotka-Volterra s'effectue dans le cadre d'une unité d'enseignement ouverte de la licence de mathématique de l'université Paul Sabatier. Nous allons partir d'un exercice vu en cours d'équations différentielles ordinaires (EDO), pour ensuite s'éloigner des frontières de ce cours et voir ce que peut offrir la discipline. 
+\lettrine{C}{ette} étude des équations de prédation de Lotka-Volterra s'effectue dans le cadre d'une unité d'enseignement ouverte de la licence de mathématique de l'université Paul Sabatier. Nous allons partir d'un exercice vu en cours d'équations différentielles ordinaires (EDO), pour ensuite s'éloigner des frontières de ce cours et voir ce que peut offrir la discipline.
+
+
 
 \subsection{Le model classique proie prédateur}
+
+Les équations de Lotka-Volterra qualifient un système d'équations différentielles non linéaires, historiquement développées au début du 20ème siècle pour modéliser les interactions entre espèces et plus particulièrement entre 2 espèces : une proie et un prédateur, elles sont un exemple classique d'EDO. \ref{eq:lotka-volterra} \cite{lotka1920}
 \begin{equation}
 \left\{
 {\begin{array}{ccc}{\dfrac {\mathrm {d} x(t)}{\mathrm {d} t}}&=&x(t)\ {\Big (}\alpha -\beta y(t){\Big )}\\{\dfrac {\mathrm {d} y(t)}{\mathrm {d} t}}&=&y(t)\ {\Big (}\delta x(t)-\gamma {\Big )}\end{array}}
 \right.
+\label{eq:lotka-volterra}
 \end{equation}
 \subsection{Généralisation}
 \begin{equation}
@@ -28,16 +32,31 @@
 \right.
 \end{equation}
 \begin{equation}
-\dfrac {\mathrm {d}}{\mathrm {d} t}}X(t)=X(t) {\Big (}R+AX(t){\Big )}
+\dfrac {\mathrm {d}}{\mathrm {d} t}X(t)=X(t) {\Big (}R+AX(t){\Big )}
 \end{equation}
 \section{Le cas 2D}
+\subsection{Une étude des bifurcations}
+\begin{equation}
+R={\begin{bmatrix}1\\1\end{bmatrix}}\quad A =-{\begin{bmatrix}1&1\\1&1\end{bmatrix}}
+\end{equation}
+\begin{equation}
+R={\begin{bmatrix}1\\1\end{bmatrix}}\quad A =-{\begin{bmatrix}1&s\\s&1\end{bmatrix}}
+\end{equation}
 \section{Chaos en 4D}
 \begin{equation}
-R={\begin{bmatrix}1\\0.72\\1.53\\1.27\end{bmatrix}}\quad A ={\begin{bmatrix}-1&-1.09&-1.52&0\\0&-0.72&-0.3168&-0.9792\\-3.5649&0&-1.53&-0.7191\\-1.5367&-0.6477&-0.4445&-1.27\end{bmatrix}}
+R={\begin{bmatrix}1\\0.72\\1.53\\1.27\end{bmatrix}}\quad A =-{\begin{bmatrix}1&1.09&1.52&0\\0&0.72&0.3168&0.9792\\3.5649&0&1.53&0.7191\\1.5367&0.6477&0.4445&1.27\end{bmatrix}}
 \end{equation}
 \section{Conclusion}
+\begin{figure}[t!]
+    \centering
+    \includegraphics[width=\linewidth]{fig/lv2_bif3D.eps}
+    \caption{test}
+    \label{fig:example}
+\end{figure}
+
 \section{Annexes}
 \bibliography{rapport}
+\bibliographystyle{ieeetr}
 
 %An example of a figure is shown in Figure \ref{fig:example}. The recommended width of the figure is $0.9\times$\textbackslash linewidth, and the recommended width:height aspect ratio is $1.41:1$ (i.e. A4 paper)
 %
@@ -47,7 +66,7 @@ R={\begin{bmatrix}1\\0.72\\1.53\\1.27\end{bmatrix}}\quad A ={\begin{bmatrix}-1&-
 %
 %%\begin{figure}[t!]
 %%    \centering
-%%    \includegraphics[width=.9\linewidth]{logo_gips_unit.png}
+%%    \includegraphics[width=.9\linewidth]{}
 %%    \caption{The logo of IPS, Waseda University.}
 %%    \label{fig:example}
 %%\end{figure}
@@ -66,7 +85,7 @@ R={\begin{bmatrix}1\\0.72\\1.53\\1.27\end{bmatrix}}\quad A ={\begin{bmatrix}-1&-
 %\end{center}
 %
 %%\begin{wrapfigure}{r}{.3\linewidth}
-%%\includegraphics[width=\linewidth]{logo_gips_unit.png}
+%%\includegraphics[width=\linewidth]{}
 %%\end{wrapfigure}
 %\textbf{Waseda University Graduate School of Information, Production and Systems (IPS)} is a graduate school that has no corresponding undergraduate department established within the Kitakyushu Science and Research Park area in 2003 as the base for Waseda University to expand its presence in Asia. With three fields of study, including Information Architecture, Production System, and Integrated Systems, IPS undertakes academic research in the technological fields that society currently requires, and strives to attain a sustainable society through the use of technology. \footnotemark[1].
 %\end{minipage}
