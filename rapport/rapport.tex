@@ -1,4 +1,6 @@
 \documentclass{wsdcr}
+\usepackage[backend=bibtex]{biblatex}
+\addbibresource{rapport.bib}
 
 \title{Étude du model Lotka-Volterra}
 \author{Robin Botrel, Axel Carpentier}
@@ -25,6 +27,57 @@ Les équations de Lotka-Volterra qualifient un système d'équations différenti
 \right.
 \label{eq:lotka-volterra}
 \end{equation}
+\begin{figure}[b!]
+\fcolorbox{wsdred}{wsdgrey}{ 
+%% first argument is the frame color
+%% second argument is the background color
+\begin{minipage}{.95\linewidth}
+\color{white}
+
+%% the title of the minipage
+\begin{center}
+    \fontsize{10}{12}\fontfamily{phv}\fontshape{sc}\selectfont
+    \textbf{Un peu d'histoire des mathématiques}
+\end{center}
+
+%\begin{wrapfigure}{r}{.3\linewidth}
+%\includegraphics[width=\linewidth]{}
+%\end{wrapfigure}
+Dans sa publication de 1920 (la première fois où l'on voit l'équation \ref{eq:lotka-volterra} sous cette forme), Lokta introduit son model comme un simple cas particulier : La source de nourriture de l'espèce 1 (notée $S_1$) est en excès et peut donc être considérée constante sur la période donnée. $S_2$ se nourrit de $S_1$.
+Il introduit alors son raisonnement, $S_1$ est alors pensé comme une masse :
+\begin{equation}
+\begin{aligned}
+&\begin{bmatrix}
+\text{Variation de }S_1 \\ \text{par unité de temps}
+\end{bmatrix}
+=
+\begin{bmatrix}
+S_1\text{ engendré}\\ \text{par unité de temps}
+\end{bmatrix} \\
+&- 
+\begin{bmatrix}
+S_1\text{ détruit par }S_2\\ \text{par unité de temps}
+\end{bmatrix}
+-
+\begin{bmatrix}
+\text{autre perte de }S_1\\ \text{par unité de temps}
+\end{bmatrix} \\
+&\begin{bmatrix}
+\text{Variation de }S_2 \\ \text{par unité de temps}
+\end{bmatrix}
+=
+\begin{bmatrix}
+S_2\text{ engendré par l'ingestion de }S_1\\ \text{par unité de temps}
+\end{bmatrix} \\
+&-
+\begin{bmatrix}
+\text{autre perte de }S_2\\ \text{par unité de temps}
+\end{bmatrix} 
+\end{aligned}
+\end{equation}
+\end{minipage}
+}
+\end{figure}
 \subsection{Généralisation}
 \begin{equation}
 \left\{
@@ -35,6 +88,7 @@ Les équations de Lotka-Volterra qualifient un système d'équations différenti
 \dfrac {\mathrm {d}}{\mathrm {d} t}X(t)=X(t) {\Big (}R+AX(t){\Big )}
 \end{equation}
 \section{Le cas 2D}
+\subsection{Champ vectoriel}
 \subsection{Une étude des bifurcations}
 \begin{equation}
 R={\begin{bmatrix}1\\1\end{bmatrix}}\quad A =-{\begin{bmatrix}1&1\\1&1\end{bmatrix}}
@@ -43,9 +97,13 @@ R={\begin{bmatrix}1\\1\end{bmatrix}}\quad A =-{\begin{bmatrix}1&1\\1&1\end{bmatr
 R={\begin{bmatrix}1\\1\end{bmatrix}}\quad A =-{\begin{bmatrix}1&s\\s&1\end{bmatrix}}
 \end{equation}
 \section{Chaos en 4D}
+\subsection{introduction aux attracteurs}
 \begin{equation}
 R={\begin{bmatrix}1\\0.72\\1.53\\1.27\end{bmatrix}}\quad A =-{\begin{bmatrix}1&1.09&1.52&0\\0&0.72&0.3168&0.9792\\3.5649&0&1.53&0.7191\\1.5367&0.6477&0.4445&1.27\end{bmatrix}}
 \end{equation}
+\subsection{bifurcations}
+\subsection{Cycle limite}
+\subsection{Exposant de Liapounov}
 \section{Conclusion}
 \begin{figure}[t!]
     \centering
@@ -55,9 +113,9 @@ R={\begin{bmatrix}1\\0.72\\1.53\\1.27\end{bmatrix}}\quad A =-{\begin{bmatrix}1&1
 \end{figure}
 
 \section{Annexes}
-\bibliography{rapport}
-\bibliographystyle{ieeetr}
-
+\section{bibliographie}
+\nocite{*}
+\printbibliography
 %An example of a figure is shown in Figure \ref{fig:example}. The recommended width of the figure is $0.9\times$\textbackslash linewidth, and the recommended width:height aspect ratio is $1.41:1$ (i.e. A4 paper)
 %
 %Additionally, one can create a minipage for extra information like biography as shown in the following:

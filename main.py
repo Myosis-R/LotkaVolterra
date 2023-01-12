@@ -62,15 +62,15 @@ class Model_glv:
         # 4d Chaotic Lotka-Voltera
         elif self.nb_species == 4 :
             self.R = np.array([1,0.72,1.53,1.27])
-#            self.A = np.array([[-1.    , -1.09  , -1.52  , -0.    ],
-#                                   [-0.    , -0.72  , -0.3168, -0.9792],
-#                                   [-3.5649, -0.    , -1.53  , -0.7191],
-#                                   [-1.5367, -0.6477, -0.4445, -1.27  ]])
+            self.A = np.array([[-1.    , -1.09  , -1.52  , -0.    ],
+                                   [-0.    , -0.72  , -0.3168, -0.9792],
+                                   [-3.5649, -0.    , -1.53  , -0.7191],
+                                   [-1.5367, -0.6477, -0.4445, -1.27  ]])
             #limit cycle
-            self.A = np.array([[-1.      , -1.0355  , -1.444   , -0.      ],
-                                   [-0.      , -0.72    , -0.30096 , -0.93024 ],
-                                   [-3.386655, -0.      , -1.53    , -0.683145],
-                                   [-1.459865, -0.615315, -0.422275, -1.27    ]])
+#            self.A = np.array([[-1.      , -1.0355  , -1.444   , -0.      ],
+#                                   [-0.      , -0.72    , -0.30096 , -0.93024 ],
+#                                   [-3.386655, -0.      , -1.53    , -0.683145],
+#                                   [-1.459865, -0.615315, -0.422275, -1.27    ]])
 
 
 
@@ -117,11 +117,16 @@ class Model_glv:
         plt.show()
         
     def evolution(self):
-        steps = int(1e4)
+        steps = int(3e5)
+        record = int(4e3)
         x = np.random.random((self.nb_species,self.nb_dots))
+        X = np.zeros((record,self.nb_dots))
         for i in range(steps):
             x = self.step(x)
-        return(x)
+        for i in range(record):
+            x = self.step(x)
+            X[i,:] = x[0,:]
+        return x,np.amax(X,axis=0)
 
     def lyapunov_exponent(self):
         x = np.random.random((self.nb_species,self.nb_dots))
@@ -162,15 +167,18 @@ class Model_glv:
         ax.plot(lya_exp_plot[:test,0])
         plt.show()
 
-    def bifurcations(self,min,max):
-        n = int(20)
+    def bifurcations(self,min,max,n):
         bif = np.zeros((n,self.nb_species,self.nb_dots))
         s = np.linspace(min,max,n)#np.linspace(0.8,1.3,n)
+        max = np.zeros((n,self.nb_dots))
         for i in range(n): 
             self.S = s[i]*(self.A-np.diag(np.diag(self.A)))+np.diag(np.diag(self.A))
-            bif[i,:,:] = self.evolution()
+            bif[i,:,:],max[i,:] = self.evolution()
             print(i)
         
+        fig,ax =plt.subplots()
+        plt.hist2d((s.reshape((n,1))*np.ones((n,self.nb_dots))).flatten(),max[:,:].flatten(), (n,100),density=True, facecolor='g', alpha=0.75,cmap=plt.cm.jet)
+        plt.show()
         if self.nb_species == 2 :
             fig = plt.figure()
             ax = fig.add_subplot(111, projection='3d')
@@ -185,9 +193,9 @@ class Model_glv:
             fig,ax = plt.subplots()
             fig.tight_layout()
             for i in range(n):
-                ax.scatter(s[i]*np.ones(self.nb_dots),bif[i,0,:])
+                ax.scatter(s[i]*np.ones(self.nb_dots),max[i,:])#bif[i,0,:])
             ax.set_xlabel(r'$s$')
-            ax.set_ylabel(r'$x$')
+            ax.set_ylabel(r'$x_{max}$')
             plt.show()
         self.S = self.A
     
@@ -220,8 +228,8 @@ def main():
     model_1.gen_params()
     #model_1.equilibrium_points()
     #model_1.lyapunov_exponent()
-    #model_1.bifurcations(0.5,1.5)
-    model_1.plot4D()
+    model_1.bifurcations(0.90,0.98,20)
+    #model_1.plot4D()
     #model_1.vector_field_2D(0,0,6,6,0.2)
     #model_1.print_vector_field()
 
