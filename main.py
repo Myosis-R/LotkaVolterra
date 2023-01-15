@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 plt.style.use('ggplot')
-#import scipy as sc
+from scipy import stats,spatial
 import warnings
 import sys
 #import manim as mn
@@ -18,7 +18,7 @@ class Model_glv:
         
         self.dt = 1e-2
 
-    def glv(self,X): #problem with one dot !!!!
+    def glv(self,X): #X(nb_species,1or+) !!!
         return X*(self.R.reshape((self.nb_species,1))+self.S@X)
     
     def Jglv(self,X): #one dot
@@ -27,11 +27,11 @@ class Model_glv:
     # Finds value of y for a given x using step size h
     # and initial value y0 at x0.
     def rungeKutta(self,X):
+        X = X.reshape((self.nb_species,-1))
         k1 = self.glv(X)
         k2 = self.glv(X + 0.5 * k1*self.dt)
         k3 = self.glv(X + 0.5 * k2*self.dt)
         k4 = self.glv(X + k3*self.dt)
-    
         # Update next value of y
         X = X + (1.0 / 6.0)*self.dt*(k1 + 2 * k2 + 2 * k3 + k4)
         return X
@@ -41,8 +41,7 @@ class Model_glv:
         return X
 
     def step(self,X): # résolution plus complexe ?
-        X = self.rungeKutta(X)
-        return X
+        return self.rungeKutta(X)
 
     def gen_params(self):
         if self.nb_species == 2 :
@@ -98,16 +97,15 @@ class Model_glv:
             self.equilibrium_points[i,species] = -np.linalg.inv(A_)@R_
         print(self.equilibrium_points)
     
-    def plot4D(self):
+    def plot4D(self,n,start):
         steps = int(2e5)
-        X = np.zeros((self.nb_species,steps,10))
-        X[:,0,:] = np.random.random((self.nb_species,10))
+        X = np.zeros((self.nb_species,steps,n))
+        X[:,0,:] = np.random.random((self.nb_species,n))
 
         for i in range(steps-1):
             X[:,i+1,:] = self.step(X[:,i,:])
 
         fig, axes = plt.subplots(3,2)
-        start = int(1e5)
         axes[0,0].plot(X[0,start:],X[1,start:])
         axes[1,0].plot(X[0,start:],X[2,start:])
         axes[2,0].plot(X[0,start:],X[3,start:])
@@ -115,6 +113,39 @@ class Model_glv:
         axes[1,1].plot(X[1,start:],X[3,start:])
         axes[2,1].plot(X[2,start:],X[3,start:])
         plt.show()
+
+    def bassinOfAttraction(self):
+        steps = int(3e5)
+        record = int(3e4)
+        x = np.random.random((self.nb_species,self.nb_dots))
+        X = np.zeros((self.nb_species,self.nb_dots,record))
+        for i in range(steps):
+            x = self.step(x)
+        for i in range(record):
+            x = self.step(x)
+            X[:,:,i] = x
+        print('ok')
+        kde = stats.gaussian_kde(X.reshape((self.nb_species,-1)))
+        kdt = spatial.KDTree(X.reshape((self.nb_species,-1)).T)
+        return kde,kdt
+    
+    def cvAttractor(self,n,stop):#no optimization 
+        dots = np.mgrid[0:1:n*1j,0:1:n*1j].reshape((2,-1)) #ndim!!!!
+        cv = np.ones((n,n)).flatten()
+        kde,kdt = self.bassinOfAttraction()
+        fixVar = np.array([0.131,0.356])
+        for i in range(n**2):
+            cv[i] = self.convergence(np.hstack((dots[:,i],fixVar)),stop,kdt)
+        plt.matshow(cv.reshape((n,n)))
+        plt.show()
+
+    def convergence(self,dot,stop,kdt):
+        for i in range(stop):
+            if i%200==0 and kdt.query(dot.flatten(),k=1)[0]<0.005 :
+                return i/stop
+            dot = self.step(dot)
+        return 1
+            
         
     def evolution(self):
         steps = int(3e5)
@@ -228,10 +259,12 @@ def main():
     model_1.gen_params()
     #model_1.equilibrium_points()
     #model_1.lyapunov_exponent()
-    model_1.bifurcations(0.90,0.98,20)
-    #model_1.plot4D()
+    #model_1.bifurcations(0.90,0.98,20)
+    #model_1.plot4D(10,0)
     #model_1.vector_field_2D(0,0,6,6,0.2)
     #model_1.print_vector_field()
+    model_1.cvAttractor(30,100000)
+            
 
 
 

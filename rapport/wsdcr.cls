@@ -24,6 +24,7 @@
 %%----------------------------------------------------------
 \RequirePackage{authblk}
 \RequirePackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
 \RequirePackage{amsmath,amsfonts,amssymb,esint}
 \RequirePackage{graphicx}
 \RequirePackage{booktabs}

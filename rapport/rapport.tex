@@ -43,38 +43,47 @@ Les équations de Lotka-Volterra qualifient un système d'équations différenti
 %\begin{wrapfigure}{r}{.3\linewidth}
 %\includegraphics[width=\linewidth]{}
 %\end{wrapfigure}
-Dans sa publication de 1920 (la première fois où l'on voit l'équation \ref{eq:lotka-volterra} sous cette forme), Lokta introduit son model comme un simple cas particulier : La source de nourriture de l'espèce 1 (notée $S_1$) est en excès et peut donc être considérée constante sur la période donnée. $S_2$ se nourrit de $S_1$.
-Il introduit alors son raisonnement, $S_1$ est alors pensé comme une masse :
+Dans sa publication de 1920 (la première fois où l'on voit l'équation \ref{eq:lotka-volterra} sous cette forme), Lokta introduit son model comme un simple cas particulier : La source de nourriture de l'espèce 1 (notée $S_1$) est en excès et peut donc être considérée constante sur la période donnée. l'espèce $S_2$ se nourrit alors de $S_1$.
+Il introduit son raisonnement, $X_1$ est la masse de l'espèce $S_1$  :
 \begin{equation}
 \begin{aligned}
 &\begin{bmatrix}
-\text{Variation de }S_1 \\ \text{par unité de temps}
+\text{Variation de }X_1 \\ \text{par unité de temps}
 \end{bmatrix}
 =
 \begin{bmatrix}
-S_1\text{ engendré}\\ \text{par unité de temps}
+X_1\text{ engendré}\\ \text{par unité de temps}
 \end{bmatrix} \\
 &- 
 \begin{bmatrix}
-S_1\text{ détruit par }S_2\\ \text{par unité de temps}
+X_1\text{ détruit par }X_2\\ \text{par unité de temps}
 \end{bmatrix}
 -
 \begin{bmatrix}
-\text{autre perte de }S_1\\ \text{par unité de temps}
+\text{autre perte de }X_1\\ \text{par unité de temps}
 \end{bmatrix} \\
 &\begin{bmatrix}
-\text{Variation de }S_2 \\ \text{par unité de temps}
+\text{Variation de }X_2 \\ \text{par unité de temps}
 \end{bmatrix}
 =
 \begin{bmatrix}
-S_2\text{ engendré par l'ingestion de }S_1\\ \text{par unité de temps}
+X_2\text{ engendré par l'ingestion de }X_1\\ \text{par unité de temps}
 \end{bmatrix} \\
 &-
 \begin{bmatrix}
-\text{autre perte de }S_2\\ \text{par unité de temps}
+\text{autre perte de }X_2\\ \text{par unité de temps}
 \end{bmatrix} 
 \end{aligned}
 \end{equation}
+Pour translater ce raisonnement en un système d'EDO, il va faire de nouvelles assomptions.
+$\ll$ Pour de petits changements, le taux de formation de nouvelle matière d'une espèce donnée d'organisme dans des conditions déterminées est proportionnel à la masse existante de cette espèce. En d'autres termes, la croissance de la matière vivante est un processus typiquement 'autocatakinetic'. […]. La proportionnalité ne s'applique pas aux grandes variations de X1, X2, ce qui est dûment pris en compte dans la mesure où $A_1'$, est une fonction de X1, X2. […]. De même, la masse de S1 détruite par S2 qui s'en nourrit sera, pour de petites variations, proportionnelle à X2 et aussi à X1. Ce terme a donc été défini sous la forme BiXiX2. Ici encore, les écarts de proportionnalité sont pris en charge par les variations de B1 avec X1 et X2, variables dont B1 est une fonction. $\gg$
+\begin{equation}
+\begin{aligned}
+{\dfrac {\mathrm {d} X_1(t)}{\mathrm {d} t}}&=A_1'X_1-B_1X_1X_2-A_1"X_1\\
+{\dfrac {\mathrm {d} X_2(t)}{\mathrm {d} t}}&=A_2X_1X_2-B_2X_2
+\end{aligned}
+\end{equation}
+Il se base sur l'idée de proportionnalité et traite AB comme des fonctions durant toute la publication. C'est Volterra qui en 1926 dans des lettres à Umberto D'Ancona, décrit la même équation mais tel que AB soit fixes, il semble ne pas connaître les résultats de Lotka.
 \end{minipage}
 }
 \end{figure}
@@ -102,15 +111,27 @@ R={\begin{bmatrix}1\\1\end{bmatrix}}\quad A =-{\begin{bmatrix}1&s\\s&1\end{bmatr
 R={\begin{bmatrix}1\\0.72\\1.53\\1.27\end{bmatrix}}\quad A =-{\begin{bmatrix}1&1.09&1.52&0\\0&0.72&0.3168&0.9792\\3.5649&0&1.53&0.7191\\1.5367&0.6477&0.4445&1.27\end{bmatrix}}
 \end{equation}
 \subsection{bifurcations}
-\subsection{Cycle limite}
-\subsection{Exposant de Liapounov}
-\section{Conclusion}
+\begin{equation}
+R={\begin{bmatrix}1\\0.72\\1.53\\1.27\end{bmatrix}}\quad A =-{\begin{bmatrix}1&1.09s&1.52s&0\\0&0.72&0.3168s&0.9792s\\3.5649s&0&1.53&0.7191s\\1.5367s&0.6477s&0.4445s&1.27\end{bmatrix}}
+\end{equation}
 \begin{figure}[t!]
     \centering
     \includegraphics[width=\linewidth]{fig/lv2_bif3D.eps}
     \caption{test}
     \label{fig:example}
 \end{figure}
+\subsection{Cycle limite}
+\begin{equation}
+R={\begin{bmatrix}1\\0.72\\1.53\\1.27\end{bmatrix}}\quad A =-{\begin{bmatrix}1&1.0355&1.444&0\\0&0.72&0.30096&0.93024\\3.386655&0&1.53&0.683145\\1.459865&0.615315&0.422275&1.27\end{bmatrix}}
+\end{equation}
+\begin{figure}[t!]
+    \centering
+    \includegraphics[width=\linewidth]{fig/lv4_cl.png}
+    \caption{test}
+    \label{fig:example}
+\end{figure}
+\subsection{Exposant de Liapounov}
+\section{Conclusion}
 
 \section{Annexes}
 \section{bibliographie}

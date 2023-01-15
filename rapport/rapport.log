@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.12.20)  12 JAN 2023 22:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.12.20)  13 JAN 2023 18:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -57,6 +57,9 @@ Package: authblk 2001/02/27 1.3 (PWD)
 Package: inputenc 2021/02/14 v1.3d Input encoding file
 \inpenc@prehook=\toks16
 \inpenc@posthook=\toks17
+)
+(/usr/share/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 )
 (/usr/share/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2021/10/15 v2.17l AMS math features
@@ -674,11 +677,11 @@ Package biblatex Info: ... file 'rapport.bbl' found.
  (./rapport.bbl)
 Package biblatex Info: Reference section=0 on input line 11.
 Package biblatex Info: Reference segment=0 on input line 11.
-LaTeX Font Info:    Trying to load font information for OT1+phv on input line 1
-3.
+LaTeX Font Info:    Trying to load font information for T1+phv on input line 13
+.
 
-(/usr/share/texmf-dist/tex/latex/psnfss/ot1phv.fd
-File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
+(/usr/share/texmf-dist/tex/latex/psnfss/t1phv.fd
+File: t1phv.fd 2020/03/25 scalable font definitions for T1/phv.
 ) (./rapport.toc
 LaTeX Font Info:    Trying to load font information for U+msa on input line 2.
 
@@ -699,32 +702,43 @@ File: uesint.fd
 \tf@toc=\write4
 \openout4 = `rapport.toc'.
 
-LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 1
-7.
+LaTeX Font Info:    Trying to load font information for T1+ptm on input line 17
+.
 
-(/usr/share/texmf-dist/tex/latex/psnfss/ot1ptm.fd
-File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+(/usr/share/texmf-dist/tex/latex/psnfss/t1ptm.fd
+File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 )
-Package lettrine.sty Info: Targeted height = 14.62498pt
+Package lettrine.sty Info: Targeted height = 14.4017pt
 (lettrine.sty)             (for loversize=0, accent excluded),
-(lettrine.sty)             Lettrine height = 14.98396pt (C);
+(lettrine.sty)             Lettrine height = 14.40166pt (C);
 (lettrine.sty)             reported on input line 17.
 
-Underfull \hbox (badness 4699) in paragraph at lines 23--24
-\OT1/cmr/m/n/9 Les ^^Sequations de Lotka-Volterra qual-i-fient un syst^^Reme
+Underfull \hbox (badness 4726) in paragraph at lines 23--24
+\T1/cmr/m/n/9 Les équa-tions de Lotka-Volterra qual-i-fient un sys-tème
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 23--24
-\OT1/cmr/m/n/9 d'^^Sequations diff^^Serentielles non lin^^Seaires, his-torique-
-ment
+\T1/cmr/m/n/9 d'équations dif-féren-tielles non linéaires, his-torique-ment
  []
 
 
-Overfull \hbox (5.92934pt too wide) detected at line 79
+Overfull \hbox (9.86363pt too wide) detected at line 88
 [][][]
  []
 
+
+Underfull \vbox (badness 3240) has occurred while \output is active []
+
+LaTeX Font Info:    Trying to load font information for T1+cmss on input line 1
+04.
+
+(/usr/share/texmf-dist/tex/latex/base/t1cmss.fd
+File: t1cmss.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+
+
+]
 Package epstopdf Info: Source file: <fig/lv2_bif3D.eps>
 (epstopdf)                    date: 2023-01-11 15:36:52
 (epstopdf)                    size: 1046450 bytes
@@ -733,51 +747,48 @@ Package epstopdf Info: Source file: <fig/lv2_bif3D.eps>
 (epstopdf)                    size: 994106 bytes
 (epstopdf)             Command: <repstopdf --outfile=fig/lv2_bif3D-eps-converte
 d-to.pdf fig/lv2_bif3D.eps>
-(epstopdf)             \includegraphics on input line 110.
+(epstopdf)             \includegraphics on input line 119.
 Package epstopdf Info: Output file is already uptodate.
-<fig/lv2_bif3D-eps-converted-to.pdf, id=1, 437.635pt x 441.65pt>
+<fig/lv2_bif3D-eps-converted-to.pdf, id=21, 437.635pt x 441.65pt>
 File: fig/lv2_bif3D-eps-converted-to.pdf Graphic file (type pdf)
 <use fig/lv2_bif3D-eps-converted-to.pdf>
 Package pdftex.def Info: fig/lv2_bif3D-eps-converted-to.pdf  used on input line
- 110.
+ 119.
 (pdftex.def)             Requested size: 251.55872pt x 253.8659pt.
-[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
-
-
-]
-
+ 
 AED: lastpage setting LastPage
-[2
-
- <./fig/lv2_bif3D-eps-converted-to.pdf>] (./rapport.aux)
+[2 <./fig/lv2_bif3D-eps-converted-to.pdf>] (./rapport.aux)
 Package logreq Info: Writing requests to 'rapport.run.xml'.
 \openout1 = `rapport.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 14732 strings out of 478238
- 267040 string characters out of 5850455
- 870999 words of memory out of 5000000
- 32770 multiletter control sequences out of 15000+600000
- 487276 words of font info for 67 fonts, out of 8000000 for 9000
+ 14966 strings out of 478238
+ 269443 string characters out of 5850455
+ 867023 words of memory out of 5000000
+ 32994 multiletter control sequences out of 15000+600000
+ 505828 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 87i,22n,91p,1849b,1325s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmcsc10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cme
-xtra/cmex9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb>
-</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmsl9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmss8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10
-.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/shar
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/share/texmf-dist/fo
-nts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/helvet
-ic/uhvr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmb8a.pfb>
-Output written on rapport.pdf (2 pages, 1143606 bytes).
+ 87i,21n,91p,1849b,1184s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/t
+exmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-dist/fonts/type1/public
+/amsfonts/cmextra/cmex9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmmi9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></u
+sr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf-dist/fonts/type1/public/cm-supe
+r/sfbx0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfcc0900.pfb>
+</usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/tex
+mf-dist/fonts/type1/public/cm-super/sfsl0900.pfb></usr/share/texmf-dist/fonts/t
+ype1/public/cm-super/sfss0800.pfb></usr/share/texmf-dist/fonts/type1/public/cm-
+super/sfsx0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti0900.
+pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texm
+f-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texmf-dist/fonts/type1/u
+rw/times/utmb8a.pfb>
+Output written on rapport.pdf (2 pages, 1197920 bytes).
 PDF statistics:
- 99 PDF objects out of 1000 (max. 8388607)
- 54 compressed objects within 1 object stream
+ 110 PDF objects out of 1000 (max. 8388607)
+ 61 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
