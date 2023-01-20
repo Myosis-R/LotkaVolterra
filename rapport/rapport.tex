@@ -98,13 +98,35 @@ Il se base sur l'idée de proportionnalité et traite AB comme des fonctions dur
 \end{equation}
 \section{Le cas 2D}
 \subsection{Champ vectoriel}
-\subsection{Une étude des bifurcations}
 \begin{equation}
 R={\begin{bmatrix}1\\1\end{bmatrix}}\quad A =-{\begin{bmatrix}1&1\\1&1\end{bmatrix}}
+\label{eq:RSnInv}
+\end{equation}
+\subsection{Une étude des bifurcations}
+Le système définit par \ref{eq:RSnInv} possède un comportement étonnant découlant de la non inversibilité de A. L'étude des bifurcations a pour object d'étudier l'évolution d'un système dynamique (entres autres ses points d'équilibres) en fonction d'un ou plusieurs paramètres autour d'un changement majeur du système. Il est intéressant dans notre cas d'introduire un paramètre dans A \ref{eq:RSs}, rendant A(s) inversible $\forall s \in \mathds{R}\\ \{1,-1\}$, $|A(s)|=1-s^2$.
+\begin{equation}
+R={\begin{bmatrix}1\\1\end{bmatrix}}\quad A(s) =-{\begin{bmatrix}1&s\\s&1\end{bmatrix}}
+\label{eq:RSs}
+Étudions les points d'équilibres et leurs stabilités de ce système paramétrique \ref{eq:RSs}. 
+\begin{equation}
+\begin{aligned}
+X(R+AX)\overset{!}{=}0 \land (x_1 = 0 \lor x_2 = 0) &\Rightarrow (X=(0,0) (O)\lor X=(1,0) (M)\lor X=(0,1) (N)\\
+X(R+AX)\overset{!}{=}0 \land (x_1 ´\neq 0 \land x_2 \neq 0 \land s=1) &\Rightarrow x_2=1-x_1
+X(R+AX)\overset{!}{=}0 \land (x_1 ´\neq 0 \land x_2 \neq 0 \land s=-1) &\Rightarrow X=\varnothing
+X(R+AX)\overset{!}{=}0 \land (x_1 ´\neq 0 \land x_2 \neq 0 \land s \neq 1) &\Rightarrow X=-A^{-1}R=\frac{1}{1-s^2}\begin{bmatrix}1&-s\\-s&1\end{bmatrix}}\begin{bmatrix}1\\1\end{bmatrix}}=\frac{1}{1+s}\begin{bmatrix}1\\1\end{bmatrix}} (S)
+\label{eq:RSs}
+\end{aligned}
 \end{equation}
 \begin{equation}
-R={\begin{bmatrix}1\\1\end{bmatrix}}\quad A =-{\begin{bmatrix}1&s\\s&1\end{bmatrix}}
+\begin{aligned}
+J(f)_X = \begin{bmatrix}r_1-2x_1-sx_2&-sx_1\\-sx_2&r_2-2x_2-sx_1\end{bmatrix}}
+J(f)_{O} = \begin{bmatrix}1&0\\0&1\end{bmatrix}}
+J(f)_{M} = \begin{bmatrix}-1&-s\\0&1-s\end{bmatrix}}
+J(f)_{N} = \begin{bmatrix}1-s&0\\-s&-1\end{bmatrix}}
+J(f)_{S,s\neq \{1,-1\}} = \frac{1}{1+s}A(s)
+\end{aligned}
 \end{equation}
+Voir Chaos faure linéarisation en 1 point. Attention diago
 \section{Chaos en 4D}
 \subsection{introduction aux attracteurs}
 \begin{equation}

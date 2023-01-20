@@ -1,8 +1,10 @@
 import numpy as np 
 import matplotlib.pyplot as plt
+from functools import partial
 from mpl_toolkits.mplot3d import Axes3D
 plt.style.use('ggplot')
 from scipy import stats,spatial
+from multiprocessing import Pool
 import warnings
 import sys
 #import manim as mn
@@ -98,7 +100,7 @@ class Model_glv:
         print(self.equilibrium_points)
     
     def plot4D(self,n,start):
-        steps = int(2e5)
+        steps = int(3e5)
         X = np.zeros((self.nb_species,steps,n))
         X[:,0,:] = np.random.random((self.nb_species,n))
 
@@ -112,6 +114,17 @@ class Model_glv:
         axes[0,1].plot(X[1,start:],X[2,start:])
         axes[1,1].plot(X[1,start:],X[3,start:])
         axes[2,1].plot(X[2,start:],X[3,start:])
+        
+        fig = plt.figure()
+        ax = fig.add_subplot(111, projection='3d')
+        fig.tight_layout()
+        img = ax.scatter(X[0,start:],X[1,start:],X[2,start:],c=X[3,start:],cmap=plt.hot(),s=0.4)
+        clb = fig.colorbar(img)
+        ax.set_xlabel(r'$x_1$')
+        ax.set_ylabel(r'$x_2$')
+        ax.set_zlabel(r'$x_3$')
+        clb.ax.set_ylabel(r'$x_4$')
+
         plt.show()
 
     def bassinOfAttraction(self):
@@ -129,24 +142,22 @@ class Model_glv:
         kdt = spatial.KDTree(X.reshape((self.nb_species,-1)).T)
         return kde,kdt
     
-    def cvAttractor(self,n,stop):#no optimization 
+    def cvAttractor(self,n,stop):#no optimization
         dots = np.mgrid[0:1:n*1j,0:1:n*1j].reshape((2,-1)) #ndim!!!!
-        cv = np.ones((n,n)).flatten()
         kde,kdt = self.bassinOfAttraction()
-        fixVar = np.array([0.131,0.356])
-        for i in range(n**2):
-            cv[i] = self.convergence(np.hstack((dots[:,i],fixVar)),stop,kdt)
+        fixVar = np.array([0.3,0.46])
+        dots = np.vstack((fixVar.reshape((2,1))*np.ones((2,n**2)),dots))
+        cv = np.array(list(map(partial(self.convergence,stop,kdt),dots.T)))
         plt.matshow(cv.reshape((n,n)))
         plt.show()
 
-    def convergence(self,dot,stop,kdt):
+    def convergence(self,stop,kdt,dot):
         for i in range(stop):
-            if i%200==0 and kdt.query(dot.flatten(),k=1)[0]<0.005 :
-                return i/stop
+            if i%1000==0 and kdt.query(dot.flatten(),k=1)[0]<0.005 :
+                return np.log(i+1)
             dot = self.step(dot)
-        return 1
-            
-        
+        return np.log(stop)
+
     def evolution(self):
         steps = int(3e5)
         record = int(4e3)
@@ -164,12 +175,12 @@ class Model_glv:
         #x = np.array([0.301303,0.4586546,0.13076546,0.35574162]).reshape((self.nb_species,1))+(0.5-np.random.random((self.nb_species,self.nb_dots)))*0.1
         d_0=1e-5
         epsilon = d_0*np.ones(self.nb_species)*(1/self.nb_species**(1/2.))
-        steps = int(1e7)
+        steps = int(1e6)
         lya_exp = np.zeros(self.nb_dots)
         lya_exp_plot = np.zeros((steps,self.nb_dots)) #plot
         y = x+epsilon.reshape((self.nb_species,1))
         
-        start = int(1e6)
+        start = int(2e6)
         test = int(1e5)
         ite = int(1e2)    
         
@@ -179,7 +190,7 @@ class Model_glv:
             d_1 = np.sum((x-y)**2, axis=0)**(1/2.)
         
         y = x + d_0*((y-x)/d_1)
-            
+        self.dt = 1e-4
         for i in range(test):
             for j in range(ite):
                 x = self.step(x)
@@ -189,10 +200,9 @@ class Model_glv:
             lya_exp = lya_exp + ((1/(self.dt*ite))*np.log(d_1/d_0)-lya_exp)/(i+1)
             lya_exp_plot[i,:] = (1/(self.dt*ite))*np.log(d_1/d_0)
             y = x + d_0*((y-x)/d_1)
-
-        print(lya_exp)
+        self.dt = 1e-2
+        print(np.mean(lya_exp),np.amax(lya_exp),np.amin(lya_exp))
         print()
-        print(np.mean(lya_exp_plot,axis=0),np.std(lya_exp_plot,axis=0))
         
         fig,ax = plt.subplots()
         ax.plot(lya_exp_plot[:test,0])
@@ -258,12 +268,12 @@ def main():
     model_1 = Model_glv(4)
     model_1.gen_params()
     #model_1.equilibrium_points()
-    #model_1.lyapunov_exponent()
+    model_1.lyapunov_exponent()
     #model_1.bifurcations(0.90,0.98,20)
-    #model_1.plot4D(10,0)
+    #model_1.plot4D(1,15000)
     #model_1.vector_field_2D(0,0,6,6,0.2)
     #model_1.print_vector_field()
-    model_1.cvAttractor(30,100000)
+    #model_1.cvAttractor(100,100000)
             
 
 
