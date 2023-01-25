@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.12.20)  13 JAN 2023 18:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.12.20)  25 JAN 2023 17:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -175,33 +175,32 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \@lastruleclass=\count277
 \@thisrulewidth=\dimen162
 )
-(/usr/share/texmf-dist/tex/latex/caption/subcaption.sty
-Package: subcaption 2022/01/07 v1.5 Sub-captions (AR)
+(/usr/share/texmf-dist/tex/latex/subfigure/subfigure.sty
+Package: subfigure 2002/03/15 v2.1.5 subfigure package
+\subfigtopskip=\skip54
+\subfigcapskip=\skip55
+\subfigcaptopadj=\dimen163
+\subfigbottomskip=\skip56
+\subfigcapmargin=\dimen164
+\subfiglabelskip=\skip57
+\c@subfigure=\count278
+\c@lofdepth=\count279
+\c@subtable=\count280
+\c@lotdepth=\count281
 
-(/usr/share/texmf-dist/tex/latex/caption/caption.sty
-Package: caption 2022/03/01 v3.6b Customizing captions (AR)
-
-(/usr/share/texmf-dist/tex/latex/caption/caption3.sty
-Package: caption3 2022/03/17 v2.3b caption3 kernel (AR)
-\caption@tempdima=\dimen163
-\captionmargin=\dimen164
-\caption@leftmargin=\dimen165
-\caption@rightmargin=\dimen166
-\caption@width=\dimen167
-\caption@indent=\dimen168
-\caption@parindent=\dimen169
-\caption@hangindent=\dimen170
-Package caption Info: Standard document class detected.
+****************************************
+* Local config file subfigure.cfg used *
+****************************************
+(/usr/share/texmf-dist/tex/latex/subfigure/subfigure.cfg)
+\subfig@top=\skip58
+\subfig@bottom=\skip59
 )
-\c@caption@flags=\count278
-\c@continuedfloat=\count279
-)
-\c@subfigure=\count280
-\c@subtable=\count281
+(/usr/share/texmf-dist/tex/latex/doublestroke/dsfont.sty
+Package: dsfont 1995/08/01 v0.1 Double stroke roman fonts
 )
 (/usr/share/texmf-dist/tex/latex/wrapfig/wrapfig.sty
-\wrapoverhang=\dimen171
-\WF@size=\dimen172
+\wrapoverhang=\dimen165
+\WF@size=\dimen166
 \c@WF@wrappedlines=\count282
 \WF@box=\box52
 \WF@everypar=\toks24
@@ -243,14 +242,14 @@ Package: iftex 2022/02/03 v1.0f TeX engine tests
 \Gm@cnth=\count290
 \Gm@cntv=\count291
 \c@Gm@tempcnt=\count292
-\Gm@bindingoffset=\dimen173
-\Gm@wd@mp=\dimen174
-\Gm@odd@mp=\dimen175
-\Gm@even@mp=\dimen176
-\Gm@layoutwidth=\dimen177
-\Gm@layoutheight=\dimen178
-\Gm@layouthoffset=\dimen179
-\Gm@layoutvoffset=\dimen180
+\Gm@bindingoffset=\dimen167
+\Gm@wd@mp=\dimen168
+\Gm@odd@mp=\dimen169
+\Gm@even@mp=\dimen170
+\Gm@layoutwidth=\dimen171
+\Gm@layoutheight=\dimen172
+\Gm@layouthoffset=\dimen173
+\Gm@layoutvoffset=\dimen174
 \Gm@dimlist=\toks25
 )
 (/usr/share/texmf-dist/tex/latex/lettrine/lettrine.sty
@@ -263,29 +262,29 @@ Package: minifp 2013/12/30 v0.96. Macros for real number operations and a stack
 )
 \c@DefaultLines=\count294
 \c@DefaultDepth=\count295
-\DefaultFindent=\dimen181
-\DefaultNindent=\dimen182
-\DefaultSlope=\dimen183
-\DiscardVskip=\dimen184
+\DefaultFindent=\dimen175
+\DefaultNindent=\dimen176
+\DefaultSlope=\dimen177
+\DiscardVskip=\dimen178
 \L@lbox=\box54
 \L@tbox=\box55
 \c@L@lines=\count296
 \c@L@depth=\count297
-\L@Pindent=\dimen185
-\L@Findent=\dimen186
-\L@Nindent=\dimen187
-\L@lraise=\dimen188
-\L@first=\dimen189
-\L@next=\dimen190
-\L@slope=\dimen191
-\L@height=\dimen192
-\L@novskip=\dimen193
-\L@target@ht=\dimen194
-\L@target@dp=\dimen195
-\L@target@tht=\dimen196
-\LettrineWidth=\dimen197
-\LettrineHeight=\dimen198
-\LettrineDepth=\dimen199
+\L@Pindent=\dimen179
+\L@Findent=\dimen180
+\L@Nindent=\dimen181
+\L@lraise=\dimen182
+\L@first=\dimen183
+\L@next=\dimen184
+\L@slope=\dimen185
+\L@height=\dimen186
+\L@novskip=\dimen187
+\L@target@ht=\dimen188
+\L@target@dp=\dimen189
+\L@target@tht=\dimen190
+\LettrineWidth=\dimen191
+\LettrineHeight=\dimen192
+\LettrineDepth=\dimen193
 \Llist@everypar=\toks26
 
 Loading lettrine.cfg
@@ -293,18 +292,38 @@ Loading lettrine.cfg
 (/usr/share/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 Package: fancyhdr 2021/01/28 v4.0.1 Extensive control of page headers and foote
 rs
-\f@nch@headwidth=\skip54
-\f@nch@O@elh=\skip55
-\f@nch@O@erh=\skip56
-\f@nch@O@olh=\skip57
-\f@nch@O@orh=\skip58
-\f@nch@O@elf=\skip59
-\f@nch@O@erf=\skip60
-\f@nch@O@olf=\skip61
-\f@nch@O@orf=\skip62
+\f@nch@headwidth=\skip60
+\f@nch@O@elh=\skip61
+\f@nch@O@erh=\skip62
+\f@nch@O@olh=\skip63
+\f@nch@O@orh=\skip64
+\f@nch@O@elf=\skip65
+\f@nch@O@erf=\skip66
+\f@nch@O@olf=\skip67
+\f@nch@O@orf=\skip68
 )
 (/usr/share/texmf-dist/tex/latex/lastpage/lastpage.sty
 Package: lastpage 2021/09/03 v1.2n Refers to last page's name (HMM; JPG)
+)
+(/usr/share/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2022/03/01 v3.6b Customizing captions (AR)
+
+(/usr/share/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2022/03/17 v2.3b caption3 kernel (AR)
+\caption@tempdima=\dimen194
+\captionmargin=\dimen195
+\caption@leftmargin=\dimen196
+\caption@rightmargin=\dimen197
+\caption@width=\dimen198
+\caption@indent=\dimen199
+\caption@parindent=\dimen256
+\caption@hangindent=\dimen257
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count298
+\c@continuedfloat=\count299
+Package caption Info: subfigure package is loaded.
+Package caption Info: wrapfig package is loaded.
 ))
 (/usr/share/texmf-dist/tex/latex/biblatex/biblatex.sty
 Package: biblatex 2022/02/02 v3.17 programmable bibliographies (PK/MW)
@@ -325,7 +344,7 @@ Package pdftexcmds Info: \pdfdraftmode found.
 )
 (/usr/share/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count298
+\etb@tempcnta=\count300
 )
 (/usr/share/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
@@ -335,7 +354,7 @@ Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
 ))
 (/usr/share/texmf-dist/tex/latex/logreq/logreq.sty
 Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count299
+\lrq@indent=\count301
 
 (/usr/share/texmf-dist/tex/latex/logreq/logreq.def
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
@@ -347,62 +366,62 @@ Package: ifthen 2020/11/24 v1.1c Standard LaTeX ifthen package (DPC)
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-\c@tabx@nest=\count300
-\c@listtotal=\count301
-\c@listcount=\count302
-\c@liststart=\count303
-\c@liststop=\count304
-\c@citecount=\count305
-\c@citetotal=\count306
-\c@multicitecount=\count307
-\c@multicitetotal=\count308
-\c@instcount=\count309
-\c@maxnames=\count310
-\c@minnames=\count311
-\c@maxitems=\count312
-\c@minitems=\count313
-\c@citecounter=\count314
-\c@maxcitecounter=\count315
-\c@savedcitecounter=\count316
-\c@uniquelist=\count317
-\c@uniquename=\count318
-\c@refsection=\count319
-\c@refsegment=\count320
-\c@maxextratitle=\count321
-\c@maxextratitleyear=\count322
-\c@maxextraname=\count323
-\c@maxextradate=\count324
-\c@maxextraalpha=\count325
-\c@abbrvpenalty=\count326
-\c@highnamepenalty=\count327
-\c@lownamepenalty=\count328
-\c@maxparens=\count329
-\c@parenlevel=\count330
-\blx@tempcnta=\count331
-\blx@tempcntb=\count332
-\blx@tempcntc=\count333
-\c@blx@maxsection=\count334
-\c@blx@maxsegment@0=\count335
-\blx@notetype=\count336
-\blx@parenlevel@text=\count337
-\blx@parenlevel@foot=\count338
-\c@blx@sectionciteorder@0=\count339
-\blx@entrysetcounter=\count340
-\blx@biblioinstance=\count341
-\labelnumberwidth=\skip63
-\labelalphawidth=\skip64
-\biblabelsep=\skip65
-\bibitemsep=\skip66
-\bibnamesep=\skip67
-\bibinitsep=\skip68
-\bibparsep=\skip69
-\bibhang=\skip70
+\c@tabx@nest=\count302
+\c@listtotal=\count303
+\c@listcount=\count304
+\c@liststart=\count305
+\c@liststop=\count306
+\c@citecount=\count307
+\c@citetotal=\count308
+\c@multicitecount=\count309
+\c@multicitetotal=\count310
+\c@instcount=\count311
+\c@maxnames=\count312
+\c@minnames=\count313
+\c@maxitems=\count314
+\c@minitems=\count315
+\c@citecounter=\count316
+\c@maxcitecounter=\count317
+\c@savedcitecounter=\count318
+\c@uniquelist=\count319
+\c@uniquename=\count320
+\c@refsection=\count321
+\c@refsegment=\count322
+\c@maxextratitle=\count323
+\c@maxextratitleyear=\count324
+\c@maxextraname=\count325
+\c@maxextradate=\count326
+\c@maxextraalpha=\count327
+\c@abbrvpenalty=\count328
+\c@highnamepenalty=\count329
+\c@lownamepenalty=\count330
+\c@maxparens=\count331
+\c@parenlevel=\count332
+\blx@tempcnta=\count333
+\blx@tempcntb=\count334
+\blx@tempcntc=\count335
+\c@blx@maxsection=\count336
+\c@blx@maxsegment@0=\count337
+\blx@notetype=\count338
+\blx@parenlevel@text=\count339
+\blx@parenlevel@foot=\count340
+\c@blx@sectionciteorder@0=\count341
+\blx@entrysetcounter=\count342
+\blx@biblioinstance=\count343
+\labelnumberwidth=\skip69
+\labelalphawidth=\skip70
+\biblabelsep=\skip71
+\bibitemsep=\skip72
+\bibnamesep=\skip73
+\bibinitsep=\skip74
+\bibparsep=\skip75
+\bibhang=\skip76
 \blx@bcfin=\read2
 \blx@bcfout=\write3
 \blx@langwohyphens=\language87
-\c@mincomprange=\count342
-\c@maxcomprange=\count343
-\c@mincompwidth=\count344
+\c@mincomprange=\count344
+\c@maxcomprange=\count345
+\c@mincompwidth=\count346
 Package biblatex Info: Trying to load biblatex default data model...
 Package biblatex Info: ... file 'blx-dm.def' found.
 
@@ -411,88 +430,88 @@ File: blx-dm.def 2022/02/02 v3.17 biblatex localization (PK/MW)
 )
 Package biblatex Info: Trying to load biblatex custom data model...
 Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
-\c@afterword=\count345
-\c@savedafterword=\count346
-\c@annotator=\count347
-\c@savedannotator=\count348
-\c@author=\count349
-\c@savedauthor=\count350
-\c@bookauthor=\count351
-\c@savedbookauthor=\count352
-\c@commentator=\count353
-\c@savedcommentator=\count354
-\c@editor=\count355
-\c@savededitor=\count356
-\c@editora=\count357
-\c@savededitora=\count358
-\c@editorb=\count359
-\c@savededitorb=\count360
-\c@editorc=\count361
-\c@savededitorc=\count362
-\c@foreword=\count363
-\c@savedforeword=\count364
-\c@holder=\count365
-\c@savedholder=\count366
-\c@introduction=\count367
-\c@savedintroduction=\count368
-\c@namea=\count369
-\c@savednamea=\count370
-\c@nameb=\count371
-\c@savednameb=\count372
-\c@namec=\count373
-\c@savednamec=\count374
-\c@translator=\count375
-\c@savedtranslator=\count376
-\c@shortauthor=\count377
-\c@savedshortauthor=\count378
-\c@shorteditor=\count379
-\c@savedshorteditor=\count380
-\c@labelname=\count381
-\c@savedlabelname=\count382
-\c@institution=\count383
-\c@savedinstitution=\count384
-\c@lista=\count385
-\c@savedlista=\count386
-\c@listb=\count387
-\c@savedlistb=\count388
-\c@listc=\count389
-\c@savedlistc=\count390
-\c@listd=\count391
-\c@savedlistd=\count392
-\c@liste=\count393
-\c@savedliste=\count394
-\c@listf=\count395
-\c@savedlistf=\count396
-\c@location=\count397
-\c@savedlocation=\count398
-\c@organization=\count399
-\c@savedorganization=\count400
-\c@origlocation=\count401
-\c@savedoriglocation=\count402
-\c@origpublisher=\count403
-\c@savedorigpublisher=\count404
-\c@publisher=\count405
-\c@savedpublisher=\count406
-\c@language=\count407
-\c@savedlanguage=\count408
-\c@origlanguage=\count409
-\c@savedoriglanguage=\count410
-\c@pageref=\count411
-\c@savedpageref=\count412
-\shorthandwidth=\skip71
-\shortjournalwidth=\skip72
-\shortserieswidth=\skip73
-\shorttitlewidth=\skip74
-\shortauthorwidth=\skip75
-\shorteditorwidth=\skip76
-\locallabelnumberwidth=\skip77
-\locallabelalphawidth=\skip78
-\localshorthandwidth=\skip79
-\localshortjournalwidth=\skip80
-\localshortserieswidth=\skip81
-\localshorttitlewidth=\skip82
-\localshortauthorwidth=\skip83
-\localshorteditorwidth=\skip84
+\c@afterword=\count347
+\c@savedafterword=\count348
+\c@annotator=\count349
+\c@savedannotator=\count350
+\c@author=\count351
+\c@savedauthor=\count352
+\c@bookauthor=\count353
+\c@savedbookauthor=\count354
+\c@commentator=\count355
+\c@savedcommentator=\count356
+\c@editor=\count357
+\c@savededitor=\count358
+\c@editora=\count359
+\c@savededitora=\count360
+\c@editorb=\count361
+\c@savededitorb=\count362
+\c@editorc=\count363
+\c@savededitorc=\count364
+\c@foreword=\count365
+\c@savedforeword=\count366
+\c@holder=\count367
+\c@savedholder=\count368
+\c@introduction=\count369
+\c@savedintroduction=\count370
+\c@namea=\count371
+\c@savednamea=\count372
+\c@nameb=\count373
+\c@savednameb=\count374
+\c@namec=\count375
+\c@savednamec=\count376
+\c@translator=\count377
+\c@savedtranslator=\count378
+\c@shortauthor=\count379
+\c@savedshortauthor=\count380
+\c@shorteditor=\count381
+\c@savedshorteditor=\count382
+\c@labelname=\count383
+\c@savedlabelname=\count384
+\c@institution=\count385
+\c@savedinstitution=\count386
+\c@lista=\count387
+\c@savedlista=\count388
+\c@listb=\count389
+\c@savedlistb=\count390
+\c@listc=\count391
+\c@savedlistc=\count392
+\c@listd=\count393
+\c@savedlistd=\count394
+\c@liste=\count395
+\c@savedliste=\count396
+\c@listf=\count397
+\c@savedlistf=\count398
+\c@location=\count399
+\c@savedlocation=\count400
+\c@organization=\count401
+\c@savedorganization=\count402
+\c@origlocation=\count403
+\c@savedoriglocation=\count404
+\c@origpublisher=\count405
+\c@savedorigpublisher=\count406
+\c@publisher=\count407
+\c@savedpublisher=\count408
+\c@language=\count409
+\c@savedlanguage=\count410
+\c@origlanguage=\count411
+\c@savedoriglanguage=\count412
+\c@pageref=\count413
+\c@savedpageref=\count414
+\shorthandwidth=\skip77
+\shortjournalwidth=\skip78
+\shortserieswidth=\skip79
+\shorttitlewidth=\skip80
+\shortauthorwidth=\skip81
+\shorteditorwidth=\skip82
+\locallabelnumberwidth=\skip83
+\locallabelalphawidth=\skip84
+\localshorthandwidth=\skip85
+\localshortjournalwidth=\skip86
+\localshortserieswidth=\skip87
+\localshorttitlewidth=\skip88
+\localshortauthorwidth=\skip89
+\localshorteditorwidth=\skip90
 Package biblatex Info: Trying to load compatibility code...
 Package biblatex Info: ... file 'blx-compat.def' found.
 
@@ -514,19 +533,19 @@ Package biblatex Info: Trying to load generic definitions...
 Package biblatex Info: ... file 'biblatex.def' found.
  (/usr/share/texmf-dist/tex/latex/biblatex/biblatex.def
 File: biblatex.def 2022/02/02 v3.17 biblatex compatibility (PK/MW)
-\c@textcitecount=\count413
-\c@textcitetotal=\count414
-\c@textcitemaxnames=\count415
-\c@biburlbigbreakpenalty=\count416
-\c@biburlbreakpenalty=\count417
-\c@biburlnumpenalty=\count418
-\c@biburlucpenalty=\count419
-\c@biburllcpenalty=\count420
+\c@textcitecount=\count415
+\c@textcitetotal=\count416
+\c@textcitemaxnames=\count417
+\c@biburlbigbreakpenalty=\count418
+\c@biburlbreakpenalty=\count419
+\c@biburlnumpenalty=\count420
+\c@biburlucpenalty=\count421
+\c@biburllcpenalty=\count422
 \biburlbigskip=\muskip18
 \biburlnumskip=\muskip19
 \biburlucskip=\muskip20
 \biburllcskip=\muskip21
-\c@smartand=\count421
+\c@smartand=\count423
 )
 Package biblatex Info: Trying to load bibliography style 'numeric'...
 Package biblatex Info: ... file 'numeric.bbx' found.
@@ -538,8 +557,8 @@ Package biblatex Info: ... file 'standard.bbx' found.
 
 (/usr/share/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
 File: standard.bbx 2022/02/02 v3.17 biblatex bibliography style (PK/MW)
-\c@bbx:relatedcount=\count422
-\c@bbx:relatedtotal=\count423
+\c@bbx:relatedcount=\count424
+\c@bbx:relatedtotal=\count425
 ))
 Package biblatex Info: Trying to load citation style 'numeric'...
 Package biblatex Info: ... file 'numeric.cbx' found.
@@ -577,37 +596,44 @@ Package: xparse 2022-01-12 L3 Experimental document command parser
 )
 Package: blx-case-expl3 2022/02/02 v3.17 expl3 case changing code for biblatex
 ))
-\@quotelevel=\count424
-\@quotereset=\count425
- (./rapport.aux)
+\@quotelevel=\count426
+\@quotereset=\count427
+ (./rapport.aux
+
+LaTeX Warning: Label `eq:RSs' multiply defined.
+
+
+LaTeX Warning: Label `fig:example' multiply defined.
+
+)
 \openout1 = `rapport.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
  (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count426
-\scratchdimen=\dimen256
+\scratchcounter=\count428
+\scratchdimen=\dimen258
 \scratchbox=\box56
-\nofMPsegments=\count427
-\nofMParguments=\count428
+\nofMPsegments=\count429
+\nofMParguments=\count430
 \everyMPshowfont=\toks27
-\MPscratchCnt=\count429
-\MPscratchDim=\dimen257
-\MPnumerator=\count430
-\makeMPintoPDFobject=\count431
+\MPscratchCnt=\count431
+\MPscratchDim=\dimen259
+\MPnumerator=\count432
+\makeMPintoPDFobject=\count433
 \everyMPtoPDFconversion=\toks28
 ) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -618,10 +644,6 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package caption Info: Begin \AtBeginDocument code.
-Package caption Info: wrapfig package is loaded.
-Package caption Info: End \AtBeginDocument code.
-
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -658,7 +680,9 @@ Package caption Info: End \AtBeginDocument code.
 
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 11.
+(lastpage)             ! on input line 12.
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
 (/usr/share/texmf-dist/tex/latex/biblatex/lbx/english.lbx
@@ -675,9 +699,9 @@ Package biblatex Info: Data encoding 'utf8' specified.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'rapport.bbl' found.
  (./rapport.bbl)
-Package biblatex Info: Reference section=0 on input line 11.
-Package biblatex Info: Reference segment=0 on input line 11.
-LaTeX Font Info:    Trying to load font information for T1+phv on input line 13
+Package biblatex Info: Reference section=0 on input line 12.
+Package biblatex Info: Reference segment=0 on input line 12.
+LaTeX Font Info:    Trying to load font information for T1+phv on input line 14
 .
 
 (/usr/share/texmf-dist/tex/latex/psnfss/t1phv.fd
@@ -702,7 +726,7 @@ File: uesint.fd
 \tf@toc=\write4
 \openout4 = `rapport.toc'.
 
-LaTeX Font Info:    Trying to load font information for T1+ptm on input line 17
+LaTeX Font Info:    Trying to load font information for T1+ptm on input line 18
 .
 
 (/usr/share/texmf-dist/tex/latex/psnfss/t1ptm.fd
@@ -711,7 +735,7 @@ File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 Package lettrine.sty Info: Targeted height = 14.4017pt
 (lettrine.sty)             (for loversize=0, accent excluded),
 (lettrine.sty)             Lettrine height = 14.40166pt (C);
-(lettrine.sty)             reported on input line 17.
+(lettrine.sty)             reported on input line 18.
 
 Underfull \hbox (badness 4726) in paragraph at lines 23--24
 \T1/cmr/m/n/9 Les équa-tions de Lotka-Volterra qual-i-fient un sys-tème
@@ -723,72 +747,167 @@ Underfull \hbox (badness 10000) in paragraph at lines 23--24
  []
 
 
-Overfull \hbox (9.86363pt too wide) detected at line 88
-[][][]
- []
+LaTeX Warning: Citation 'volterra1926' on page 1 undefined on input line 79.
 
-
-Underfull \vbox (badness 3240) has occurred while \output is active []
-
-LaTeX Font Info:    Trying to load font information for T1+cmss on input line 1
-04.
-
+LaTeX Font Info:    Trying to load font information for T1+cmss on input line 9
+3.
 (/usr/share/texmf-dist/tex/latex/base/t1cmss.fd
 File: t1cmss.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 ) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
 ]
-Package epstopdf Info: Source file: <fig/lv2_bif3D.eps>
-(epstopdf)                    date: 2023-01-11 15:36:52
-(epstopdf)                    size: 1046450 bytes
-(epstopdf)             Output file: <fig/lv2_bif3D-eps-converted-to.pdf>
-(epstopdf)                    date: 2023-01-11 15:37:02
-(epstopdf)                    size: 994106 bytes
-(epstopdf)             Command: <repstopdf --outfile=fig/lv2_bif3D-eps-converte
-d-to.pdf fig/lv2_bif3D.eps>
-(epstopdf)             \includegraphics on input line 119.
+Underfull \hbox (badness 1194) in paragraph at lines 95--97
+\T1/cmr/m/n/9 Plusieurs vi-su-al-i-sa-tions du sys-tème : tra-jec-toire (flow?)
+,
+ []
+
+LaTeX Font Info:    Trying to load font information for U+dsrom on input line 1
+02.
+(/usr/share/texmf-dist/tex/latex/doublestroke/Udsrom.fd
+File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
+)
+
+LaTeX Warning: Command \textasciiacute invalid in math mode on input line 111.
+
+
+LaTeX Warning: Command \textasciiacute invalid in math mode on input line 111.
+
+Missing character: There is no ´ in font cmr9!
+
+LaTeX Warning: Command \textasciiacute invalid in math mode on input line 112.
+
+
+LaTeX Warning: Command \textasciiacute invalid in math mode on input line 112.
+
+Missing character: There is no ´ in font cmr9!
+
+LaTeX Warning: Command \textasciiacute invalid in math mode on input line 113.
+
+
+LaTeX Warning: Command \textasciiacute invalid in math mode on input line 113.
+
+Missing character: There is no ´ in font cmr9!
+Package epstopdf Info: Source file: <fig/lv2_bif3Dx10.eps>
+(epstopdf)                    date: 2023-01-11 15:41:42
+(epstopdf)                    size: 1076373 bytes
+(epstopdf)             Output file: <fig/lv2_bif3Dx10-eps-converted-to.pdf>
+(epstopdf)                    date: 2023-01-21 17:32:53
+(epstopdf)                    size: 167213 bytes
+(epstopdf)             Command: <repstopdf --outfile=fig/lv2_bif3Dx10-eps-conve
+rted-to.pdf fig/lv2_bif3Dx10.eps>
+(epstopdf)             \includegraphics on input line 151.
 Package epstopdf Info: Output file is already uptodate.
-<fig/lv2_bif3D-eps-converted-to.pdf, id=21, 437.635pt x 441.65pt>
-File: fig/lv2_bif3D-eps-converted-to.pdf Graphic file (type pdf)
-<use fig/lv2_bif3D-eps-converted-to.pdf>
-Package pdftex.def Info: fig/lv2_bif3D-eps-converted-to.pdf  used on input line
- 119.
-(pdftex.def)             Requested size: 251.55872pt x 253.8659pt.
- 
+<fig/lv2_bif3Dx10-eps-converted-to.pdf, id=22, 407.5225pt x 417.56pt>
+File: fig/lv2_bif3Dx10-eps-converted-to.pdf Graphic file (type pdf)
+<use fig/lv2_bif3Dx10-eps-converted-to.pdf>
+Package pdftex.def Info: fig/lv2_bif3Dx10-eps-converted-to.pdf  used on input l
+ine 151.
+(pdftex.def)             Requested size: 251.55872pt x 257.75676pt.
+<fig/lv4_ps4.png, id=23, 620.7993pt x 487.0998pt>
+File: fig/lv4_ps4.png Graphic file (type png)
+<use fig/lv4_ps4.png>
+Package pdftex.def Info: fig/lv4_ps4.png  used on input line 163.
+(pdftex.def)             Requested size: 75.46837pt x 59.215pt.
+<fig/lv4_cl4.png, id=25, 1180.41pt x 954.56625pt>
+File: fig/lv4_cl4.png Graphic file (type png)
+<use fig/lv4_cl4.png>
+Package pdftex.def Info: fig/lv4_cl4.png  used on input line 164.
+(pdftex.def)             Requested size: 75.46837pt x 61.01483pt.
+<fig/lv4_ae4.png, id=26, 1181.41376pt x 954.56625pt>
+File: fig/lv4_ae4.png Graphic file (type png)
+<use fig/lv4_ae4.png>
+Package pdftex.def Info: fig/lv4_ae4.png  used on input line 165.
+(pdftex.def)             Requested size: 75.46837pt x 60.97113pt.
+File: fig/lv4_ae4.png Graphic file (type png)
+<use fig/lv4_ae4.png>
+Package pdftex.def Info: fig/lv4_ae4.png  used on input line 171.
+(pdftex.def)             Requested size: 251.55872pt x 203.24684pt.
+File: fig/lv4_cl4.png Graphic file (type png)
+<use fig/lv4_cl4.png>
+Package pdftex.def Info: fig/lv4_cl4.png  used on input line 177.
+(pdftex.def)             Requested size: 251.55872pt x 203.42162pt.
+Package epstopdf Info: Source file: <fig/lv4_bif.eps>
+(epstopdf)                    date: 2023-01-12 13:20:29
+(epstopdf)                    size: 1858652 bytes
+(epstopdf)             Output file: <fig/lv4_bif-eps-converted-to.pdf>
+(epstopdf)                    date: 2023-01-24 13:56:17
+(epstopdf)                    size: 3617253 bytes
+(epstopdf)             Command: <repstopdf --outfile=fig/lv4_bif-eps-converted-
+to.pdf fig/lv4_bif.eps>
+(epstopdf)             \includegraphics on input line 187.
+Package epstopdf Info: Output file is already uptodate.
+<fig/lv4_bif-eps-converted-to.pdf, id=27, 916.42375pt x 566.115pt>
+File: fig/lv4_bif-eps-converted-to.pdf Graphic file (type pdf)
+<use fig/lv4_bif-eps-converted-to.pdf>
+Package pdftex.def Info: fig/lv4_bif-eps-converted-to.pdf  used on input line 1
+87.
+(pdftex.def)             Requested size: 251.55872pt x 155.40135pt.
+
+Overfull \hbox (14.43578pt too wide) detected at line 194
+[]\OML/cmm/m/it/9 R \OT1/cmr/m/n/9 = [] \OML/cmm/m/it/9 A \OT1/cmr/m/n/9 = \OMS
+/cmsy/m/n/9 ^^@[]
+ []
+
+<fig/lv4_cl.png, id=28, 462.528pt x 346.896pt>
+File: fig/lv4_cl.png Graphic file (type png)
+<use fig/lv4_cl.png>
+Package pdftex.def Info: fig/lv4_cl.png  used on input line 197.
+(pdftex.def)             Requested size: 251.55872pt x 188.6708pt.
+[2] [3 <./fig/lv2_bif3Dx10-eps-converted-to.pdf> <./fig/lv4_ps4.png> <./fig/lv4
+_cl4.png> <./fig/lv4_ae4.png>] 
 AED: lastpage setting LastPage
-[2 <./fig/lv2_bif3D-eps-converted-to.pdf>] (./rapport.aux)
+[4
+
+ <./fig/lv4_bif-eps-converted-to.pdf> <./fig/lv4_cl.png>] (./rapport.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+
+Package biblatex Warning: Please (re)run BibTeX on the file(s):
+(biblatex)                rapport
+(biblatex)                and rerun LaTeX afterwards.
+
 Package logreq Info: Writing requests to 'rapport.run.xml'.
 \openout1 = `rapport.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 14966 strings out of 478238
- 269443 string characters out of 5850455
- 867023 words of memory out of 5000000
- 32994 multiletter control sequences out of 15000+600000
- 505828 words of font info for 71 fonts, out of 8000000 for 9000
+ 15136 strings out of 478238
+ 272119 string characters out of 5850455
+ 883925 words of memory out of 5000000
+ 33140 multiletter control sequences out of 15000+600000
+ 508923 words of font info for 84 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 87i,21n,91p,1849b,1184s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 87i,15n,91p,1821b,1305s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/t
-exmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-dist/fonts/type1/public
-/amsfonts/cmextra/cmex9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmmi9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></u
-sr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf-dist/fonts/type1/public/cm-supe
-r/sfbx0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfcc0900.pfb>
-</usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/tex
-mf-dist/fonts/type1/public/cm-super/sfsl0900.pfb></usr/share/texmf-dist/fonts/t
-ype1/public/cm-super/sfss0800.pfb></usr/share/texmf-dist/fonts/type1/public/cm-
-super/sfsx0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti0900.
-pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texm
-f-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texmf-dist/fonts/type1/u
-rw/times/utmb8a.pfb>
-Output written on rapport.pdf (2 pages, 1197920 bytes).
+exmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/share/texmf-dist/font
+s/enc/dvips/base/8r.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cmex
+tra/cmex9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><
+/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb>
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf-dist/fonts/t
+ype1/public/doublestroke/dsrom8.pfb></usr/share/texmf-dist/fonts/type1/public/a
+msfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/s
+fbx0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfcc0900.pfb></u
+sr/share/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf-
+dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf-dist/fonts/type
+1/public/cm-super/sfsl0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-sup
+er/sfss0800.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsx0900.pfb
+></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti0900.pfb></usr/share/te
+xmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texmf-dist/fonts/type1
+/urw/helvetic/uhvr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmb8a.pf
+b>
+Output written on rapport.pdf (4 pages, 4458905 bytes).
 PDF statistics:
- 110 PDF objects out of 1000 (max. 8388607)
- 61 compressed objects within 1 object stream
+ 178 PDF objects out of 1000 (max. 8388607)
+ 92 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

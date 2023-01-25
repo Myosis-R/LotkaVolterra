@@ -1,5 +1,6 @@
 \documentclass{wsdcr}
 \usepackage[backend=bibtex]{biblatex}
+
 \addbibresource{rapport.bib}
 
 \title{Étude du model Lotka-Volterra}
@@ -17,34 +18,24 @@
 \lettrine{C}{ette} étude des équations de prédation de Lotka-Volterra s'effectue dans le cadre d'une unité d'enseignement ouverte de la licence de mathématique de l'université Paul Sabatier. Nous allons partir d'un exercice vu en cours d'équations différentielles ordinaires (EDO), pour ensuite s'éloigner des frontières de ce cours et voir ce que peut offrir la discipline.
 
 
-
 \subsection{Le model classique proie prédateur}
 
-Les équations de Lotka-Volterra qualifient un système d'équations différentielles non linéaires, historiquement développées au début du 20ème siècle pour modéliser les interactions entre espèces et plus particulièrement entre 2 espèces : une proie et un prédateur, elles sont un exemple classique d'EDO. \ref{eq:lotka-volterra} \cite{lotka1920}
+Les équations de Lotka-Volterra qualifient un système d'équations différentielles non linéaires, historiquement développées au début du 20ème siècle pour modéliser les interactions entre espèces et plus particulièrement entre 2 espèces : une proie et un prédateur, elles sont un exemple classique d'EDO. Le système est décrit équation \ref{eq:lotka-volterra}. \cite{lotka1920}
 \begin{equation}
 \left\{
 {\begin{array}{ccc}{\dfrac {\mathrm {d} x(t)}{\mathrm {d} t}}&=&x(t)\ {\Big (}\alpha -\beta y(t){\Big )}\\{\dfrac {\mathrm {d} y(t)}{\mathrm {d} t}}&=&y(t)\ {\Big (}\delta x(t)-\gamma {\Big )}\end{array}}
 \right.
 \label{eq:lotka-volterra}
 \end{equation}
-\begin{figure}[b!]
-\fcolorbox{wsdred}{wsdgrey}{ 
-%% first argument is the frame color
-%% second argument is the background color
-\begin{minipage}{.95\linewidth}
-\color{white}
 
-%% the title of the minipage
+%% the title 
 \begin{center}
     \fontsize{10}{12}\fontfamily{phv}\fontshape{sc}\selectfont
     \textbf{Un peu d'histoire des mathématiques}
 \end{center}
 
-%\begin{wrapfigure}{r}{.3\linewidth}
-%\includegraphics[width=\linewidth]{}
-%\end{wrapfigure}
-Dans sa publication de 1920 (la première fois où l'on voit l'équation \ref{eq:lotka-volterra} sous cette forme), Lokta introduit son model comme un simple cas particulier : La source de nourriture de l'espèce 1 (notée $S_1$) est en excès et peut donc être considérée constante sur la période donnée. l'espèce $S_2$ se nourrit alors de $S_1$.
-Il introduit son raisonnement, $X_1$ est la masse de l'espèce $S_1$  :
+Dans sa publication de 1920 (c'est la première appartion sous cette forme de l'équation \ref{eq:lotka-volterra}), Lokta introduit son model comme un simple cas particulier d'interaction entre deux espèces : La source de nourriture de l'espèce 1 (notée $S_1$) est en excès et peut donc être considérée constante sur la période donnée. l'espèce $S_2$ se nourrit exclusivement de $S_1$.
+Il introduit son raisonnement, $X_i$ est la masse de l'espèce $S_i$ :
 \begin{equation}
 \begin{aligned}
 &\begin{bmatrix}
@@ -75,72 +66,127 @@ X_2\text{ engendré par l'ingestion de }X_1\\ \text{par unité de temps}
 \end{bmatrix} 
 \end{aligned}
 \end{equation}
-Pour translater ce raisonnement en un système d'EDO, il va faire de nouvelles assomptions.
-$\ll$ Pour de petits changements, le taux de formation de nouvelle matière d'une espèce donnée d'organisme dans des conditions déterminées est proportionnel à la masse existante de cette espèce. En d'autres termes, la croissance de la matière vivante est un processus typiquement 'autocatakinetic'. […]. La proportionnalité ne s'applique pas aux grandes variations de X1, X2, ce qui est dûment pris en compte dans la mesure où $A_1'$, est une fonction de X1, X2. […]. De même, la masse de S1 détruite par S2 qui s'en nourrit sera, pour de petites variations, proportionnelle à X2 et aussi à X1. Ce terme a donc été défini sous la forme BiXiX2. Ici encore, les écarts de proportionnalité sont pris en charge par les variations de B1 avec X1 et X2, variables dont B1 est une fonction. $\gg$
+Pour translater ce raisonnement en un système d'EDO, il va faire de nouvelles assomptions, citons Lotka :
+\begin{quotation}
+Pour de petits changements, le taux de formation de nouvelle matière d'une espèce donnée d'organisme dans des conditions déterminées est proportionnel à la masse existante de cette espèce. En d'autres termes, la croissance de la matière vivante est un processus typiquement "autocatakinetic". […]. La proportionnalité ne s'applique pas aux grandes variations de X1, X2, ce qui est dûment pris en compte dans la mesure où $A_1'$, est une fonction de $X_1$, $X_2$. […]. De même, la masse de $S_1$ détruite par $S_2$ qui s'en nourrit sera, pour de petites variations, proportionnelle à $X_2$ et aussi à $X_1$. Ce terme a donc été défini sous la forme $B_1X_1X_2$. Ici encore, les écarts de proportionnalité sont pris en charge par les variations de $B_1$ avec $X_1$ et $X_2$, variables dont $B_1$ est une fonction.
+\end{quotation}
 \begin{equation}
 \begin{aligned}
-{\dfrac {\mathrm {d} X_1(t)}{\mathrm {d} t}}&=A_1'X_1-B_1X_1X_2-A_1"X_1\\
+{\dfrac {\mathrm {d} X_1(t)}{\mathrm {d} t}}&=A_1^\prime X_1-B_1X_1X_2-A_1^{\prime \prime}X_1\\
 {\dfrac {\mathrm {d} X_2(t)}{\mathrm {d} t}}&=A_2X_1X_2-B_2X_2
 \end{aligned}
 \end{equation}
-Il se base sur l'idée de proportionnalité et traite AB comme des fonctions durant toute la publication. C'est Volterra qui en 1926 dans des lettres à Umberto D'Ancona, décrit la même équation mais tel que AB soit fixes, il semble ne pas connaître les résultats de Lotka.
-\end{minipage}
-}
-\end{figure}
+Il construit sa translation vers un système d'EDO sur l'idée de proportionnalité mais tout en traitant cette proportionnalité comme des fonctions du temps. Durant toute la publication il n'envisage pas d'en faire des constantes. C'est Volterra qui en 1926 dans des lettres à Umberto D'Ancona, décrit la même équation mais tel que AB soit fixes, c'est l'équation que l'on a décrite eq.\ref{eq:lotka-volterra}. Volterra ne semble pas connaître les résultats précédents de Lotka. \cite{volterra1926}
+
+Ce système d'EDO est non linéaire autonome, solution analytique, figure, C inf, forme résolue ??
+
 \subsection{Généralisation}
+Carrying capacity…
 \begin{equation}
 \left\{
 {\begin{array}{ccc}{\dfrac {\mathrm {d} x(t)}{\mathrm {d} t}}&=&x(t)\ {\Big (}a -b y(t)-c x(t){\Big )}\\{\dfrac {\mathrm {d} y(t)}{\mathrm {d} t}}&=&y(t)\ {\Big (}d x(t)-e -f y(t) {\Big )}\end{array}}
 \right.
 \end{equation}
+N dimension…
 \begin{equation}
 \dfrac {\mathrm {d}}{\mathrm {d} t}X(t)=X(t) {\Big (}R+AX(t){\Big )}
 \end{equation}
 \section{Le cas 2D}
-\subsection{Champ vectoriel}
+Plusieurs visualisations du système : trajectoire (flow?), Champ vectoriel (def)…
+Points d'équilibres et importance
 \begin{equation}
 R={\begin{bmatrix}1\\1\end{bmatrix}}\quad A =-{\begin{bmatrix}1&1\\1&1\end{bmatrix}}
 \label{eq:RSnInv}
 \end{equation}
 \subsection{Une étude des bifurcations}
-Le système définit par \ref{eq:RSnInv} possède un comportement étonnant découlant de la non inversibilité de A. L'étude des bifurcations a pour object d'étudier l'évolution d'un système dynamique (entres autres ses points d'équilibres) en fonction d'un ou plusieurs paramètres autour d'un changement majeur du système. Il est intéressant dans notre cas d'introduire un paramètre dans A \ref{eq:RSs}, rendant A(s) inversible $\forall s \in \mathds{R}\\ \{1,-1\}$, $|A(s)|=1-s^2$.
+Le système définit par \ref{eq:RSnInv} possède un comportement étonnant découlant de la non inversibilité de $A$. L'étude des bifurcations a pour object d'étudier l'évolution d'un système dynamique (entres autres ses points d'équilibres) en fonction d'un ou plusieurs paramètres autour d'un changement majeur du système. Il est intéressant dans notre cas d'introduire un paramètre dans $A$ \ref{eq:RSs}, rendant $A(s)$ inversible $\forall s \in \mathds{R}\setminus \{1,-1\}, |A(s)|=1-s^2 \neq 0 $.
 \begin{equation}
 R={\begin{bmatrix}1\\1\end{bmatrix}}\quad A(s) =-{\begin{bmatrix}1&s\\s&1\end{bmatrix}}
 \label{eq:RSs}
+\end{equation}
 Étudions les points d'équilibres et leurs stabilités de ce système paramétrique \ref{eq:RSs}. 
 \begin{equation}
 \begin{aligned}
-X(R+AX)\overset{!}{=}0 \land (x_1 = 0 \lor x_2 = 0) &\Rightarrow (X=(0,0) (O)\lor X=(1,0) (M)\lor X=(0,1) (N)\\
-X(R+AX)\overset{!}{=}0 \land (x_1 ´\neq 0 \land x_2 \neq 0 \land s=1) &\Rightarrow x_2=1-x_1
-X(R+AX)\overset{!}{=}0 \land (x_1 ´\neq 0 \land x_2 \neq 0 \land s=-1) &\Rightarrow X=\varnothing
-X(R+AX)\overset{!}{=}0 \land (x_1 ´\neq 0 \land x_2 \neq 0 \land s \neq 1) &\Rightarrow X=-A^{-1}R=\frac{1}{1-s^2}\begin{bmatrix}1&-s\\-s&1\end{bmatrix}}\begin{bmatrix}1\\1\end{bmatrix}}=\frac{1}{1+s}\begin{bmatrix}1\\1\end{bmatrix}} (S)
-\label{eq:RSs}
+X(R+AX)\overset{!}{=}0 &\land (x_1 = 0 \lor x_2 = 0) \Rightarrow (X=(0,0) \text{(O)} \lor \\ &X=(1,0) \text{(M)}\lor X=(0,1) \text{(N)})\\
+X(R+AX)\overset{!}{=}0 &\land (x_1 ´\neq 0 \land x_2 \neq 0 \land s=1) \Rightarrow x_2=1-x_1 \\
+X(R+AX)\overset{!}{=}0 &\land (x_1 ´\neq 0 \land x_2 \neq 0 \land s=-1) \Rightarrow X=\varnothing \\
+X(R+AX)\overset{!}{=}0 &\land (x_1 ´\neq 0 \land x_2 \neq 0 \land s \neq \pm 1) \Rightarrow X=-A^{-1}R \\ &=\frac{1}{1-s^2}\begin{bmatrix}1&-s\\-s&1\end{bmatrix}\begin{bmatrix}1\\1\end{bmatrix}=\frac{1}{1+s}\begin{bmatrix}1\\1\end{bmatrix} \text{(S)}
 \end{aligned}
+\label{eq:RSs}
 \end{equation}
 \begin{equation}
 \begin{aligned}
-J(f)_X = \begin{bmatrix}r_1-2x_1-sx_2&-sx_1\\-sx_2&r_2-2x_2-sx_1\end{bmatrix}}
-J(f)_{O} = \begin{bmatrix}1&0\\0&1\end{bmatrix}}
-J(f)_{M} = \begin{bmatrix}-1&-s\\0&1-s\end{bmatrix}}
-J(f)_{N} = \begin{bmatrix}1-s&0\\-s&-1\end{bmatrix}}
-J(f)_{S,s\neq \{1,-1\}} = \frac{1}{1+s}A(s)
+J(f)_X &= \begin{bmatrix}r_1-2x_1-sx_2&-sx_1\\-sx_2&r_2-2x_2-sx_1\end{bmatrix} \\
+J(f)_{O} &= \begin{bmatrix}1&0\\0&1\end{bmatrix} \\particular
+J(f)_{M} &= \begin{bmatrix}-1&-s\\0&1-s\end{bmatrix} \\
+J(f)_{N} &= \begin{bmatrix}1-s&0\\-s&-1\end{bmatrix} \\
+J(f)_{S,s\neq \{1,-1\}} &= \frac{1}{1+s}A(s)
 \end{aligned}
 \end{equation}
-Voir Chaos faure linéarisation en 1 point. Attention diago
+À l'aide des Jacobiennes, nous pouvont étudier la stabilité de ces points fixes et donc le comportement local des trajectoires. Soit F un des points fixes. $f$ étant $\mathcal{C}^\infty$ effectuons un développement de taylor à l'ordre 1 en F, sachant que $f(t,F)=0$.
+\begin{equation}
+f(t,F+H)=J(f)_XH + \mathcal{O}(\|H\|^2) 
+\end{equation}
+En négligeant les termes d'ordres strictement supérieurs à un, on obtient une nouvelle équation différentielle linéaire, valable localement en F.
+\begin{equation}
+{\dfrac {\mathrm {d} F+H}{\mathrm {d} t}}={\dfrac {\mathrm {d} H}{\mathrm {d} t}}=J(f)_FH
+\end{equation}
+Le point fixe O est expansif ($\forall i, \lambda_i > 0$), $J(f)_{M} \land J(f)_{N}$ diagonalisable $\forall s \neq 2$ (voir preuve), Soit $s=2$ … (figure) \\
+Soit $S\neq2 \Rightarrow \exists P \in GL(\mathbb{R}),D \in \mathcal{M}(\mathbb{R}) \text{diagonal}, M = P^{-1}DP$ on a alors ${\dfrac {\mathrm {d} Y}{\mathrm {d} t}}=DY$ avec $Y(t)=PH(t)$ $\lambda_{1,2}$ les valeurs propres, déterminant et trace sont invariants par changement de base et peuvent nous informer sur le signe des valeurs propres en dimension 2.
+\begin{itemize}
+	\item $s>1 \Rightarrow Det(J(f)_{M})>0 \land Tr(J(f)_{M})<0 \Rightarrow \lambda_i<0$ {\color{red}point stable}
+	\item $s=1 \Rightarrow \lambda_1=0 \land \lambda_2=-1$ 
+	\item $1>s>0 \Rightarrow Det(J(f)_{M})<0 \land Tr(J(f)_{M})>0 \Rightarrow \lambda_1<0 \land \lambda_2>0$ {\color{red}point selle}
+	\item $s=0 \Rightarrow \lambda_1=-1 \land \lambda_2=1$ {\color{red}point selle}
+	\item $s<0 \Rightarrow Det(J(f)_{M})<0 \land Tr(J(f)_{M})>0 \Rightarrow \lambda_1<0 \land \lambda_2>0$ {\color{red}point selle}
+\end{itemize}
+Le cas du point fixe N est similaire au point M. Intéressons nous maintenant au point S. Vérifions que $\forall s \in \mathds{R}\setminus \{1,-1\}$ $J(f)_{S}$ diagonalisable.$Det(J(f)_{S}-XId_2)=\frac{1}{1+s}(\frac{1-s}{1+s}+X)(1+X)$ le polynôme est scindé à racine simple $\forall s \neq 0$ dans le cas où $s=0$ la jacobienne est diagonale. Finalement, $J(f)_{S}$ est diagonalisable $\forall s \in \mathds{R}\setminus \{1,-1\}$. On peut alors étudier le signe du déterminant et de la trace en fonction de $s$ : $Det(J(f)_{S})=\frac{1-s}{1+s}$ et $Tr(J(f)_{S})=\frac{-2}{1+s}$.
+\begin{itemize}
+	\item $s>1 \Rightarrow Det(J(f)_{S})<0 \land Tr(J(f)_{S})<0 \Rightarrow \lambda_1<0 \land \lambda_2>0$ {\color{red}point selle}
+	\item $1>s>-1 \Rightarrow Det(J(f)_{S})>0 \land Tr(J(f)_{S})<0 \Rightarrow \lambda_i<0$ {\color{red}point stable}
+	\item $s<-1 \Rightarrow Det(J(f)_{S})<0 \land Tr(J(f)_{S})>0 \Rightarrow \lambda_1<0 \land \lambda_2>0$ {\color{red}point selle}
+\end{itemize}
+\begin{figure}[t!]
+    \centering
+    \includegraphics[width=\linewidth]{fig/lv2_bif3Dx10.eps}
+    \caption{test}
+    \label{fig:example}
+\end{figure}
 \section{Chaos en 4D}
 \subsection{introduction aux attracteurs}
+dimension d'apparition
 \begin{equation}
 R={\begin{bmatrix}1\\0.72\\1.53\\1.27\end{bmatrix}}\quad A =-{\begin{bmatrix}1&1.09&1.52&0\\0&0.72&0.3168&0.9792\\3.5649&0&1.53&0.7191\\1.5367&0.6477&0.4445&1.27\end{bmatrix}}
 \end{equation}
+\begin{figure}
+    \centering
+    \subfigure[]{\includegraphics[width=0.3\linewidth]{fig/lv4_ps4.png}} 
+    \subfigure[]{\includegraphics[width=0.3\linewidth]{fig/lv4_cl4.png}} 
+    \subfigure[]{\includegraphics[width=0.3\linewidth]{fig/lv4_ae4.png}}
+    \caption{(a) $S=0.8$ (b) $S=0.95$ (c) $S=1$}
+    \label{fig:subbif}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{fig/lv4_ae4.png}
+    \caption{attracteur étrange définit par XXX}
+    \label{fig:ae4}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{fig/lv4_cl4.png}
+    \caption{cycle limite définit par XXX}
+    \label{fig:cl4}
+\end{figure}
 \subsection{bifurcations}
 \begin{equation}
 R={\begin{bmatrix}1\\0.72\\1.53\\1.27\end{bmatrix}}\quad A =-{\begin{bmatrix}1&1.09s&1.52s&0\\0&0.72&0.3168s&0.9792s\\3.5649s&0&1.53&0.7191s\\1.5367s&0.6477s&0.4445s&1.27\end{bmatrix}}
 \end{equation}
 \begin{figure}[t!]
     \centering
-    \includegraphics[width=\linewidth]{fig/lv2_bif3D.eps}
+    \includegraphics[width=\linewidth]{fig/lv4_bif.eps}
     \caption{test}
-    \label{fig:example}
+    \label{fig:bif4}
 \end{figure}
 \subsection{Cycle limite}
 \begin{equation}
@@ -159,69 +205,9 @@ R={\begin{bmatrix}1\\0.72\\1.53\\1.27\end{bmatrix}}\quad A =-{\begin{bmatrix}1&1
 \section{bibliographie}
 \nocite{*}
 \printbibliography
-%An example of a figure is shown in Figure \ref{fig:example}. The recommended width of the figure is $0.9\times$\textbackslash linewidth, and the recommended width:height aspect ratio is $1.41:1$ (i.e. A4 paper)
-%
-%Additionally, one can create a minipage for extra information like biography as shown in the following:
-%
-%\footnotetext[1]{acquired from the official website of IPS at\\https://www.waseda.jp/fsci/gips/en/about/overview-2/}
-%
-%%\begin{figure}[t!]
-%%    \centering
-%%    \includegraphics[width=.9\linewidth]{}
-%%    \caption{The logo of IPS, Waseda University.}
-%%    \label{fig:example}
-%%\end{figure}
-%
-%\begin{figure}[b!]
-%\fcolorbox{wsdred}{wsdgrey}{ 
-%%% first argument is the frame color
-%%% second argument is the background color
-%\begin{minipage}{.95\linewidth}
-%\color{white}
-%
-%%% the title of the minipage
-%\begin{center}
-%    \fontsize{10}{12}\fontfamily{phv}\fontshape{sc}\selectfont
-%    \textbf{About the School}
-%\end{center}
-%
-%%\begin{wrapfigure}{r}{.3\linewidth}
-%%\includegraphics[width=\linewidth]{}
-%%\end{wrapfigure}
-%\textbf{Waseda University Graduate School of Information, Production and Systems (IPS)} is a graduate school that has no corresponding undergraduate department established within the Kitakyushu Science and Research Park area in 2003 as the base for Waseda University to expand its presence in Asia. With three fields of study, including Information Architecture, Production System, and Integrated Systems, IPS undertakes academic research in the technological fields that society currently requires, and strives to attain a sustainable society through the use of technology. \footnotemark[1].
-%\end{minipage}
-%}
-%\end{figure}
-%
-%\subsection{Tables}
-%Creating tables is the same as any other latex documents, as shown in Table \ref{tab:example}.
-%
-%\begin{table}[t!]
-%    \centering
-%    \begin{tabular}{ccc}
-%    \hline
-%        header1 &  header2 & header 3\\
-%        \hline
-%        data1 & data2 & data3\\
-%        data4 & data5 & data6
-%    \end{tabular}
-%    \caption{An example of a floating table.}
-%    \label{tab:example}
-%\end{table}
-%
-%\section{Equations}
-%Just normally input your equations as either inline one: $E=h\frac{\lambda}{c}$ or with equation environment (equation* to remove numbering):
-%
-%\begin{equation}
-%\left\{
-%\begin{aligned}
-%    &\oiint_{\partial\Omega}{\mathbf{E}\cdot d\mathbf{S}}=\frac 1{\varepsilon_0}\iiint_\Omega{\rho dV}\\
-%    &\oiint_{\partial\Omega}{\mathbf{B}\cdot d\mathbf{S}}=0\\
-%    &\oint_{\partial\Sigma}{\mathbf{E}\cdot d\boldsymbol{l}}=-\frac d{dt} \iint_\Sigma{{\mathbf{B}\cdot d\mathbf{S}}}\\
-%    &\oint_{\partial\Sigma}{\mathbf{B}\cdot d\boldsymbol{l}}=\mu_0 \left(\iint_\Sigma{{\mathbf{J}\cdot d\mathbf{S}}}+\varepsilon_0\frac d{dt} \iint_\Sigma{{\mathbf{E}\cdot d\mathbf{S}}}\right)\cite{Maxwell1865}
-%\end{aligned}
-%\right.
-%\end{equation}
+
+
+
 %
 %\appendices
 

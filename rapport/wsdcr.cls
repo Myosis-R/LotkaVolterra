@@ -28,7 +28,8 @@
 \RequirePackage{amsmath,amsfonts,amssymb,esint}
 \RequirePackage{graphicx}
 \RequirePackage{booktabs}
-\RequirePackage{subcaption}
+\RequirePackage{subfigure}
+\usepackage{dsfont}
 \RequirePackage{wrapfig}
 \setlength{\intextsep}{.5em}
 \RequirePackage{lipsum}

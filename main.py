@@ -241,22 +241,23 @@ class Model_glv:
         self.S = self.A
     
     def vector_field_2D(self,x_min,y_min,x_max,y_max,dx): #grid unclear
-        self.x, self.y = np.meshgrid(np.arange(x_min,x_max,dx),np.arange(y_min,y_max,dx))
-        self.vf = np.zeros((2,self.x.shape[0],self.x.shape[1]))
-        for i in range(self.x.shape[0]):
-            (self.vf[0,i,:],self.vf[1,i,:])=self.glv(np.array([self.x[i,:],self.y[i,:]]))
+        x, y = np.meshgrid(np.arange(x_min,x_max,dx),np.arange(y_min,y_max,dx))
+        vf = np.zeros((2,x.shape[0],x.shape[1]))
+        for i in range(x.shape[0]):
+            (vf[0,i,:],vf[1,i,:])=self.glv(np.array([x[i,:],y[i,:]]))
+        self.print_vector_field(x,y,vf)
 
-    def print_vector_field(self):
+    def print_vector_field(self,x,y,vf):
         fig = plt.figure()
         ax = fig.add_subplot(1,1,1)
         ax.set_xlabel(r'$x$')
         ax.set_ylabel(r'$y$')
         plt.axis('equal')
-        M = np.hypot(self.vf[0,:,:], self.vf[1,:,:])
-        Q = plt.quiver(self.x, self.y, self.vf[0,:,:]/M, self.vf[1,:,:]/M, M,minlength=2,headaxislength=5,headwidth=5)
-        plt.scatter(self.x, self.y, color='k', s=5)
+        M = np.hypot(vf[0,:,:], vf[1,:,:])
+        Q = plt.quiver(x, y, vf[0,:,:]/M, vf[1,:,:]/M, M,minlength=2,headaxislength=5,headwidth=5)
+        plt.scatter(x, y, color='k', s=5)
         cb = plt.colorbar(Q)
-        if np.abs(np.linalg.det(self.A))>10**(-4):
+        if False and np.abs(np.linalg.det(self.S))>10**(-4):
             plt.plot(self.equilibrium_points[:,0],self.equilibrium_points[:,1],'ro') 
         fig.tight_layout()
         #plt.savefig('case2D.eps')
@@ -265,14 +266,14 @@ class Model_glv:
 
         
 def main():
-    model_1 = Model_glv(4)
+    model_1 = Model_glv(2)
     model_1.gen_params()
     #model_1.equilibrium_points()
-    model_1.lyapunov_exponent()
+    #model_1.lyapunov_exponent()
     #model_1.bifurcations(0.90,0.98,20)
+    model_1.S = 2*(model_1.A-np.diag(np.diag(model_1.A)))+np.diag(np.diag(model_1.A))
     #model_1.plot4D(1,15000)
-    #model_1.vector_field_2D(0,0,6,6,0.2)
-    #model_1.print_vector_field()
+    model_1.vector_field_2D(0.99,0,1.01,0.02,0.002)
     #model_1.cvAttractor(100,100000)
             
 
