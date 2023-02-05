@@ -5,6 +5,7 @@ from mpl_toolkits.mplot3d import Axes3D
 plt.style.use('ggplot')
 from scipy import stats,spatial
 from multiprocessing import Pool
+
 import warnings
 import sys
 #import manim as mn
@@ -125,6 +126,27 @@ class Model_glv:
         ax.set_zlabel(r'$x_3$')
         clb.ax.set_ylabel(r'$x_4$')
 
+        plt.show()
+
+    def plot2D(self,n,start):
+        steps = int(3e3)
+        X = np.zeros((self.nb_species,steps,n))
+        X[:,0,:] = np.random.random((self.nb_species,n))*1.5
+
+        for i in range(steps-1):
+            X[:,i+1,:] = self.step(X[:,i,:])
+        
+        #fig,ax = plt.subplots()
+        #fig.tight_layout()
+        #color = np.ones((steps,1))@np.linspace(0,1,n).reshape((1,n))
+        #ax.scatter(X[0,start:],X[1,start:],c=color[start:,:],s=5)
+        #ax.set_xlabel(r'$x_1$')
+        #ax.set_ylabel(r'$x_2$')
+        fig,ax = plt.subplots()
+        fig.tight_layout()
+        ax.plot(X[0,start:],X[1,start:],linewidth=2)
+        ax.set_xlabel(r'$x_1$')
+        ax.set_ylabel(r'$x_2$')
         plt.show()
 
     def bassinOfAttraction(self):
@@ -255,8 +277,9 @@ class Model_glv:
         plt.axis('equal')
         M = np.hypot(vf[0,:,:], vf[1,:,:])
         Q = plt.quiver(x, y, vf[0,:,:]/M, vf[1,:,:]/M, M,minlength=2,headaxislength=5,headwidth=5)
-        plt.scatter(x, y, color='k', s=5)
+        img = plt.scatter(x, y, color='k', s=5)
         cb = plt.colorbar(Q)
+        cb.ax.set_ylabel(r'$||V||_2$')
         if False and np.abs(np.linalg.det(self.S))>10**(-4):
             plt.plot(self.equilibrium_points[:,0],self.equilibrium_points[:,1],'ro') 
         fig.tight_layout()
@@ -270,10 +293,11 @@ def main():
     model_1.gen_params()
     #model_1.equilibrium_points()
     #model_1.lyapunov_exponent()
-    #model_1.bifurcations(0.90,0.98,20)
-    model_1.S = 2*(model_1.A-np.diag(np.diag(model_1.A)))+np.diag(np.diag(model_1.A))
+    #model_1.bifurcations(0.8,1.3,30)
+    model_1.S = 0*(model_1.A-np.diag(np.diag(model_1.A)))+np.diag(np.diag(model_1.A))
     #model_1.plot4D(1,15000)
-    model_1.vector_field_2D(0.99,0,1.01,0.02,0.002)
+    model_1.plot2D(40,0)
+    #model_1.vector_field_2D(0,0,1.3,1.3,0.1)
     #model_1.cvAttractor(100,100000)
             
 

@@ -76,28 +76,64 @@ Pour de petits changements, le taux de formation de nouvelle matière d'une esp�
 {\dfrac {\mathrm {d} X_2(t)}{\mathrm {d} t}}&=A_2X_1X_2-B_2X_2
 \end{aligned}
 \end{equation}
-Il construit sa translation vers un système d'EDO sur l'idée de proportionnalité mais tout en traitant cette proportionnalité comme des fonctions du temps. Durant toute la publication il n'envisage pas d'en faire des constantes. C'est Volterra qui en 1926 dans des lettres à Umberto D'Ancona, décrit la même équation mais tel que AB soit fixes, c'est l'équation que l'on a décrite eq.\ref{eq:lotka-volterra}. Volterra ne semble pas connaître les résultats précédents de Lotka. \cite{volterra1926}
-
-Ce système d'EDO est non linéaire autonome, solution analytique, figure, C inf, forme résolue ??
+Il construit sa translation vers un système d'EDO sur l'idée de proportionnalité mais tout en traitant cette proportionnalité comme des fonctions du temps. Durant toute la publication il n'envisage pas d'en faire des constantes. C'est Volterra qui en 1926 dans des lettres à Umberto D'Ancona, décrit la même équation mais tel que AB soit fixes, c'est l'équation que l'on a décrite eq.\ref{eq:lotka-volterra}. Volterra ne semble pas connaître les résultats précédents de Lotka. \cite{volterra1926} \\
+Prenons le temps d'étudier certaines propriétés de ce système non linéaire, ces propriétés seront valables pour les généralisations présentés dans la prochaine section. Premièrement, L'EDO est sous formes résolues. Posons $F(t,x,y)=(F_1,F_2)=(x(\alpha -\beta y),y(\delta x-\gamma ))$, Les fonctions $F_1(x,y)$ et $F_2(x,y)$ sont des polynômes à plusieurs indéterminées, il en découle la propriété de régularité $\mathcal{C}^\infty$. Les solutions de l'EDO étant $\mathcal{C}^1$ leur régularité est transmise à la fonction $F(t,x,y)$ en t, la variable n'intervennant pas explicitement. Les solutions sont alors $\mathcal{C}^2$ car elles sont l'intégrale d'une fonction $\mathcal{C}^1$ : $(x,y)(t)-(x,y)(0)=\int_0^t F(s,x,y)ds$, en continuant ce raisonnement on en déduit que les solutions sont $\mathcal{C}^\infty$. \\
+On peut alors, dans le cas d'un problème de Cauchy, affirmer l'unicité et l'existence de la solution, F(t,x,y) étant infiniment dérivable, cela implique sa continuité en $t$ ainsi que d'être localement lipschitzienne en (x,y). Pour rappel un problème de Cauchy consiste à se donner une EDO et un vecteur de conditions initiales, ici de taille 2 (EDO de degré 1 et de dimension 2). Les conditions initiales seront majoritairements étudiées dans le quartier positif du plan $(\mathbb{R}^+)^2$) pour des raisons historiques d'utilisation de ce modèle en écology des populations. \\
+Nous étudirons dans les détails les points fixes et les propriétés d'un tel système dans la section \ref{sec:lv2}. En ouverture nous pouvons cependant simuler quelques trajectoires de L'EDO définie eq.\ref{eq:lotka-volterra}.
 
 \subsection{Généralisation}
-Carrying capacity…
+Comme de nombreux modèles, les équations de Lokta-Volterra ont de nombreuses limitations. Les biologistes et écologistes ont  proposés des améliorations, dans un premier temps en ajoutant un modèle logistique pour limiter la croissance exponentielle des populations, limités non plus par le prédateur ou la proie mais par un environnement à ressources finies. Ce nouveaux modèles présenté equation \ref{eq:clv}, se nomme le modèle compétitif (de Lokta-Volterra).
 \begin{equation}
 \left\{
 {\begin{array}{ccc}{\dfrac {\mathrm {d} x(t)}{\mathrm {d} t}}&=&x(t)\ {\Big (}a -b y(t)-c x(t){\Big )}\\{\dfrac {\mathrm {d} y(t)}{\mathrm {d} t}}&=&y(t)\ {\Big (}d x(t)-e -f y(t) {\Big )}\end{array}}
 \right.
+\label{eq:clv}
 \end{equation}
-N dimension…
+Dans un même temps, les interactions furent extendues à N espèces, l'EDO se décrit vectoriellement et ses paramètres sont concentrés dans un vecteur définissant l'évolution de la population sans interaction et d'une matrice décrivant les interactions entre espèces et avec l'environnement (modèlisé par la diagonale de la matrice). C'est le modèle généralisé de Lotka-Volterra décrit eq.\ref{eq:glv}. \\
+Soit une espèce i et une espèce j, si les coéficients $A_{i,j}$ et $A_{j,i}$ sont de signe négatif, l'interprétation communément admise est une compétition direct deux ces deux espèces, par exemple pour une même ressource. Si les signes sont distincts c'est une interaction proie-prédateur, finalement si les deux signes sont positifs il peut s'agir d'entraide mais le modèle possède des limitations dans ce cas, principalement car cela reconduit à des comportements de croissance exponentielle.
 \begin{equation}
 \dfrac {\mathrm {d}}{\mathrm {d} t}X(t)=X(t) {\Big (}R+AX(t){\Big )}
+\label{eq:glv}
 \end{equation}
+Dans la prochaine section nous allons nous arrêter sur le cas à deux espèces du modèle généralisé qui, malgré son faible nombre d'espèces, exhibe des comportements intéressants. Malheureusement, nous n'allons pas étudier ce cas dans toute sa généralité, limité par son nombre de paramètres, au nombre de 6 (pouvant tomber jusqu'à 4 avec des changements de variables).
 \section{Le cas 2D}
-Plusieurs visualisations du système : trajectoire (flow?), Champ vectoriel (def)…
-Points d'équilibres et importance
+\label{sec:lv2}
+Plusieurs visualisations du système : trajectoire (flow?), Champ vectoriel (def), colorbar norme2 de f(X)…
+Quels sont les informations que nous pouvons tirer d'un modèle généralisé de Lotka-Volterra, contrairement à certaines EDO il n'est pas possible ici de trouver une solution analytique. Il est néanmoins possible de déterminer de nombreuses propriétés du système analytiquement, en particulier les points d'équilibres ou fixes du système sont l'ensemble des $(x,y)\in \mathbb{R}^2$ où $F(x,y)=0$. Toute trajectoire avec des conditions initiales hors d'un point fixe ne peut l'atteindre en un temps fini, la fonction constante $(x(t),y(t))=(x,y)$ est solution et est unique comme montré précédement. En dynamique des populations, l'isocline $i$ moins restrictive que les points fixes est l'ensemble des points tel que la composante $F_i$ soit nulle.
+\begin{equation}
+R={\begin{bmatrix}1\\1\end{bmatrix}}\quad A =-{\begin{bmatrix}1&0\\0&1\end{bmatrix}}
+\label{eq:RSs0}
+\end{equation}
+Appliquons ces outils à un cas très simple, l'équation \ref{eq:glv} muni des paramètres définis eq.\ref{eq:RSs0}. On obtient en fait deux équations logistiques découplées, il n'y a pas d'interactions entre les espèces. Étudions la première isocline, $x(1-x)\overset{!}{=}0$ deux solutions s'offrent à nous $x=0$ et $x=1$, les courbes sont donc des droites verticales d'abscisse 0 et 1. La seconde isoline est similaire, les solutions sont $y=0$ et $y=1$. Sur la première isocline $\dot{x}=0$, le champs vectoriel est donc dirigé selon $y$ et le sens du vecteur dépend de l'ordonnée $\dot{y}=y(1-y)$  strictement positif $\forall 0<y<1$. On décompte 4 points fixes ${(0,0),(0,1),(1,0),(1,1)}$ qui résultent de l'intersection des isoclines. Ces informations sont présentés sur le graphe fig.\ref{fig:dessinlv2s0}.
+\begin{figure}[t!]
+    \centering
+    \includegraphics[width=\linewidth]{fig/dessins0.png}
+    \caption{dessin}
+    \label{fig:dessinlv2s0}
+\end{figure}
+Vient ensuite l'outil numérique, très puissant dans l'étude des EDO, il introduit cependant de nombreuses approximations. Dans un premier temps il est intéressant d'afficher le champs vectoriel associé à l'EDO, à chaque point $(x,y)$ du plan on associt un vecteur égal à $F(x,y)$, se sont les dérivées tangentes à la trajectoire, la norme des vecteurs est encodée par la couleur pour faciliter la lisibilité de la figure. On peut aussi tracer des trajectoires par une méthode pas à pas, $(x_{t+dt},y_{t+dt})=dt*F(x_{t},y_{t})+(x_{t},y_{t})$ on répète alors l'opération un grand nombre de fois avec $dt$ un pas de temps suffisament petit, c'est la méthode d'Euler explicite. Dû aux nombreuses limitations de cette méthode nous utilisons l'algorithme de Runge Kutta qui offre une meilleure robustesse à l'erreur.
+\begin{figure}[t!]
+    \centering
+    \includegraphics[width=\linewidth]{fig/lv2_vfs0.png}
+    \caption{vf}
+    \label{fig:vfs0}
+\end{figure}
+\begin{figure}[t!]
+    \centering
+    \includegraphics[width=\linewidth]{fig/lv2_ts0.png}
+    \caption{traj}
+    \label{fig:ts0}
+\end{figure}
 \begin{equation}
 R={\begin{bmatrix}1\\1\end{bmatrix}}\quad A =-{\begin{bmatrix}1&1\\1&1\end{bmatrix}}
 \label{eq:RSnInv}
 \end{equation}
+\begin{figure}[t!]
+    \centering
+    \includegraphics[width=\linewidth]{fig/lv2_vf.png}
+    \caption{test}
+    \label{fig:vf2}
+\end{figure}
 \subsection{Une étude des bifurcations}
 Le système définit par \ref{eq:RSnInv} possède un comportement étonnant découlant de la non inversibilité de $A$. L'étude des bifurcations a pour object d'étudier l'évolution d'un système dynamique (entres autres ses points d'équilibres) en fonction d'un ou plusieurs paramètres autour d'un changement majeur du système. Il est intéressant dans notre cas d'introduire un paramètre dans $A$ \ref{eq:RSs}, rendant $A(s)$ inversible $\forall s \in \mathds{R}\setminus \{1,-1\}, |A(s)|=1-s^2 \neq 0 $.
 \begin{equation}
@@ -131,7 +167,21 @@ En négligeant les termes d'ordres strictement supérieurs à un, on obtient une
 \begin{equation}
 {\dfrac {\mathrm {d} F+H}{\mathrm {d} t}}={\dfrac {\mathrm {d} H}{\mathrm {d} t}}=J(f)_FH
 \end{equation}
-Le point fixe O est expansif ($\forall i, \lambda_i > 0$), $J(f)_{M} \land J(f)_{N}$ diagonalisable $\forall s \neq 2$ (voir preuve), Soit $s=2$ … (figure) \\
+Commençons l'analyse des points fixes par le point O dont la matrice jacobienne est invariante par $s$ et est diagonale. On obtient alors le système d'EDO linéaire suivant : 
+\begin{equation}
+\left\{
+{\begin{array}{ccc}{\dfrac {\mathrm {d} h_1(t)}{\mathrm {d} t}}&=&h_1(t)\\{\dfrac {\mathrm {d} h_2(t)}{\mathrm {d} t}}&=&h_2(t)\end{array}}
+\right.
+\label{eq:JO}
+\end{equation}
+la solution analytique de l'équation \ref{eq:JO} est $H(t)=\exp(t)Id_2H_0$, autrement dit le point fixe O est expansif, les trajectoires s'éloigne de ce point. \\
+$J(f)_{M}$ et $ J(f)_{N}$ sont diagonalisables $\forall s \neq 2$, cette information est déductible de l'étude de $Det(J(f)_{M}-XId_2)=(1-s-X)(1+X)$, le polynôme est scindé à racine simple $\forall s \neq 2$, dans le cas où $s=2$ le polynôme caractéristique $(1+X)^2$ est minimale. Soit $s=2$, résolvons l'EDO par cascade $h_2(t)=C\exp(-t)$ puis $h_1=-2Ct\exp(-t)+D\exp(-t)$. Le comportement obtenu s'observe numériquement en affichant le champ vectoriel autour de M (fig \ref{fig:JM}). \\
+\begin{figure}[t!]
+    \centering
+    \includegraphics[width=\linewidth]{fig/lv2_vfM.png}
+    \caption{test}
+    \label{fig:JM}
+\end{figure}
 Soit $S\neq2 \Rightarrow \exists P \in GL(\mathbb{R}),D \in \mathcal{M}(\mathbb{R}) \text{diagonal}, M = P^{-1}DP$ on a alors ${\dfrac {\mathrm {d} Y}{\mathrm {d} t}}=DY$ avec $Y(t)=PH(t)$ $\lambda_{1,2}$ les valeurs propres, déterminant et trace sont invariants par changement de base et peuvent nous informer sur le signe des valeurs propres en dimension 2.
 \begin{itemize}
 	\item $s>1 \Rightarrow Det(J(f)_{M})>0 \land Tr(J(f)_{M})<0 \Rightarrow \lambda_i<0$ {\color{red}point stable}
@@ -150,8 +200,17 @@ Le cas du point fixe N est similaire au point M. Intéressons nous maintenant au
     \centering
     \includegraphics[width=\linewidth]{fig/lv2_bif3Dx10.eps}
     \caption{test}
-    \label{fig:example}
+    \label{fig:bif2}
 \end{figure}
+On a obtenu toutes les informations nécessaires à la production d'un diagramme des bifurcations de notre système défini eq.\ref{eq:RSs}. Sur la figure.\ref{fig:dessinlv2}, nous avons produit un schema de l'évolution des points fixes en fonction de $s \in [-1,4]$, pour nous limité à un diagramme à deux dimensions nous avons pris en ordonnée la norme 1 $||X||_1$ de la position des points fixes.
+\begin{figure}[t!]
+    \centering
+    \includegraphics[width=\linewidth]{fig/dessin.png}
+    \caption{test}
+    \label{fig:dessinlv2}
+\end{figure}
+Il est intéressant de le comparer à son pendant numérique. La figure \ref{fig:bif2} est le résultat de l'évolution d'une centaine de points tel que $(x_0,y_0) \in [0,1]$ et cela pour chaque valeur de $s \in [-0.5,4]$. On retrouve bien la stabilité de M et N pour $s > 1$ et la stabilité de S pour $(-1<)s<1$. \\
+Le comportement que l'on vient d'étudier est intéressant, mais c'est dans les dimensions supérieurs des équations de Lotka-Volterra que se déploient les phénomènes les plus fascinants. Une partie de l'explication de la pauvreté des phénomènes en 2D se trouve dans l'unicité des solutions, les trajectoires ne peuvent se couper, se qui est très limitant en 2D, mais facile à contourner en dimension supérieure. Nous allons donc étudier un système à 4 espèces en interactions directes dans cette prochaine section.
 \section{Chaos en 4D}
 \subsection{introduction aux attracteurs}
 dimension d'apparition
@@ -199,6 +258,7 @@ R={\begin{bmatrix}1\\0.72\\1.53\\1.27\end{bmatrix}}\quad A =-{\begin{bmatrix}1&1
     \label{fig:example}
 \end{figure}
 \subsection{Exposant de Liapounov}
+\subsection{Bassin d'attraction}
 \section{Conclusion}
 
 \section{Annexes}

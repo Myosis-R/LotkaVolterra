@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.12.20)  25 JAN 2023 17:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.12.20)  5 FEB 2023 19:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -602,9 +602,6 @@ Package: blx-case-expl3 2022/02/02 v3.17 expl3 case changing code for biblatex
 
 LaTeX Warning: Label `eq:RSs' multiply defined.
 
-
-LaTeX Warning: Label `fig:example' multiply defined.
-
 )
 \openout1 = `rapport.aux'.
 
@@ -749,7 +746,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 23--24
 
 LaTeX Warning: Citation 'volterra1926' on page 1 undefined on input line 79.
 
-LaTeX Font Info:    Trying to load font information for T1+cmss on input line 9
+LaTeX Font Info:    Trying to load font information for T1+cmss on input line 8
 3.
 (/usr/share/texmf-dist/tex/latex/base/t1cmss.fd
 File: t1cmss.fd 2019/12/16 v2.5j Standard LaTeX font definitions
@@ -757,37 +754,65 @@ File: t1cmss.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 
 
 ]
-Underfull \hbox (badness 1194) in paragraph at lines 95--97
+Underfull \hbox (badness 1194) in paragraph at lines 101--103
 \T1/cmr/m/n/9 Plusieurs vi-su-al-i-sa-tions du sys-tème : tra-jec-toire (flow?)
 ,
  []
 
+<fig/dessins0.png, id=22, 4015.0pt x 3011.25pt>
+File: fig/dessins0.png Graphic file (type png)
+<use fig/dessins0.png>
+Package pdftex.def Info: fig/dessins0.png  used on input line 110.
+(pdftex.def)             Requested size: 251.55872pt x 188.66214pt.
+<fig/lv2_ts0.png, id=23, 602.7318pt x 492.1587pt>
+File: fig/lv2_ts0.png Graphic file (type png)
+<use fig/lv2_ts0.png>
+Package pdftex.def Info: fig/lv2_ts0.png  used on input line 117.
+(pdftex.def)             Requested size: 251.55872pt x 205.40605pt.
+<fig/lv2_vfs0.png, id=25, 597.6729pt x 459.6372pt>
+File: fig/lv2_vfs0.png Graphic file (type png)
+<use fig/lv2_vfs0.png>
+Package pdftex.def Info: fig/lv2_vfs0.png  used on input line 123.
+(pdftex.def)             Requested size: 251.55872pt x 193.4601pt.
+[2 <./fig/dessins0.png>]
+<fig/lv2_vf.png, id=32, 588.2778pt x 481.3182pt>
+File: fig/lv2_vf.png Graphic file (type png)
+<use fig/lv2_vf.png>
+Package pdftex.def Info: fig/lv2_vf.png  used on input line 133.
+(pdftex.def)             Requested size: 251.55872pt x 205.82442pt.
 LaTeX Font Info:    Trying to load font information for U+dsrom on input line 1
-02.
+38.
+
 (/usr/share/texmf-dist/tex/latex/doublestroke/Udsrom.fd
 File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
 )
 
-LaTeX Warning: Command \textasciiacute invalid in math mode on input line 111.
+LaTeX Warning: Command \textasciiacute invalid in math mode on input line 147.
 
 
-LaTeX Warning: Command \textasciiacute invalid in math mode on input line 111.
-
-Missing character: There is no ´ in font cmr9!
-
-LaTeX Warning: Command \textasciiacute invalid in math mode on input line 112.
-
-
-LaTeX Warning: Command \textasciiacute invalid in math mode on input line 112.
+LaTeX Warning: Command \textasciiacute invalid in math mode on input line 147.
 
 Missing character: There is no ´ in font cmr9!
 
-LaTeX Warning: Command \textasciiacute invalid in math mode on input line 113.
+LaTeX Warning: Command \textasciiacute invalid in math mode on input line 148.
 
 
-LaTeX Warning: Command \textasciiacute invalid in math mode on input line 113.
+LaTeX Warning: Command \textasciiacute invalid in math mode on input line 148.
 
 Missing character: There is no ´ in font cmr9!
+
+LaTeX Warning: Command \textasciiacute invalid in math mode on input line 149.
+
+
+LaTeX Warning: Command \textasciiacute invalid in math mode on input line 149.
+
+Missing character: There is no ´ in font cmr9!
+[3 <./fig/lv2_ts0.png> <./fig/lv2_vfs0.png> <./fig/lv2_vf.png>]
+<fig/lv2_vfM.png, id=40, 703.9098pt x 465.4188pt>
+File: fig/lv2_vfM.png Graphic file (type png)
+<use fig/lv2_vfM.png>
+Package pdftex.def Info: fig/lv2_vfM.png  used on input line 181.
+(pdftex.def)             Requested size: 251.55872pt x 166.32204pt.
 Package epstopdf Info: Source file: <fig/lv2_bif3Dx10.eps>
 (epstopdf)                    date: 2023-01-11 15:41:42
 (epstopdf)                    size: 1076373 bytes
@@ -796,36 +821,42 @@ Package epstopdf Info: Source file: <fig/lv2_bif3Dx10.eps>
 (epstopdf)                    size: 167213 bytes
 (epstopdf)             Command: <repstopdf --outfile=fig/lv2_bif3Dx10-eps-conve
 rted-to.pdf fig/lv2_bif3Dx10.eps>
-(epstopdf)             \includegraphics on input line 151.
+(epstopdf)             \includegraphics on input line 201.
 Package epstopdf Info: Output file is already uptodate.
-<fig/lv2_bif3Dx10-eps-converted-to.pdf, id=22, 407.5225pt x 417.56pt>
+<fig/lv2_bif3Dx10-eps-converted-to.pdf, id=41, 407.5225pt x 417.56pt>
 File: fig/lv2_bif3Dx10-eps-converted-to.pdf Graphic file (type pdf)
 <use fig/lv2_bif3Dx10-eps-converted-to.pdf>
 Package pdftex.def Info: fig/lv2_bif3Dx10-eps-converted-to.pdf  used on input l
-ine 151.
+ine 201.
 (pdftex.def)             Requested size: 251.55872pt x 257.75676pt.
-<fig/lv4_ps4.png, id=23, 620.7993pt x 487.0998pt>
+<fig/dessin.png, id=42, 4015.0pt x 2790.425pt>
+File: fig/dessin.png Graphic file (type png)
+<use fig/dessin.png>
+Package pdftex.def Info: fig/dessin.png  used on input line 208.
+(pdftex.def)             Requested size: 251.55872pt x 174.82692pt.
+ [4 <./fig/lv2_vfM.png> <./fig/lv2_bif3Dx10-eps-converted-to.pdf>]
+<fig/lv4_ps4.png, id=64, 620.7993pt x 487.0998pt>
 File: fig/lv4_ps4.png Graphic file (type png)
 <use fig/lv4_ps4.png>
-Package pdftex.def Info: fig/lv4_ps4.png  used on input line 163.
+Package pdftex.def Info: fig/lv4_ps4.png  used on input line 222.
 (pdftex.def)             Requested size: 75.46837pt x 59.215pt.
-<fig/lv4_cl4.png, id=25, 1180.41pt x 954.56625pt>
+<fig/lv4_cl4.png, id=65, 1180.41pt x 954.56625pt>
 File: fig/lv4_cl4.png Graphic file (type png)
 <use fig/lv4_cl4.png>
-Package pdftex.def Info: fig/lv4_cl4.png  used on input line 164.
+Package pdftex.def Info: fig/lv4_cl4.png  used on input line 223.
 (pdftex.def)             Requested size: 75.46837pt x 61.01483pt.
-<fig/lv4_ae4.png, id=26, 1181.41376pt x 954.56625pt>
+<fig/lv4_ae4.png, id=66, 1181.41376pt x 954.56625pt>
 File: fig/lv4_ae4.png Graphic file (type png)
 <use fig/lv4_ae4.png>
-Package pdftex.def Info: fig/lv4_ae4.png  used on input line 165.
+Package pdftex.def Info: fig/lv4_ae4.png  used on input line 224.
 (pdftex.def)             Requested size: 75.46837pt x 60.97113pt.
 File: fig/lv4_ae4.png Graphic file (type png)
 <use fig/lv4_ae4.png>
-Package pdftex.def Info: fig/lv4_ae4.png  used on input line 171.
+Package pdftex.def Info: fig/lv4_ae4.png  used on input line 230.
 (pdftex.def)             Requested size: 251.55872pt x 203.24684pt.
 File: fig/lv4_cl4.png Graphic file (type png)
 <use fig/lv4_cl4.png>
-Package pdftex.def Info: fig/lv4_cl4.png  used on input line 177.
+Package pdftex.def Info: fig/lv4_cl4.png  used on input line 236.
 (pdftex.def)             Requested size: 251.55872pt x 203.42162pt.
 Package epstopdf Info: Source file: <fig/lv4_bif.eps>
 (epstopdf)                    date: 2023-01-12 13:20:29
@@ -835,31 +866,29 @@ Package epstopdf Info: Source file: <fig/lv4_bif.eps>
 (epstopdf)                    size: 3617253 bytes
 (epstopdf)             Command: <repstopdf --outfile=fig/lv4_bif-eps-converted-
 to.pdf fig/lv4_bif.eps>
-(epstopdf)             \includegraphics on input line 187.
+(epstopdf)             \includegraphics on input line 246.
 Package epstopdf Info: Output file is already uptodate.
-<fig/lv4_bif-eps-converted-to.pdf, id=27, 916.42375pt x 566.115pt>
+<fig/lv4_bif-eps-converted-to.pdf, id=67, 916.42375pt x 566.115pt>
 File: fig/lv4_bif-eps-converted-to.pdf Graphic file (type pdf)
 <use fig/lv4_bif-eps-converted-to.pdf>
-Package pdftex.def Info: fig/lv4_bif-eps-converted-to.pdf  used on input line 1
-87.
+Package pdftex.def Info: fig/lv4_bif-eps-converted-to.pdf  used on input line 2
+46.
 (pdftex.def)             Requested size: 251.55872pt x 155.40135pt.
 
-Overfull \hbox (14.43578pt too wide) detected at line 194
+Overfull \hbox (14.43578pt too wide) detected at line 253
 []\OML/cmm/m/it/9 R \OT1/cmr/m/n/9 = [] \OML/cmm/m/it/9 A \OT1/cmr/m/n/9 = \OMS
 /cmsy/m/n/9 ^^@[]
  []
 
-<fig/lv4_cl.png, id=28, 462.528pt x 346.896pt>
+<fig/lv4_cl.png, id=68, 462.528pt x 346.896pt>
 File: fig/lv4_cl.png Graphic file (type png)
 <use fig/lv4_cl.png>
-Package pdftex.def Info: fig/lv4_cl.png  used on input line 197.
+Package pdftex.def Info: fig/lv4_cl.png  used on input line 256.
 (pdftex.def)             Requested size: 251.55872pt x 188.6708pt.
-[2] [3 <./fig/lv2_bif3Dx10-eps-converted-to.pdf> <./fig/lv4_ps4.png> <./fig/lv4
-_cl4.png> <./fig/lv4_ae4.png>] 
+[5 <./fig/dessin.png> <./fig/lv4_ps4.png> <./fig/lv4_cl4.png> <./fig/lv4_ae4.pn
+g>] 
 AED: lastpage setting LastPage
-[4
-
- <./fig/lv4_bif-eps-converted-to.pdf> <./fig/lv4_cl.png>] (./rapport.aux)
+[6 <./fig/lv4_bif-eps-converted-to.pdf> <./fig/lv4_cl.png>] (./rapport.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -876,13 +905,13 @@ Package logreq Info: Writing requests to 'rapport.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 15136 strings out of 478238
- 272119 string characters out of 5850455
- 883925 words of memory out of 5000000
- 33140 multiletter control sequences out of 15000+600000
+ 15190 strings out of 478238
+ 273030 string characters out of 5850455
+ 868026 words of memory out of 5000000
+ 33188 multiletter control sequences out of 15000+600000
  508923 words of font info for 84 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 87i,15n,91p,1821b,1305s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 87i,15n,91p,1821b,1184s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/t
 exmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/share/texmf-dist/font
 s/enc/dvips/base/8r.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cmex
@@ -893,21 +922,21 @@ pe1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfo
 nts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb>
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf-dist/fonts/t
-ype1/public/doublestroke/dsrom8.pfb></usr/share/texmf-dist/fonts/type1/public/a
-msfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/s
-fbx0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfcc0900.pfb></u
-sr/share/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf-
-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf-dist/fonts/type
-1/public/cm-super/sfsl0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-sup
-er/sfss0800.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsx0900.pfb
-></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti0900.pfb></usr/share/te
-xmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texmf-dist/fonts/type1
-/urw/helvetic/uhvr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmb8a.pf
-b>
-Output written on rapport.pdf (4 pages, 4458905 bytes).
+ype1/public/doublestroke/dsrom8.pfb></usr/share/texmf-dist/fonts/type1/public/e
+sint-type1/esint10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbo
+ls/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx0900.pfb><
+/usr/share/texmf-dist/fonts/type1/public/cm-super/sfcc0900.pfb></usr/share/texm
+f-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf-dist/fonts/ty
+pe1/public/cm-super/sfrm0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-s
+uper/sfsl0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss0800.p
+fb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsx0900.pfb></usr/share/
+texmf-dist/fonts/type1/public/cm-super/sfti0900.pfb></usr/share/texmf-dist/font
+s/type1/urw/helvetic/uhvb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic
+/uhvr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmb8a.pfb>
+Output written on rapport.pdf (6 pages, 28560853 bytes).
 PDF statistics:
- 178 PDF objects out of 1000 (max. 8388607)
- 92 compressed objects within 1 object stream
+ 200 PDF objects out of 1000 (max. 8388607)
+ 99 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 61 words of extra memory for PDF output out of 10000 (max. 10000000)
 
