@@ -105,20 +105,20 @@ R={\begin{bmatrix}1\\1\end{bmatrix}}\quad A =-{\begin{bmatrix}1&0\\0&1\end{bmatr
 \label{eq:RSs0}
 \end{equation}
 Appliquons ces outils à un cas très simple, l'équation \ref{eq:glv} muni des paramètres définis eq.\ref{eq:RSs0}. On obtient en fait deux équations logistiques découplées, il n'y a pas d'interactions entre les espèces. Étudions la première isocline, $x(1-x)\overset{!}{=}0$ deux solutions s'offrent à nous $x=0$ et $x=1$, les courbes sont donc des droites verticales d'abscisse 0 et 1. La seconde isoline est similaire, les solutions sont $y=0$ et $y=1$. Sur la première isocline $\dot{x}=0$, le champs vectoriel est donc dirigé selon $y$ et le sens du vecteur dépend de l'ordonnée $\dot{y}=y(1-y)$  strictement positif $\forall 0<y<1$. On décompte 4 points fixes ${(0,0),(0,1),(1,0),(1,1)}$ qui résultent de l'intersection des isoclines. Ces informations sont présentés sur le graphe fig.\ref{fig:dessinlv2s0}.
-\begin{figure}[t!]
+\begin{figure}
     \centering
     \includegraphics[width=\linewidth]{fig/dessins0.png}
     \caption{dessin}
     \label{fig:dessinlv2s0}
 \end{figure}
 Vient ensuite l'outil numérique, très puissant dans l'étude des EDO, il introduit cependant de nombreuses approximations. Dans un premier temps il est intéressant d'afficher le champs vectoriel associé à l'EDO, à chaque point $(x,y)$ du plan on associt un vecteur égal à $F(x,y)$, se sont les dérivées tangentes à la trajectoire, la norme des vecteurs est encodée par la couleur pour faciliter la lisibilité de la figure. On peut aussi tracer des trajectoires par une méthode pas à pas, $(x_{t+dt},y_{t+dt})=dt*F(x_{t},y_{t})+(x_{t},y_{t})$ on répète alors l'opération un grand nombre de fois avec $dt$ un pas de temps suffisament petit, c'est la méthode d'Euler explicite. Dû aux nombreuses limitations de cette méthode nous utilisons l'algorithme de Runge Kutta qui offre une meilleure robustesse à l'erreur.
-\begin{figure}[t!]
+\begin{figure}
     \centering
     \includegraphics[width=\linewidth]{fig/lv2_vfs0.png}
     \caption{vf}
     \label{fig:vfs0}
 \end{figure}
-\begin{figure}[t!]
+\begin{figure}
     \centering
     \includegraphics[width=\linewidth]{fig/lv2_ts0.png}
     \caption{traj}
@@ -128,7 +128,7 @@ Vient ensuite l'outil numérique, très puissant dans l'étude des EDO, il intro
 R={\begin{bmatrix}1\\1\end{bmatrix}}\quad A =-{\begin{bmatrix}1&1\\1&1\end{bmatrix}}
 \label{eq:RSnInv}
 \end{equation}
-\begin{figure}[t!]
+\begin{figure}
     \centering
     \includegraphics[width=\linewidth]{fig/lv2_vf.png}
     \caption{test}
@@ -176,7 +176,7 @@ Commençons l'analyse des points fixes par le point O dont la matrice jacobienne
 \end{equation}
 la solution analytique de l'équation \ref{eq:JO} est $H(t)=\exp(t)Id_2H_0$, autrement dit le point fixe O est expansif, les trajectoires s'éloigne de ce point. \\
 $J(f)_{M}$ et $ J(f)_{N}$ sont diagonalisables $\forall s \neq 2$, cette information est déductible de l'étude de $Det(J(f)_{M}-XId_2)=(1-s-X)(1+X)$, le polynôme est scindé à racine simple $\forall s \neq 2$, dans le cas où $s=2$ le polynôme caractéristique $(1+X)^2$ est minimale. Soit $s=2$, résolvons l'EDO par cascade $h_2(t)=C\exp(-t)$ puis $h_1=-2Ct\exp(-t)+D\exp(-t)$. Le comportement obtenu s'observe numériquement en affichant le champ vectoriel autour de M (fig \ref{fig:JM}). \\
-\begin{figure}[t!]
+\begin{figure}
     \centering
     \includegraphics[width=\linewidth]{fig/lv2_vfM.png}
     \caption{test}
@@ -196,14 +196,14 @@ Le cas du point fixe N est similaire au point M. Intéressons nous maintenant au
 	\item $1>s>-1 \Rightarrow Det(J(f)_{S})>0 \land Tr(J(f)_{S})<0 \Rightarrow \lambda_i<0$ {\color{red}point stable}
 	\item $s<-1 \Rightarrow Det(J(f)_{S})<0 \land Tr(J(f)_{S})>0 \Rightarrow \lambda_1<0 \land \lambda_2>0$ {\color{red}point selle}
 \end{itemize}
-\begin{figure}[t!]
+\begin{figure}
     \centering
     \includegraphics[width=\linewidth]{fig/lv2_bif3Dx10.eps}
     \caption{test}
     \label{fig:bif2}
 \end{figure}
 On a obtenu toutes les informations nécessaires à la production d'un diagramme des bifurcations de notre système défini eq.\ref{eq:RSs}. Sur la figure.\ref{fig:dessinlv2}, nous avons produit un schema de l'évolution des points fixes en fonction de $s \in [-1,4]$, pour nous limité à un diagramme à deux dimensions nous avons pris en ordonnée la norme 1 $||X||_1$ de la position des points fixes.
-\begin{figure}[t!]
+\begin{figure}
     \centering
     \includegraphics[width=\linewidth]{fig/dessin.png}
     \caption{test}
@@ -213,51 +213,78 @@ Il est intéressant de le comparer à son pendant numérique. La figure \ref{fig
 Le comportement que l'on vient d'étudier est intéressant, mais c'est dans les dimensions supérieurs des équations de Lotka-Volterra que se déploient les phénomènes les plus fascinants. Une partie de l'explication de la pauvreté des phénomènes en 2D se trouve dans l'unicité des solutions, les trajectoires ne peuvent se couper, se qui est très limitant en 2D, mais facile à contourner en dimension supérieure. Nous allons donc étudier un système à 4 espèces en interactions directes dans cette prochaine section.
 \section{Chaos en 4D}
 \subsection{introduction aux attracteurs}
-dimension d'apparition
-\begin{equation}
-R={\begin{bmatrix}1\\0.72\\1.53\\1.27\end{bmatrix}}\quad A =-{\begin{bmatrix}1&1.09&1.52&0\\0&0.72&0.3168&0.9792\\3.5649&0&1.53&0.7191\\1.5367&0.6477&0.4445&1.27\end{bmatrix}}
-\end{equation}
 \begin{figure}
     \centering
     \subfigure[]{\includegraphics[width=0.3\linewidth]{fig/lv4_ps4.png}} 
     \subfigure[]{\includegraphics[width=0.3\linewidth]{fig/lv4_cl4.png}} 
     \subfigure[]{\includegraphics[width=0.3\linewidth]{fig/lv4_ae4.png}}
     \caption{(a) $S=0.8$ (b) $S=0.95$ (c) $S=1$}
-    \label{fig:subbif}
+    \label{fig:exemple}
 \end{figure}
+Sans introduction, voyons directement sur la figure.\ref{fig:example} une trajectoire prise dans différents systèmes LV de dimension 4, on observe la variété des comportements que nous allons étudier. Ces objects plus généraux que les points fixes sont des attracteurs. Définissons les comme suit, Soit A un sous ensemble de l'espace des phases $(x_1,x_2,x_3,x_4)$ :
+\begin{itemize}
+	\item Toute trajectoire dans A reste dans A pour des temps croissants.
+	\item Il existe un ensemble B, le bassin d'attraction, contenant A, tel que toute trajectoire de B tend vers A.
+	\item Alors A est un attracteur.
+\end{itemize}
+Les points fixes sont des exemples d'attracteurs réduits à un singleton, le bestiaire ne s'arrête pourtant pas là, on parle aussi de cycle limite dans le cas d'une orbite périodique et d'attracteur étrange, objet souvent caractérisant un système chaotique (de petits changements entrainent de grandes conséquences), nous réviendrons sur ce dernier terme. \\
+Il peut être très dur de trouver des comportements extra-ordinaires dans l'espace des paramètres, ainsi nous avons examiner la recherche sur le sujet qui nous a mis sur de nombreuses pistes, en particuliers \cite{vano2006}. L'équation \ref{eq:chaos} donne les paramètres d'un système comprenant un attracteur étrange, ce sera notre base d'étude. Après une première observation, nous étudirons son diagramme de bifurcation, les comportements qui précèdent son apparition, sa capacité chaotique et son bassin d'attraction. 
+\begin{equation}
+R={\begin{bmatrix}1\\0.72\\1.53\\1.27\end{bmatrix}}\quad A =-{\begin{bmatrix}1&1.09&1.52&0\\0&0.72&0.3168&0.9792\\3.5649&0&1.53&0.7191\\1.5367&0.6477&0.4445&1.27\end{bmatrix}}
+\label{eq:chaos}
+\end{equation}
+L'attracteur étrange déjà aperçu fig.\ref{fig:example}(c) est isolé fig.\ref{fig:ae4}. On observe sur cette figure une seule trajectoire qui semble converger dans une spirale étrange vers un centre puis repart dans la périphérie de l'attracteur. Ce centre est un point fixe de coordonnées $\begin{bmatrix}0.3013&0.4587&0.1308&0.3557\end{bmatrix}$, par curiosité on peut regarder les valeurs propres de sa matrice Jacobienne $\begin{bmatrix}0.0414+0.1904j&0.0414-0.1904j&-0.3343&-1.032\end{bmatrix}$. On a deux valeurs conjugées principalements complexes qui sous tendent un comportement rotatif, puis deux valeurs réelles de signes opposées supposement une cause de ce mouvement de va et vient de la trajectoire. 
 \begin{figure}
     \centering
     \includegraphics[width=\linewidth]{fig/lv4_ae4.png}
     \caption{attracteur étrange définit par XXX}
     \label{fig:ae4}
 \end{figure}
-\begin{figure}
-    \centering
-    \includegraphics[width=\linewidth]{fig/lv4_cl4.png}
-    \caption{cycle limite définit par XXX}
-    \label{fig:cl4}
-\end{figure}
 \subsection{bifurcations}
+Cet object spectaculaire qu'est l'attracteur étrange doit survenir de conditions biens précises, qu'est qui détermine l'apparition d'un tel objet. Nos réponses vont être biens maigres, néanmoins la pertubation des paramètres autour de ce système ouvre des pistes de réflexions fascinantes.
 \begin{equation}
 R={\begin{bmatrix}1\\0.72\\1.53\\1.27\end{bmatrix}}\quad A =-{\begin{bmatrix}1&1.09s&1.52s&0\\0&0.72&0.3168s&0.9792s\\3.5649s&0&1.53&0.7191s\\1.5367s&0.6477s&0.4445s&1.27\end{bmatrix}}
+\label{eq:lv4s}
 \end{equation}
-\begin{figure}[t!]
+Nous allons, comme précédemment, introduire un paramètre s dans la matrice $A$ hors de la diagonale, voir éq.\ref{eq:lv4s}. Les interactions entre espèces sont sensiblement les mêmes avec des ordres de grandeurs différents. L'analyse sera ici numérique, pour chaque valeur de $s\in [0.8,1.3]$ (avec un pas de XXX), nous allons simuler la trajectoire d'une centaine de points, après un temps donné, les points seront sur l'attracteur, ses coordonnées sont alors enregistrées pendant un lapse de temps $\Delta t$, finalement la figure résultante (fig.\ref{fig:bif4}) est le maximum de la coordonnée $x_0$ sur ce lapse de temps en fonction de $s$. 
+\begin{figure}
     \centering
     \includegraphics[width=\linewidth]{fig/lv4_bif.eps}
     \caption{test}
     \label{fig:bif4}
 \end{figure}
-\subsection{Cycle limite}
-\begin{equation}
-R={\begin{bmatrix}1\\0.72\\1.53\\1.27\end{bmatrix}}\quad A =-{\begin{bmatrix}1&1.0355&1.444&0\\0&0.72&0.30096&0.93024\\3.386655&0&1.53&0.683145\\1.459865&0.615315&0.422275&1.27\end{bmatrix}}
-\end{equation}
-\begin{figure}[t!]
+Quelles informations peut on extraire d'une telle simulation, quelques valeurs sont remarquables : 
+\\ \\
+ En amont de $s=0.82$, on demeure dans un régime constant, toutes les trajectoires se concentrent en un point, comme on peut l'intuiter il s'agit en fait d'un point stable (P). N'oublions pas que les coordonnées de P sont sensibles aux variations de s, prenons le temps de regarder la relation qui les lie, les résultats visibles figure.\ref{fig:x0S} ne se supperposent qu'avant $s=0.82$  puis vont à l'encontre du diagramme de bifurcation, sur ce dernier la fonction devient croissante, d'un autre côté la composante en $x$ de $P$ décroit. Le point fixe n'est plus attracteur, un cycle limite est en train de s'élargir autour du point fixe (voir fig.\ref{fig:1cl4}). C'est ce qu'on appelle une bifurcation de Hopf. Les trajectoires suivent une orbite périodique, toute similaire, ce qui implique que le maximum de $x_0$ est le même (Le lapse de temps est plus long que la période de l'orbite), et donc l'unique point du diagram pour $\forall 0.82<s<0.93$.  \\ \\
+ \begin{figure}
     \centering
-    \includegraphics[width=\linewidth]{fig/lv4_cl.png}
-    \caption{test}
-    \label{fig:example}
+    \includegraphics[width=\linewidth]{fig/lv4_x0S.png}
+    \caption{Variation de la coordonnée $x_1$ de P en fonction de s}
+    \label{fig:x0S}
 \end{figure}
+ \begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{fig/lv4_1cl4.png}
+    \caption{trajectoire s=0.82}
+    \label{fig:1cl4}
+\end{figure}
+À partir de $s=0.93$ tous les points ne s'accordent plus sur la même valeurs, le cycle limite est il devenu trop grand, le lapse de temps $\Delta t$ ne permet plus d'en faire le tour. C'est en effet une partie de la réponse. C'est en diminuant $\delta t$ et en analysant la concentration des points que la réponse s'offre à nous, le cycle s'est dédoublé (fig.\ref{fig:cl4}), formant toujours un ensemble unifié. Ce dédoublement de période continue en cascade avec s, avec pour paroxysme l'attracteur étrange.  \\ \\
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{fig/lv4_cl4.png}
+    \caption{s=0.95}
+    \label{fig:cl4}
+\end{figure}
+Notre système d'étude à $s=1$.
+\\ \\
+$s=1.2$ le comportement expensif cesse.
 \subsection{Exposant de Liapounov}
+Nous avons de nombreuses fois défini l'attracteur étrange comme un système chaotique, qu'entendons nous par là. Si nous prenons deux points très proches comme conditions initiales, les trajectoires résultantes divergent de façons exponentielles.
+\begin{equation}
+|\delta \mathbf {Z} (t)|\approx e^{\lambda t}|\delta \mathbf {Z} _{0}|
+\label{eq:explya}
+\end{equation}. L'exposant de lyapunov d'un attracteur est le $\lambda$ de l'eq.\ref{eq:explya}, dans les systèmes non chaotiques il est négatif ou nul.
+ERREUR ÉNORME SUR LES ATTRACTEUR ÉTRANGES DES ALGO
 \subsection{Bassin d'attraction}
 \section{Conclusion}
 

@@ -57,10 +57,10 @@ class Model_glv:
             #self.R = np.array([3,2])
             #self.A = np.array([[-1,-2],[-1,-1]])
             # det(A)=0
-            #self.R = np.array([3,2])
-            #self.A = np.array([[-0.5,-0.5],[-0.5,-0.5]])
-            self.R = np.array([1,1])
-            self.A = np.array([[-1,-1],[-1,-1]])
+            self.R = np.array([1,-1])
+            self.A = np.array([[-1,1],[3,-1]])
+            #self.R = np.array([1,1])
+            #self.A = np.array([[-1,-1],[-1,-1]])
         # 4d Chaotic Lotka-Voltera
         elif self.nb_species == 4 :
             self.R = np.array([1,0.72,1.53,1.27])
@@ -80,13 +80,11 @@ class Model_glv:
             sys.exit('no gen params')
         self.S = self.A # copy for bifurcation
 
-    def equilibrium_points(self):
-        #self.jacob_cp0 = np.diag(self.R)
-        if np.abs(np.linalg.det(self.A))>10**(-4):
+    def equilibrium_points_f(self):
+        if np.abs(np.linalg.det(self.S))>10**(-4):
             self.equilibrium_point_finder()
-            #self.jacob_cp1 = self.A*self.equilibrium_points[0,:]
         else:
-            warnings.warn("Warning Det(A)~0")
+            warnings.warn("Warning Det(S)~0")
 
 
     def equilibrium_point_finder(self): #!!!!aucune verif des determinants et calcul Jacob
@@ -94,11 +92,13 @@ class Model_glv:
         for i in range(2**self.nb_species-1):
             species = np.flatnonzero(np.logical_not(np.unpackbits(np.array(i, dtype=np.uint8),bitorder='little'))[:self.nb_species]) #resoud le systeme pour un sous ensemble d'especes non nul limite le nb d'espece a 2^8-1
             species_0 = np.flatnonzero(np.unpackbits(np.array(i, dtype=np.uint8),bitorder='little')[:self.nb_species])
-            A_ = np.delete(np.delete(self.A, species_0, 0), species_0, 1)
+            S_ = np.delete(np.delete(self.S, species_0, 0), species_0, 1)
             R_ = np.delete(self.R, species_0)
             equilibrium_point = np.delete(self.equilibrium_points[i,:],species)
-            self.equilibrium_points[i,species] = -np.linalg.inv(A_)@R_
-        print(self.equilibrium_points)
+            self.equilibrium_points[i,species] = -np.linalg.inv(S_)@R_
+        print(self.equilibrium_points[0,:])
+        E = self.Jglv(self.equilibrium_points[0,:].reshape((self.nb_species,1)))
+        print(np.linalg.eig(E))
     
     def plot4D(self,n,start):
         steps = int(3e5)
@@ -131,7 +131,7 @@ class Model_glv:
     def plot2D(self,n,start):
         steps = int(3e3)
         X = np.zeros((self.nb_species,steps,n))
-        X[:,0,:] = np.random.random((self.nb_species,n))*1.5
+        X[:,0,:] = np.random.random((self.nb_species,n))*0.5
 
         for i in range(steps-1):
             X[:,i+1,:] = self.step(X[:,i,:])
@@ -240,7 +240,11 @@ class Model_glv:
             print(i)
         
         fig,ax =plt.subplots()
-        plt.hist2d((s.reshape((n,1))*np.ones((n,self.nb_dots))).flatten(),max[:,:].flatten(), (n,100),density=True, facecolor='g', alpha=0.75,cmap=plt.cm.jet)
+        img = plt.hist2d((s.reshape((n,1))*np.ones((n,self.nb_dots))).flatten(),max[:,:].flatten(), (n,100),density=False, facecolor='g', alpha=0.75,cmap=plt.cm.jet)
+        ax.set_xlabel(r'$s$')        
+        ax.set_ylabel(r'$\max_{\delta t} (x_1)$')
+        clb = fig.colorbar(img[3],ax=ax)
+        clb.set_label('nombre de points dans la zone')
         plt.show()
         if self.nb_species == 2 :
             fig = plt.figure()
@@ -258,7 +262,7 @@ class Model_glv:
             for i in range(n):
                 ax.scatter(s[i]*np.ones(self.nb_dots),max[i,:])#bif[i,0,:])
             ax.set_xlabel(r'$s$')
-            ax.set_ylabel(r'$x_{max}$')
+            ax.set_ylabel(r'$\max_{\delta t} (x_1)$')
             plt.show()
         self.S = self.A
     
@@ -289,15 +293,16 @@ class Model_glv:
 
         
 def main():
-    model_1 = Model_glv(2)
+    model_1 = Model_glv(4)
     model_1.gen_params()
-    #model_1.equilibrium_points()
+    #model_1.equilibrium_points_f()
     #model_1.lyapunov_exponent()
-    #model_1.bifurcations(0.8,1.3,30)
-    model_1.S = 0*(model_1.A-np.diag(np.diag(model_1.A)))+np.diag(np.diag(model_1.A))
-    #model_1.plot4D(1,15000)
-    model_1.plot2D(40,0)
-    #model_1.vector_field_2D(0,0,1.3,1.3,0.1)
+    model_1.bifurcations(0.92,0.94,2)
+    #model_1.S = 0.82*(model_1.A-np.diag(np.diag(model_1.A)))+np.diag(np.diag(model_1.A))
+    #model_1.S = model_1.A+0.2*np.eye(2)
+    #model_1.plot4D(1,int(2e5))
+    #model_1.plot2D(40,0)
+    #model_1.vector_field_2D(0,0,3,3,0.1)
     #model_1.cvAttractor(100,100000)
             
 
