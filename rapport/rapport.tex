@@ -1,5 +1,27 @@
 \documentclass{wsdcr}
 \usepackage[backend=bibtex]{biblatex}
+\usepackage{listings}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Python,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
 
 \addbibresource{rapport.bib}
 
@@ -107,21 +129,21 @@ R={\begin{bmatrix}1\\1\end{bmatrix}}\quad A =-{\begin{bmatrix}1&0\\0&1\end{bmatr
 Appliquons ces outils à un cas très simple, l'équation \ref{eq:glv} muni des paramètres définis eq.\ref{eq:RSs0}. On obtient en fait deux équations logistiques découplées, il n'y a pas d'interactions entre les espèces. Étudions la première isocline, $x(1-x)\overset{!}{=}0$ deux solutions s'offrent à nous $x=0$ et $x=1$, les courbes sont donc des droites verticales d'abscisse 0 et 1. La seconde isoline est similaire, les solutions sont $y=0$ et $y=1$. Sur la première isocline $\dot{x}=0$, le champs vectoriel est donc dirigé selon $y$ et le sens du vecteur dépend de l'ordonnée $\dot{y}=y(1-y)$  strictement positif $\forall 0<y<1$. On décompte 4 points fixes ${(0,0),(0,1),(1,0),(1,1)}$ qui résultent de l'intersection des isoclines. Ces informations sont présentés sur le graphe fig.\ref{fig:dessinlv2s0}.
 \begin{figure}
     \centering
-    \includegraphics[width=\linewidth]{fig/dessins0.png}
-    \caption{dessin}
+    \includegraphics[width=\linewidth]{fig/dessins0.jpg}
+    \caption{Schématisation des données connues sur le système.\ref{eq:RSs0}}
     \label{fig:dessinlv2s0}
 \end{figure}
 Vient ensuite l'outil numérique, très puissant dans l'étude des EDO, il introduit cependant de nombreuses approximations. Dans un premier temps il est intéressant d'afficher le champs vectoriel associé à l'EDO, à chaque point $(x,y)$ du plan on associt un vecteur égal à $F(x,y)$, se sont les dérivées tangentes à la trajectoire, la norme des vecteurs est encodée par la couleur pour faciliter la lisibilité de la figure. On peut aussi tracer des trajectoires par une méthode pas à pas, $(x_{t+dt},y_{t+dt})=dt*F(x_{t},y_{t})+(x_{t},y_{t})$ on répète alors l'opération un grand nombre de fois avec $dt$ un pas de temps suffisament petit, c'est la méthode d'Euler explicite. Dû aux nombreuses limitations de cette méthode nous utilisons l'algorithme de Runge Kutta qui offre une meilleure robustesse à l'erreur.
 \begin{figure}
     \centering
     \includegraphics[width=\linewidth]{fig/lv2_vfs0.png}
-    \caption{vf}
+    \caption{Champ vectoriel sur $[0,1.2]^2$ définit par l'équation.\ref{eq:RSs0}}
     \label{fig:vfs0}
 \end{figure}
 \begin{figure}
     \centering
     \includegraphics[width=\linewidth]{fig/lv2_ts0.png}
-    \caption{traj}
+    \caption{Trajectoires d'une trentaine de points placés aléatoirement}
     \label{fig:ts0}
 \end{figure}
 \begin{equation}
@@ -148,7 +170,6 @@ X(R+AX)\overset{!}{=}0 &\land (x_1 ´\neq 0 \land x_2 \neq 0 \land s=1) \Rightar
 X(R+AX)\overset{!}{=}0 &\land (x_1 ´\neq 0 \land x_2 \neq 0 \land s=-1) \Rightarrow X=\varnothing \\
 X(R+AX)\overset{!}{=}0 &\land (x_1 ´\neq 0 \land x_2 \neq 0 \land s \neq \pm 1) \Rightarrow X=-A^{-1}R \\ &=\frac{1}{1-s^2}\begin{bmatrix}1&-s\\-s&1\end{bmatrix}\begin{bmatrix}1\\1\end{bmatrix}=\frac{1}{1+s}\begin{bmatrix}1\\1\end{bmatrix} \text{(S)}
 \end{aligned}
-\label{eq:RSs}
 \end{equation}
 \begin{equation}
 \begin{aligned}
@@ -179,7 +200,7 @@ $J(f)_{M}$ et $ J(f)_{N}$ sont diagonalisables $\forall s \neq 2$, cette informa
 \begin{figure}
     \centering
     \includegraphics[width=\linewidth]{fig/lv2_vfM.png}
-    \caption{test}
+    \caption{Champ vectoriel autour de M définit par l'équation.\ref{eq:RSs} en $s=2$}
     \label{fig:JM}
 \end{figure}
 Soit $S\neq2 \Rightarrow \exists P \in GL(\mathbb{R}),D \in \mathcal{M}(\mathbb{R}) \text{diagonal}, M = P^{-1}DP$ on a alors ${\dfrac {\mathrm {d} Y}{\mathrm {d} t}}=DY$ avec $Y(t)=PH(t)$ $\lambda_{1,2}$ les valeurs propres, déterminant et trace sont invariants par changement de base et peuvent nous informer sur le signe des valeurs propres en dimension 2.
@@ -199,14 +220,14 @@ Le cas du point fixe N est similaire au point M. Intéressons nous maintenant au
 \begin{figure}
     \centering
     \includegraphics[width=\linewidth]{fig/lv2_bif3Dx10.eps}
-    \caption{test}
+    \caption{Diagramme de bifurcation autour de $s=1$ eq.\ref{eq:RSs}}
     \label{fig:bif2}
 \end{figure}
 On a obtenu toutes les informations nécessaires à la production d'un diagramme des bifurcations de notre système défini eq.\ref{eq:RSs}. Sur la figure.\ref{fig:dessinlv2}, nous avons produit un schema de l'évolution des points fixes en fonction de $s \in [-1,4]$, pour nous limité à un diagramme à deux dimensions nous avons pris en ordonnée la norme 1 $||X||_1$ de la position des points fixes.
 \begin{figure}
     \centering
-    \includegraphics[width=\linewidth]{fig/dessin.png}
-    \caption{test}
+    \includegraphics[width=\linewidth]{fig/dessin.jpg}
+    \caption{Schéma du diagramme de bifurcation autour de $s=1$ eq.\ref{eq:RSs}}
     \label{fig:dessinlv2}
 \end{figure}
 Il est intéressant de le comparer à son pendant numérique. La figure \ref{fig:bif2} est le résultat de l'évolution d'une centaine de points tel que $(x_0,y_0) \in [0,1]$ et cela pour chaque valeur de $s \in [-0.5,4]$. On retrouve bien la stabilité de M et N pour $s > 1$ et la stabilité de S pour $(-1<)s<1$. \\
@@ -218,7 +239,7 @@ Le comportement que l'on vient d'étudier est intéressant, mais c'est dans les 
     \subfigure[]{\includegraphics[width=0.3\linewidth]{fig/lv4_ps4.png}} 
     \subfigure[]{\includegraphics[width=0.3\linewidth]{fig/lv4_cl4.png}} 
     \subfigure[]{\includegraphics[width=0.3\linewidth]{fig/lv4_ae4.png}}
-    \caption{(a) $S=0.8$ (b) $S=0.95$ (c) $S=1$}
+    \caption{Exemples d'attracteurs (a) $S=0.8$ (b) $S=0.95$ (c) $S=1$ (voir equation \ref{eq:lv4s})}
     \label{fig:exemple}
 \end{figure}
 Sans introduction, voyons directement sur la figure.\ref{fig:example} une trajectoire prise dans différents systèmes LV de dimension 4, on observe la variété des comportements que nous allons étudier. Ces objects plus généraux que les points fixes sont des attracteurs. Définissons les comme suit, Soit A un sous ensemble de l'espace des phases $(x_1,x_2,x_3,x_4)$ :
@@ -237,7 +258,7 @@ L'attracteur étrange déjà aperçu fig.\ref{fig:example}(c) est isolé fig.\re
 \begin{figure}
     \centering
     \includegraphics[width=\linewidth]{fig/lv4_ae4.png}
-    \caption{attracteur étrange définit par XXX}
+    \caption{Trajectoire sur l'attracteur étrange définit par \ref{eq:chaos}}
     \label{fig:ae4}
 \end{figure}
 \subsection{bifurcations}
@@ -249,8 +270,8 @@ R={\begin{bmatrix}1\\0.72\\1.53\\1.27\end{bmatrix}}\quad A =-{\begin{bmatrix}1&1
 Nous allons, comme précédemment, introduire un paramètre s dans la matrice $A$ hors de la diagonale, voir éq.\ref{eq:lv4s}. Les interactions entre espèces sont sensiblement les mêmes avec des ordres de grandeurs différents. L'analyse sera ici numérique, pour chaque valeur de $s\in [0.8,1.3]$ (avec un pas de XXX), nous allons simuler la trajectoire d'une centaine de points, après un temps donné, les points seront sur l'attracteur, ses coordonnées sont alors enregistrées pendant un lapse de temps $\Delta t$, finalement la figure résultante (fig.\ref{fig:bif4}) est le maximum de la coordonnée $x_0$ sur ce lapse de temps en fonction de $s$. 
 \begin{figure}
     \centering
-    \includegraphics[width=\linewidth]{fig/lv4_bif.eps}
-    \caption{test}
+    \includegraphics[width=\linewidth]{fig/lv4_bif.png}
+    \caption{Diagramme de bifurcation autour de $s=1$ équation \ref{eq:lv4s}}
     \label{fig:bif4}
 \end{figure}
 Quelles informations peut on extraire d'une telle simulation, quelques valeurs sont remarquables : 
@@ -265,30 +286,70 @@ Quelles informations peut on extraire d'une telle simulation, quelques valeurs s
  \begin{figure}
     \centering
     \includegraphics[width=\linewidth]{fig/lv4_1cl4.png}
-    \caption{trajectoire s=0.82}
+    \caption{Trajectoire sur le cycle limite en $s=0.82$}
     \label{fig:1cl4}
 \end{figure}
-À partir de $s=0.93$ tous les points ne s'accordent plus sur la même valeurs, le cycle limite est il devenu trop grand, le lapse de temps $\Delta t$ ne permet plus d'en faire le tour. C'est en effet une partie de la réponse. C'est en diminuant $\delta t$ et en analysant la concentration des points que la réponse s'offre à nous, le cycle s'est dédoublé (fig.\ref{fig:cl4}), formant toujours un ensemble unifié. Ce dédoublement de période continue en cascade avec s, avec pour paroxysme l'attracteur étrange.  \\ \\
+À partir de $s=0.93$ tous les points ne s'accordent plus sur la même valeurs, le cycle limite est il devenu trop grand, le lapse de temps $\Delta t$ ne permet plus d'en faire le tour. C'est en effet une partie de la réponse. C'est en diminuant $\delta t$ et en analysant la concentration des points que la réponse s'offre à nous (fig.\ref{fig:bifz}), le cycle s'est dédoublé (fig.\ref{fig:cl4}), formant toujours un ensemble unifié. Ce dédoublement de période continue en cascade avec s, avec pour paroxysme l'attracteur étrange.  \\ \\
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{fig/lv4_bifz.png}
+    \caption{Diagramme de bifurcation autour de $s=0.95$. Dédoublement du cycle limite.}
+    \label{fig:bifz}
+\end{figure}
 \begin{figure}
     \centering
     \includegraphics[width=\linewidth]{fig/lv4_cl4.png}
-    \caption{s=0.95}
+    \caption{Trajectoire sur le cycle limite en $s=0.95$}
     \label{fig:cl4}
 \end{figure}
-Notre système d'étude à $s=1$.
-\\ \\
-$s=1.2$ le comportement expensif cesse.
+Notre système d'étude à $s=1$ se trouve dans le comportement chaotique, le bassin d'attraction s'élargit avec $s$ jusqu'à une valeur de buté $s=1.22$, un seul cycle va reprendre le dessus. Le comportement de l'attracteur est loin d'être uniforme sur l'interval $s \in [1,1.2]$, en     plus de s'élargir, on remarque que de nombreuses trajectoires tendent à faire disparaître l'espèce 1. Nous allons justement voir une manière de quantifier cette propriété chaotique de l'attracteur, qui varie fortement sur l'interval précédemment cité.
 \subsection{Exposant de Liapounov}
 Nous avons de nombreuses fois défini l'attracteur étrange comme un système chaotique, qu'entendons nous par là. Si nous prenons deux points très proches comme conditions initiales, les trajectoires résultantes divergent de façons exponentielles.
 \begin{equation}
 |\delta \mathbf {Z} (t)|\approx e^{\lambda t}|\delta \mathbf {Z} _{0}|
 \label{eq:explya}
-\end{equation}. L'exposant de lyapunov d'un attracteur est le $\lambda$ de l'eq.\ref{eq:explya}, dans les systèmes non chaotiques il est négatif ou nul.
-ERREUR ÉNORME SUR LES ATTRACTEUR ÉTRANGES DES ALGO
+\end{equation}. L'exposant de lyapunov d'un attracteur est le $\lambda$ de l'eq.\ref{eq:explya}, sur des temps assez long il ne dépend pas de des conditions initiales, dans les systèmes non chaotiques il est négatif ou nul. Nous allons essayer de le calculer en utilisant l'algorithme suivant (Python): 
+\begin{lstlisting}
+def lyapunov_exponent(x):
+# x est un point sur l'attracteur
+	d_0 = 1e-5
+# d_0 = norme xy
+	delta = d_0*(1/2)*np.array([1,1,1,1])
+	y = x+delta 
+	ite1 = 1e5 #
+	ite2 = 1e2 #nb de boucles avant renormalisation
+    for i in range(ite1):
+        for j in range(ite2):
+            x = self.step(x)
+# step est la fonction d'iteration
+            y = self.step(y)  
+        d_1 = np.sum((x-y)**2, axis=0)**(1/2.)
+# d_1 = norme xy apres ite2 iterations
+        lya_exp = lya_exp + ((1/(self.dt*ite))
+        		*np.log(d_1/d_0)-lya_exp)/(i+1)
+# moyenne des exposants de Lyapunov
+        y = x + d_0*((y-x)/d_1)
+# renormalisation de xy
+\end{lstlisting}
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{fig/dessinLE.jpg}
+    \caption{Schématisation du processus de calcul de l'exposant de Lyapunov}
+    \label{fig:dessinLE}
+\end{figure}
+En quelques mots, nous étudions la divergence de deux points localement, en particuliers nous renormalisons la distance entre ces deux points de temps en temps pour ne pas mesurer une divergence global qui rapidement peut perdre de son sens. En pratique nous faisons une seconde moyenne sur 500 points, Les résultats sont les suivants pour $s=1$ : moy=0.0197 std=0.0031 min=0.0105 max=0.0282. On a bien une valeur strictement positive de l'exposant de Lyapunov, l'attracteur est chaotique. Il serait légitime de questionner les limites du calcul numérique dans ces conditions, par exemple à chaque itération du calcul de la trajectoire une petite erreur est faite ($\alpha*dt**2$ pour la méthode d'Euler), ce delta entre la solution analytique et numérique prend rapidement des proportions énormes dans système chaotique. Les trajectoires calculées sont rapidement peu fiables, elles restent cependant un bon moyen de visualiser l'attracteur.
 \subsection{Bassin d'attraction}
+Cette dernière partie n'est qu'une ébauche, une piste de réflexion, fortement limité par les temps de calculs. Il s'agit d'étudier les vitesses de convergences du bassin d'attraction vers l'attracteur et d'en saisir les irrégularités. Quels sont les difficultés supplémentaires qu'imposent cette méthode : c'est la condition d'arrêt, autrement dit quand est ce que on est sur l'attracteur. De nombreux moyens sont à disposition, nous avons choisis de laisser converger de nombreux points dans des temps très long pour s'assurer de leur appartenance à l'attracteur, cet ensemble de points définira l'attracteur, les nouvelles trajectoires auront convergées lorsqu'elles seront à proximité de l'un des points du premier ensemble. Ce test de proximité utilise une structure d'arbre k-d pour optimiser la recherche du plus proche voisin.
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{fig/dessinLE.jpg}
+    \caption{Étude du temps de convergence des points du plan $x_1=0.3,x_2=0.46$ pour les paramètres \ref{eq:chaos}}
+    \label{fig:ba4}
+\end{figure}
+La figure.\ref{fig:ba4}, présente les temps de convergences pour un ensemble de points du plan $x_1=0.3,x_2=0.46$. Ce premier résultat semble rejeter une vision simpliste de la convergence, qui par exemple serait fonction linéaire de la distance à l'attracteur. Nous avons ici de grande variation sur de petites distances.
 \section{Conclusion}
+Ce sujet avait pour objectif d'entrer dans le champs mathématique que sont les équations différentielles, nous pensons que c'est chose faite. Bien sûr il reste bien des choses à découvrir et nous n'avons que effleuré le sujet et ses complexités. Nous aurions par exemple aimé développer la notion de dimension d'un attracteur et de fonction de Poincaré. Nous avons cependant réussi à parcourir de nombreux sujets centraux : les différents types d'attracteurs, dont certains possèdent cette propriété très étonnante qui est d'être chaotique, comment mesurer ce phénomène, nous avons aussi étudier les bifurcations de comportements de ces systèmes. Bien que nous avons résolut analytiquement quelques équations nous nous sommes rapidement tourné vers l'outil numérique. Les EDO non linéaires laissent peu de place à la résolution analyique. Fort heureusement, l'informatique a bien pris racine dans cet espace, c'était aussi une partie des raisons qui nous a amener à s'intéresser à ce sujet, nous avons pu utiliser et programmer de nombreux outils numériques pour capter des informations sur le système. Tous les codes, sources, sont disponibles sur github : \url{github.com/Myosis-R/LotkaVolterra}.
 
-\section{Annexes}
 \section{bibliographie}
 \nocite{*}
 \printbibliography

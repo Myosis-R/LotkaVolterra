@@ -17,7 +17,7 @@ class Model_glv:
         self.A = np.ones((nb_species,nb_species))
         self.S = np.ones((nb_species,nb_species)) # copy for bifurcation
         self.R = np.ones(nb_species)
-        self.nb_dots = 1000
+        self.nb_dots = 20
         
         self.dt = 1e-2
 
@@ -101,9 +101,11 @@ class Model_glv:
         print(np.linalg.eig(E))
     
     def plot4D(self,n,start):
-        steps = int(3e5)
+        steps = int(1e5)#3e5
         X = np.zeros((self.nb_species,steps,n))
-        X[:,0,:] = np.random.random((self.nb_species,n))
+        #X[:,0,:] = np.random.random((self.nb_species,n))
+        X[:,0,0] = 0.3*np.ones(self.nb_species)
+        X[:,0,1]=X[:,0,0]+1e-4
 
         for i in range(steps-1):
             X[:,i+1,:] = self.step(X[:,i,:])
@@ -160,13 +162,13 @@ class Model_glv:
             x = self.step(x)
             X[:,:,i] = x
         print('ok')
-        kde = stats.gaussian_kde(X.reshape((self.nb_species,-1)))
+        #kde = stats.gaussian_kde(X.reshape((self.nb_species,-1)))
         kdt = spatial.KDTree(X.reshape((self.nb_species,-1)).T)
-        return kde,kdt
+        return kdt
     
-    def cvAttractor(self,n,stop):#no optimization
+    def cvAttractor(self,n,stop):
         dots = np.mgrid[0:1:n*1j,0:1:n*1j].reshape((2,-1)) #ndim!!!!
-        kde,kdt = self.bassinOfAttraction()
+        kdt = self.bassinOfAttraction()
         fixVar = np.array([0.3,0.46])
         dots = np.vstack((fixVar.reshape((2,1))*np.ones((2,n**2)),dots))
         cv = np.array(list(map(partial(self.convergence,stop,kdt),dots.T)))
@@ -182,7 +184,7 @@ class Model_glv:
 
     def evolution(self):
         steps = int(3e5)
-        record = int(4e3)
+        record = int(5e3)#4
         x = np.random.random((self.nb_species,self.nb_dots))
         X = np.zeros((record,self.nb_dots))
         for i in range(steps):
@@ -197,21 +199,20 @@ class Model_glv:
         #x = np.array([0.301303,0.4586546,0.13076546,0.35574162]).reshape((self.nb_species,1))+(0.5-np.random.random((self.nb_species,self.nb_dots)))*0.1
         d_0=1e-5
         epsilon = d_0*np.ones(self.nb_species)*(1/self.nb_species**(1/2.))
-        steps = int(1e6)
         lya_exp = np.zeros(self.nb_dots)
-        lya_exp_plot = np.zeros((steps,self.nb_dots)) #plot
-        y = x+epsilon.reshape((self.nb_species,1))
+        #lya_exp_plot = np.zeros((steps,self.nb_dots)) #plot
         
-        start = int(2e6)
+        start = int(1e6)
         test = int(1e5)
         ite = int(1e2)    
-        
+        lya_exp_plot = np.zeros(test)
         for i in range(start):
             x = self.step(x)
-            y = self.step(y)
-            d_1 = np.sum((x-y)**2, axis=0)**(1/2.)
-        
-        y = x + d_0*((y-x)/d_1)
+            
+        #with open('onIt100.npy', 'rb') as f:
+        #    x = np.load(f)
+            #np.save(f,x)
+        y = x+epsilon.reshape((self.nb_species,1))
         self.dt = 1e-4
         for i in range(test):
             for j in range(ite):
@@ -220,14 +221,28 @@ class Model_glv:
                 
             d_1 = np.sum((x-y)**2, axis=0)**(1/2.)
             lya_exp = lya_exp + ((1/(self.dt*ite))*np.log(d_1/d_0)-lya_exp)/(i+1)
-            lya_exp_plot[i,:] = (1/(self.dt*ite))*np.log(d_1/d_0)
+            #lya_exp_plot[i] = (1/(self.dt*ite))*np.log(d_1/d_0)[0]
             y = x + d_0*((y-x)/d_1)
         self.dt = 1e-2
-        print(np.mean(lya_exp),np.amax(lya_exp),np.amin(lya_exp))
-        print()
+        print(np.mean(lya_exp),np.amax(lya_exp),np.amin(lya_exp),np.std(lya_exp))
+        #0.0197 0.0282 0.0105 0.0031 500
+        return np.mean(lya_exp)
         
-        fig,ax = plt.subplots()
-        ax.plot(lya_exp_plot[:test,0])
+        #fig,ax = plt.subplots()
+        #ax.plot(lya_exp_plot)
+        #plt.show()
+
+    def bifurLE(self,min,max,n):
+        LE = np.zeros(n)
+        s = np.linspace(min,max,n)
+        for i in range(n): 
+            self.S = s[i]*(self.A-np.diag(np.diag(self.A)))+np.diag(np.diag(self.A))
+            LE[i] = self.lyapunov_exponent()
+            print(i)
+        fix,ax = plt.subplots()
+        ax.plot(s,LE)
+        ax.set_xlabel(r'$s$')        
+        ax.set_ylabel('Lyapunov Exponent')
         plt.show()
 
     def bifurcations(self,min,max,n):
@@ -242,7 +257,7 @@ class Model_glv:
         fig,ax =plt.subplots()
         img = plt.hist2d((s.reshape((n,1))*np.ones((n,self.nb_dots))).flatten(),max[:,:].flatten(), (n,100),density=False, facecolor='g', alpha=0.75,cmap=plt.cm.jet)
         ax.set_xlabel(r'$s$')        
-        ax.set_ylabel(r'$\max_{\delta t} (x_1)$')
+        ax.set_ylabel(r'$\max_{\Delta t} (x_1)$')
         clb = fig.colorbar(img[3],ax=ax)
         clb.set_label('nombre de points dans la zone')
         plt.show()
@@ -262,7 +277,7 @@ class Model_glv:
             for i in range(n):
                 ax.scatter(s[i]*np.ones(self.nb_dots),max[i,:])#bif[i,0,:])
             ax.set_xlabel(r'$s$')
-            ax.set_ylabel(r'$\max_{\delta t} (x_1)$')
+            ax.set_ylabel(r'$\max_{\Delta t} (x_1)$')
             plt.show()
         self.S = self.A
     
@@ -296,11 +311,11 @@ def main():
     model_1 = Model_glv(4)
     model_1.gen_params()
     #model_1.equilibrium_points_f()
-    #model_1.lyapunov_exponent()
-    model_1.bifurcations(0.92,0.94,2)
-    #model_1.S = 0.82*(model_1.A-np.diag(np.diag(model_1.A)))+np.diag(np.diag(model_1.A))
+    #print(model_1.lyapunov_exponent())
+    #model_1.bifurcations(0.8,1.3,100)
     #model_1.S = model_1.A+0.2*np.eye(2)
-    #model_1.plot4D(1,int(2e5))
+    #model_1.plot4D(2,int(0))
+    model_1.bifurLE(1.05,1.1,10)
     #model_1.plot2D(40,0)
     #model_1.vector_field_2D(0,0,3,3,0.1)
     #model_1.cvAttractor(100,100000)
