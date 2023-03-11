@@ -37,12 +37,12 @@
 \tableofcontents
 \section{Introduction}
 
-\lettrine{C}{ette} étude des équations de prédation de Lotka-Volterra s'effectue dans le cadre d'une unité d'enseignement ouverte de la licence de mathématique de l'université Paul Sabatier. Nous allons partir d'un exercice vu en cours d'équations différentielles ordinaires (EDO), pour ensuite s'éloigner des frontières de ce cours et voir ce que peut offrir la discipline.
+\lettrine{C}{ette} étude des équations de prédation de Lotka-Volterra s'effectue dans le cadre d'une unité d'enseignement ouverte de la licence de mathématique de l'université Paul Sabatier. Il s'agit d'une première exploration du champs de recherche associé aux équations différentielles non linéaire.
 
 
 \subsection{Le model classique proie prédateur}
 
-Les équations de Lotka-Volterra qualifient un système d'équations différentielles non linéaires, historiquement développées au début du 20ème siècle pour modéliser les interactions entre espèces et plus particulièrement entre 2 espèces : une proie et un prédateur, elles sont un exemple classique d'EDO. Le système est décrit équation \ref{eq:lotka-volterra}. \cite{lotka1920}
+Les équations de Lotka-Volterra qualifient un système d'équations différentielles non linéaires, historiquement développées au début du 20ème siècle pour modéliser les interactions entre espèces et plus particulièrement entre 2 espèces : une proie $x(t)$ et un prédateur $y(t)$, elles sont un exemple classique d'EDO. Le système est décrit équation \ref{eq:lotka-volterra}. Les paramètres $\alpha \beta \delta \gamma$ sont positifs et $\beta \delta$ modulent les interactions entre espèces et $\alpha \gamma$ sont des paramètres de croissance de la population sans interaction. \cite{lotka1920}
 \begin{equation}
 \left\{
 {\begin{array}{ccc}{\dfrac {\mathrm {d} x(t)}{\mathrm {d} t}}&=&x(t)\ {\Big (}\alpha -\beta y(t){\Big )}\\{\dfrac {\mathrm {d} y(t)}{\mathrm {d} t}}&=&y(t)\ {\Big (}\delta x(t)-\gamma {\Big )}\end{array}}
@@ -56,7 +56,7 @@ Les équations de Lotka-Volterra qualifient un système d'équations différenti
     \textbf{Un peu d'histoire des mathématiques}
 \end{center}
 
-Dans sa publication de 1920 (c'est la première appartion sous cette forme de l'équation \ref{eq:lotka-volterra}), Lokta introduit son model comme un simple cas particulier d'interaction entre deux espèces : La source de nourriture de l'espèce 1 (notée $S_1$) est en excès et peut donc être considérée constante sur la période donnée. l'espèce $S_2$ se nourrit exclusivement de $S_1$.
+Dans sa publication de 1920 (c'est la première appartion sous cette forme de l'équation \ref{eq:lotka-volterra}), Lotka introduit son model comme un simple cas particulier d'interaction entre deux espèces : La source de nourriture de l'espèce 1 (notée $S_1$) est en excès et peut donc être considérée constante sur la période donnée. l'espèce $S_2$ se nourrit exclusivement de $S_1$.
 Il introduit son raisonnement, $X_i$ est la masse de l'espèce $S_i$ :
 \begin{equation}
 \begin{aligned}
@@ -97,30 +97,35 @@ Pour de petits changements, le taux de formation de nouvelle matière d'une esp�
 {\dfrac {\mathrm {d} X_1(t)}{\mathrm {d} t}}&=A_1^\prime X_1-B_1X_1X_2-A_1^{\prime \prime}X_1\\
 {\dfrac {\mathrm {d} X_2(t)}{\mathrm {d} t}}&=A_2X_1X_2-B_2X_2
 \end{aligned}
+\label{eq:lotka}
 \end{equation}
-Il construit sa translation vers un système d'EDO sur l'idée de proportionnalité mais tout en traitant cette proportionnalité comme des fonctions du temps. Durant toute la publication il n'envisage pas d'en faire des constantes. C'est Volterra qui en 1926 dans des lettres à Umberto D'Ancona, décrit la même équation mais tel que AB soit fixes, c'est l'équation que l'on a décrite eq.\ref{eq:lotka-volterra}. Volterra ne semble pas connaître les résultats précédents de Lotka. \cite{volterra1926} \\
-Prenons le temps d'étudier certaines propriétés de ce système non linéaire, ces propriétés seront valables pour les généralisations présentés dans la prochaine section. Premièrement, L'EDO est sous formes résolues. Posons $F(t,x,y)=(F_1,F_2)=(x(\alpha -\beta y),y(\delta x-\gamma ))$, Les fonctions $F_1(x,y)$ et $F_2(x,y)$ sont des polynômes à plusieurs indéterminées, il en découle la propriété de régularité $\mathcal{C}^\infty$. Les solutions de l'EDO étant $\mathcal{C}^1$ leur régularité est transmise à la fonction $F(t,x,y)$ en t, la variable n'intervennant pas explicitement. Les solutions sont alors $\mathcal{C}^2$ car elles sont l'intégrale d'une fonction $\mathcal{C}^1$ : $(x,y)(t)-(x,y)(0)=\int_0^t F(s,x,y)ds$, en continuant ce raisonnement on en déduit que les solutions sont $\mathcal{C}^\infty$. \\
-On peut alors, dans le cas d'un problème de Cauchy, affirmer l'unicité et l'existence de la solution, F(t,x,y) étant infiniment dérivable, cela implique sa continuité en $t$ ainsi que d'être localement lipschitzienne en (x,y). Pour rappel un problème de Cauchy consiste à se donner une EDO et un vecteur de conditions initiales, ici de taille 2 (EDO de degré 1 et de dimension 2). Les conditions initiales seront majoritairements étudiées dans le quartier positif du plan $(\mathbb{R}^+)^2$) pour des raisons historiques d'utilisation de ce modèle en écology des populations. \\
-Nous étudirons dans les détails les points fixes et les propriétés d'un tel système dans la section \ref{sec:lv2}. En ouverture nous pouvons cependant simuler quelques trajectoires de L'EDO définie eq.\ref{eq:lotka-volterra}.
-
+Il construit sa translation vers un système d'EDO (voir eq.\ref{eq:lotka}) sur l'idée de proportionnalité mais tout en traitant cette proportionnalité comme des fonctions du temps. Durant toute la publication il n'envisage pas d'en faire des constantes. C'est Volterra qui en 1926 dans des lettres à Umberto D'Ancona, décrit la même équation mais telles que les différentes fonctions $A$ et $B$ soit fixes, c'est l'équation que l'on a décrite eq.\ref{eq:lotka-volterra}. Volterra ne semble pas connaître les résultats précédents de Lotka. \cite{volterra1926} \\ \\
+Prenons le temps d'étudier certaines propriétés de ce système non linéaire, ces propriétés seront valables pour les généralisations présentés dans la prochaine section. Premièrement, L'EDO est sous formes résolues. Posons $F(t,x,y)=(F_1,F_2)=(x(\alpha -\beta y),y(\delta x-\gamma ))$, Les fonctions $F_1(x,y)$ et $F_2(x,y)$ sont des polynômes à plusieurs indéterminées, il en découle la propriété de régularité $\mathcal{C}^\infty$. Les solutions de l'EDO étant $\mathcal{C}^1$ leur régularité est transmise à la fonction $F(t,x,y)$ en t, la variable n'intervenant pas explicitement. Les solutions sont alors $\mathcal{C}^2$ car elles sont l'intégrale d'une fonction $\mathcal{C}^1$ : $(x,y)(t)-(x,y)(0)=\int_0^t F(s,x,y)ds$, en continuant ce raisonnement on en déduit que les solutions sont $\mathcal{C}^\infty$. \\
+On peut alors, dans le cas d'un problème de Cauchy, affirmer l'unicité et l'existence de la solution, F(t,x,y) étant infiniment dérivable, cela implique sa continuité en $t$ ainsi que d'être localement lipschitzienne en (x,y). Pour rappel un problème de Cauchy consiste à se donner une EDO et un vecteur de conditions initiales, ici de taille 2 (EDO de degré 1 et de dimension 2). Les conditions initiales seront majoritairements étudiées dans le quartier positif du plan $(\mathbb{R}^+)^2$) pour des raisons historiques d'utilisation de ce modèle en écologie des populations. \\
+Nous étudierons dans les détails les points fixes et les propriétés d'un tel système dans la section \ref{sec:lv2}. En ouverture nous avons simulé quelques trajectoires de L'EDO définie eq.\ref{eq:lotka-volterra} pour les paramètres $[\alpha=1.1 \beta=0.4 \delta=-0.4 \gamma=0.1]$ sur la figure.\ref{fig:ouverture}. On remarque que ses trajectoires sont cycliques.
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{fig/lv2_t.png}
+    \caption{Quelques trajectoires du modèle proie-prédateur}
+    \label{fig:ouverture}
+\end{figure}
 \subsection{Généralisation}
-Comme de nombreux modèles, les équations de Lokta-Volterra ont de nombreuses limitations. Les biologistes et écologistes ont  proposés des améliorations, dans un premier temps en ajoutant un modèle logistique pour limiter la croissance exponentielle des populations, limités non plus par le prédateur ou la proie mais par un environnement à ressources finies. Ce nouveaux modèles présenté equation \ref{eq:clv}, se nomme le modèle compétitif (de Lokta-Volterra).
+Comme de nombreux modèles, les équations de Lotka-Volterra ont de nombreuses limitations. Les biologistes et écologistes ont  proposés des améliorations, dans un premier temps en ajoutant un modèle logistique pour limiter la croissance exponentielle des populations, limités non plus par le prédateur ou la proie mais par un environnement à ressources finies. Ce nouveaux modèles présenté equation \ref{eq:clv}, se nomme le modèle compétitif (de Lotka-Volterra).
 \begin{equation}
 \left\{
 {\begin{array}{ccc}{\dfrac {\mathrm {d} x(t)}{\mathrm {d} t}}&=&x(t)\ {\Big (}a -b y(t)-c x(t){\Big )}\\{\dfrac {\mathrm {d} y(t)}{\mathrm {d} t}}&=&y(t)\ {\Big (}d x(t)-e -f y(t) {\Big )}\end{array}}
 \right.
 \label{eq:clv}
 \end{equation}
-Dans un même temps, les interactions furent extendues à N espèces, l'EDO se décrit vectoriellement et ses paramètres sont concentrés dans un vecteur définissant l'évolution de la population sans interaction et d'une matrice décrivant les interactions entre espèces et avec l'environnement (modèlisé par la diagonale de la matrice). C'est le modèle généralisé de Lotka-Volterra décrit eq.\ref{eq:glv}. \\
-Soit une espèce i et une espèce j, si les coéficients $A_{i,j}$ et $A_{j,i}$ sont de signe négatif, l'interprétation communément admise est une compétition direct deux ces deux espèces, par exemple pour une même ressource. Si les signes sont distincts c'est une interaction proie-prédateur, finalement si les deux signes sont positifs il peut s'agir d'entraide mais le modèle possède des limitations dans ce cas, principalement car cela reconduit à des comportements de croissance exponentielle.
+Dans un même temps, les interactions furent étendues à N espèces, l'EDO se décrit vectoriellement et ses paramètres sont concentrés dans un vecteur définissant l'évolution de la population sans interaction et d'une matrice décrivant les interactions entre espèces et avec l'environnement (modèlisé par la diagonale de la matrice). C'est le modèle généralisé de Lotka-Volterra décrit eq.\ref{eq:glv}. \\
+Soit une espèce i et une espèce j, si les coefficients $A_{i,j}$ et $A_{j,i}$ sont de signe négatif, l'interprétation communément admise est une compétition direct de ces deux espèces, par exemple pour une même ressource. Si les signes sont distincts c'est une interaction proie-prédateur, finalement si les deux signes sont positifs il peut s'agir d'entraide mais le modèle possède des limitations dans ce cas, principalement car cela reconduit à des comportements de croissance exponentielle.
 \begin{equation}
 \dfrac {\mathrm {d}}{\mathrm {d} t}X(t)=X(t) {\Big (}R+AX(t){\Big )}
 \label{eq:glv}
 \end{equation}
-Dans la prochaine section nous allons nous arrêter sur le cas à deux espèces du modèle généralisé qui, malgré son faible nombre d'espèces, exhibe des comportements intéressants. Malheureusement, nous n'allons pas étudier ce cas dans toute sa généralité, limité par son nombre de paramètres, au nombre de 6 (pouvant tomber jusqu'à 4 avec des changements de variables).
+Dans la prochaine section nous allons nous arrêter sur le cas à deux espèces du modèle généralisé qui, malgré son faible nombre d'espèces, exhibe des comportements intéressants.
 \section{Le cas 2D}
 \label{sec:lv2}
-Plusieurs visualisations du système : trajectoire (flow?), Champ vectoriel (def), colorbar norme2 de f(X)…
 Quels sont les informations que nous pouvons tirer d'un modèle généralisé de Lotka-Volterra, contrairement à certaines EDO il n'est pas possible ici de trouver une solution analytique. Il est néanmoins possible de déterminer de nombreuses propriétés du système analytiquement, en particulier les points d'équilibres ou fixes du système sont l'ensemble des $(x,y)\in \mathbb{R}^2$ où $F(x,y)=0$. Toute trajectoire avec des conditions initiales hors d'un point fixe ne peut l'atteindre en un temps fini, la fonction constante $(x(t),y(t))=(x,y)$ est solution et est unique comme montré précédement. En dynamique des populations, l'isocline $i$ moins restrictive que les points fixes est l'ensemble des points tel que la composante $F_i$ soit nulle.
 \begin{equation}
 R={\begin{bmatrix}1\\1\end{bmatrix}}\quad A =-{\begin{bmatrix}1&0\\0&1\end{bmatrix}}
@@ -133,7 +138,7 @@ Appliquons ces outils à un cas très simple, l'équation \ref{eq:glv} muni des 
     \caption{Schématisation des données connues sur le système.\ref{eq:RSs0}}
     \label{fig:dessinlv2s0}
 \end{figure}
-Vient ensuite l'outil numérique, très puissant dans l'étude des EDO, il introduit cependant de nombreuses approximations. Dans un premier temps il est intéressant d'afficher le champs vectoriel associé à l'EDO, à chaque point $(x,y)$ du plan on associt un vecteur égal à $F(x,y)$, se sont les dérivées tangentes à la trajectoire, la norme des vecteurs est encodée par la couleur pour faciliter la lisibilité de la figure. On peut aussi tracer des trajectoires par une méthode pas à pas, $(x_{t+dt},y_{t+dt})=dt*F(x_{t},y_{t})+(x_{t},y_{t})$ on répète alors l'opération un grand nombre de fois avec $dt$ un pas de temps suffisament petit, c'est la méthode d'Euler explicite. Dû aux nombreuses limitations de cette méthode nous utilisons l'algorithme de Runge Kutta qui offre une meilleure robustesse à l'erreur.
+Vient ensuite l'outil numérique, très puissant dans l'étude des EDO, il introduit cependant de nombreuses approximations. Dans un premier temps il est intéressant d'afficher le champs vectoriel associé à l'EDO, à chaque point $(x,y)$ du plan on associt un vecteur égal à $F(x,y)$, se sont les dérivées tangentes à la trajectoire, la norme des vecteurs est encodée par la couleur pour faciliter la lisibilité de la figure (voir fig.\ref{fig:vfs0}). On peut aussi tracer des trajectoires par une méthode pas à pas, $(x_{t+dt},y_{t+dt})=dt*F(x_{t},y_{t})+(x_{t},y_{t})$ on répète alors l'opération un grand nombre de fois avec $dt$ un pas de temps suffisament petit, c'est la méthode d'Euler explicite (voir fig.\ref{fig:ts0}). Dû aux nombreuses limitations de cette méthode nous utilisons l'algorithme de Runge Kutta qui offre une meilleure robustesse à l'erreur.
 \begin{figure}
     \centering
     \includegraphics[width=\linewidth]{fig/lv2_vfs0.png}
@@ -143,9 +148,10 @@ Vient ensuite l'outil numérique, très puissant dans l'étude des EDO, il intro
 \begin{figure}
     \centering
     \includegraphics[width=\linewidth]{fig/lv2_ts0.png}
-    \caption{Trajectoires d'une trentaine de points placés aléatoirement}
+    \caption{Trajectoires d'une trentaine de points placés aléatoirement selon l'équation.\ref{eq:RSs0}}
     \label{fig:ts0}
 \end{figure}
+Le système qui va nous intéresser pour la suite est définit \ref{eq:RSnInv}, il possède une infinité de points fixes suivant la droite $y=1-x$ visible sur la figure.\ref{fig:vf2}.
 \begin{equation}
 R={\begin{bmatrix}1\\1\end{bmatrix}}\quad A =-{\begin{bmatrix}1&1\\1&1\end{bmatrix}}
 \label{eq:RSnInv}
@@ -153,16 +159,16 @@ R={\begin{bmatrix}1\\1\end{bmatrix}}\quad A =-{\begin{bmatrix}1&1\\1&1\end{bmatr
 \begin{figure}
     \centering
     \includegraphics[width=\linewidth]{fig/lv2_vf.png}
-    \caption{test}
+    \caption{Champ vectoriel sur $[0,1.2]^2$ définit par l'équation.\ref{eq:RSnInv}}
     \label{fig:vf2}
 \end{figure}
 \subsection{Une étude des bifurcations}
-Le système définit par \ref{eq:RSnInv} possède un comportement étonnant découlant de la non inversibilité de $A$. L'étude des bifurcations a pour object d'étudier l'évolution d'un système dynamique (entres autres ses points d'équilibres) en fonction d'un ou plusieurs paramètres autour d'un changement majeur du système. Il est intéressant dans notre cas d'introduire un paramètre dans $A$ \ref{eq:RSs}, rendant $A(s)$ inversible $\forall s \in \mathds{R}\setminus \{1,-1\}, |A(s)|=1-s^2 \neq 0 $.
+Le système définit par \ref{eq:RSnInv} possède un comportement étonnant découlant de la non inversibilité de $A$. L'étude des bifurcations a pour objet d'étudier l'évolution d'un système dynamique (entres autres ses points d'équilibres) en fonction d'un ou plusieurs paramètres autour d'un changement majeur du système. Il est intéressant dans notre cas d'introduire un paramètre dans $A$ \ref{eq:RSs}, rendant $A(s)$ inversible $\forall s \in \mathds{R}\setminus \{1,-1\}, |A(s)|=1-s^2 \neq 0 $.
 \begin{equation}
 R={\begin{bmatrix}1\\1\end{bmatrix}}\quad A(s) =-{\begin{bmatrix}1&s\\s&1\end{bmatrix}}
 \label{eq:RSs}
 \end{equation}
-Étudions les points d'équilibres et leurs stabilités de ce système paramétrique \ref{eq:RSs}. 
+Étudions les points d'équilibres et leurs stabilités de ce système paramétrique \ref{eq:RSs}. Étudions les différents cas selon les valeurs de $s$,$x_1$ et $x_2$. On rappelle que $F$ est la fonction : $F(t,X)=X(t) {\Big (}R+AX(t){\Big )}$.
 \begin{equation}
 \begin{aligned}
 X(R+AX)\overset{!}{=}0 &\land (x_1 = 0 \lor x_2 = 0) \Rightarrow (X=(0,0) \text{(O)} \lor \\ &X=(1,0) \text{(M)}\lor X=(0,1) \text{(N)})\\
@@ -173,20 +179,20 @@ X(R+AX)\overset{!}{=}0 &\land (x_1 ´\neq 0 \land x_2 \neq 0 \land s \neq \pm 1)
 \end{equation}
 \begin{equation}
 \begin{aligned}
-J(f)_X &= \begin{bmatrix}r_1-2x_1-sx_2&-sx_1\\-sx_2&r_2-2x_2-sx_1\end{bmatrix} \\
-J(f)_{O} &= \begin{bmatrix}1&0\\0&1\end{bmatrix} \\particular
-J(f)_{M} &= \begin{bmatrix}-1&-s\\0&1-s\end{bmatrix} \\
-J(f)_{N} &= \begin{bmatrix}1-s&0\\-s&-1\end{bmatrix} \\
-J(f)_{S,s\neq \{1,-1\}} &= \frac{1}{1+s}A(s)
+J(F)_X &= \begin{bmatrix}r_1-2x_1-sx_2&-sx_1\\-sx_2&r_2-2x_2-sx_1\end{bmatrix} \\
+J(F)_{O} &= \begin{bmatrix}1&0\\0&1\end{bmatrix} \\particular
+J(F)_{M} &= \begin{bmatrix}-1&-s\\0&1-s\end{bmatrix} \\
+J(F)_{N} &= \begin{bmatrix}1-s&0\\-s&-1\end{bmatrix} \\
+J(F)_{S,s\neq \{1,-1\}} &= \frac{1}{1+s}A(s)
 \end{aligned}
 \end{equation}
-À l'aide des Jacobiennes, nous pouvont étudier la stabilité de ces points fixes et donc le comportement local des trajectoires. Soit F un des points fixes. $f$ étant $\mathcal{C}^\infty$ effectuons un développement de taylor à l'ordre 1 en F, sachant que $f(t,F)=0$.
+À l'aide des Jacobiennes, nous pouvont étudier la stabilité de ces points fixes et donc le comportement local des trajectoires. Soit P un des points fixes. $F$ étant $\mathcal{C}^\infty$ effectuons un développement de Taylor à l'ordre 1 en P, sachant que $F(t,P)=0$.
 \begin{equation}
-f(t,F+H)=J(f)_XH + \mathcal{O}(\|H\|^2) 
+F(t,P+H)=J(F)_XH + \mathcal{O}(\|H\|^2) 
 \end{equation}
-En négligeant les termes d'ordres strictement supérieurs à un, on obtient une nouvelle équation différentielle linéaire, valable localement en F.
+En négligeant les termes d'ordres strictement supérieurs à un, on obtient une nouvelle équation différentielle linéaire, valable localement en P.
 \begin{equation}
-{\dfrac {\mathrm {d} F+H}{\mathrm {d} t}}={\dfrac {\mathrm {d} H}{\mathrm {d} t}}=J(f)_FH
+{\dfrac {\mathrm {d} P+H}{\mathrm {d} t}}={\dfrac {\mathrm {d} H}{\mathrm {d} t}}=J(F)_PH
 \end{equation}
 Commençons l'analyse des points fixes par le point O dont la matrice jacobienne est invariante par $s$ et est diagonale. On obtient alors le système d'EDO linéaire suivant : 
 \begin{equation}
@@ -196,7 +202,7 @@ Commençons l'analyse des points fixes par le point O dont la matrice jacobienne
 \label{eq:JO}
 \end{equation}
 la solution analytique de l'équation \ref{eq:JO} est $H(t)=\exp(t)Id_2H_0$, autrement dit le point fixe O est expansif, les trajectoires s'éloigne de ce point. \\
-$J(f)_{M}$ et $ J(f)_{N}$ sont diagonalisables $\forall s \neq 2$, cette information est déductible de l'étude de $Det(J(f)_{M}-XId_2)=(1-s-X)(1+X)$, le polynôme est scindé à racine simple $\forall s \neq 2$, dans le cas où $s=2$ le polynôme caractéristique $(1+X)^2$ est minimale. Soit $s=2$, résolvons l'EDO par cascade $h_2(t)=C\exp(-t)$ puis $h_1=-2Ct\exp(-t)+D\exp(-t)$. Le comportement obtenu s'observe numériquement en affichant le champ vectoriel autour de M (fig \ref{fig:JM}). \\
+$J(F)_{M}$ et $ J(F)_{N}$ sont diagonalisables $\forall s \neq 2$, cette information est déductible de l'étude de $Det(J(F)_{M}-XId_2)=(1-s-X)(1+X)$, le polynôme est scindé à racine simple $\forall s \neq 2$, dans le cas où $s=2$ le polynôme caractéristique $(1+X)^2$ est minimale. Soit $s=2$, résolvons l'EDO par cascade $h_2(t)=C\exp(-t)$ puis $h_1=-2Ct\exp(-t)+D\exp(-t)$. Le comportement obtenu s'observe numériquement en affichant le champ vectoriel autour de M (fig \ref{fig:JM}). \\
 \begin{figure}
     \centering
     \includegraphics[width=\linewidth]{fig/lv2_vfM.png}
@@ -205,33 +211,33 @@ $J(f)_{M}$ et $ J(f)_{N}$ sont diagonalisables $\forall s \neq 2$, cette informa
 \end{figure}
 Soit $S\neq2 \Rightarrow \exists P \in GL(\mathbb{R}),D \in \mathcal{M}(\mathbb{R}) \text{diagonal}, M = P^{-1}DP$ on a alors ${\dfrac {\mathrm {d} Y}{\mathrm {d} t}}=DY$ avec $Y(t)=PH(t)$ $\lambda_{1,2}$ les valeurs propres, déterminant et trace sont invariants par changement de base et peuvent nous informer sur le signe des valeurs propres en dimension 2.
 \begin{itemize}
-	\item $s>1 \Rightarrow Det(J(f)_{M})>0 \land Tr(J(f)_{M})<0 \Rightarrow \lambda_i<0$ {\color{red}point stable}
+	\item $s>1 \Rightarrow Det(J(F)_{M})>0 \land Tr(J(F)_{M})<0 \Rightarrow \lambda_i<0$ {\color{red}point stable}
 	\item $s=1 \Rightarrow \lambda_1=0 \land \lambda_2=-1$ 
-	\item $1>s>0 \Rightarrow Det(J(f)_{M})<0 \land Tr(J(f)_{M})>0 \Rightarrow \lambda_1<0 \land \lambda_2>0$ {\color{red}point selle}
+	\item $1>s>0 \Rightarrow Det(J(F)_{M})<0 \land Tr(J(F)_{M})>0 \Rightarrow \lambda_1<0 \land \lambda_2>0$ {\color{red}point selle}
 	\item $s=0 \Rightarrow \lambda_1=-1 \land \lambda_2=1$ {\color{red}point selle}
-	\item $s<0 \Rightarrow Det(J(f)_{M})<0 \land Tr(J(f)_{M})>0 \Rightarrow \lambda_1<0 \land \lambda_2>0$ {\color{red}point selle}
+	\item $s<0 \Rightarrow Det(J(F)_{M})<0 \land Tr(J(F)_{M})>0 \Rightarrow \lambda_1<0 \land \lambda_2>0$ {\color{red}point selle}
 \end{itemize}
-Le cas du point fixe N est similaire au point M. Intéressons nous maintenant au point S. Vérifions que $\forall s \in \mathds{R}\setminus \{1,-1\}$ $J(f)_{S}$ diagonalisable.$Det(J(f)_{S}-XId_2)=\frac{1}{1+s}(\frac{1-s}{1+s}+X)(1+X)$ le polynôme est scindé à racine simple $\forall s \neq 0$ dans le cas où $s=0$ la jacobienne est diagonale. Finalement, $J(f)_{S}$ est diagonalisable $\forall s \in \mathds{R}\setminus \{1,-1\}$. On peut alors étudier le signe du déterminant et de la trace en fonction de $s$ : $Det(J(f)_{S})=\frac{1-s}{1+s}$ et $Tr(J(f)_{S})=\frac{-2}{1+s}$.
+Le cas du point fixe N est similaire au point M. Intéressons nous maintenant au point S. Vérifions que $\forall s \in \mathds{R}\setminus \{1,-1\}$ $J(F)_{S}$ diagonalisable. $Det(J(F)_{S}-XId_2)=\frac{1}{1+s}(\frac{1-s}{1+s}+X)(1+X)$ le polynôme est scindé à racine simple $\forall s \neq 0$ dans le cas où $s=0$ la jacobienne est diagonale. Finalement, $J(F)_{S}$ est diagonalisable $\forall s \in \mathds{R}\setminus \{1,-1\}$. On peut alors étudier le signe du déterminant et de la trace en fonction de $s$ : $Det(J(F)_{S})=\frac{1-s}{1+s}$ et $Tr(J(F)_{S})=\frac{-2}{1+s}$.
 \begin{itemize}
-	\item $s>1 \Rightarrow Det(J(f)_{S})<0 \land Tr(J(f)_{S})<0 \Rightarrow \lambda_1<0 \land \lambda_2>0$ {\color{red}point selle}
-	\item $1>s>-1 \Rightarrow Det(J(f)_{S})>0 \land Tr(J(f)_{S})<0 \Rightarrow \lambda_i<0$ {\color{red}point stable}
-	\item $s<-1 \Rightarrow Det(J(f)_{S})<0 \land Tr(J(f)_{S})>0 \Rightarrow \lambda_1<0 \land \lambda_2>0$ {\color{red}point selle}
+	\item $s>1 \Rightarrow Det(J(F)_{S})<0 \land Tr(J(F)_{S})<0 \Rightarrow \lambda_1<0 \land \lambda_2>0$ {\color{red}point selle}
+	\item $1>s>-1 \Rightarrow Det(J(F)_{S})>0 \land Tr(J(F)_{S})<0 \Rightarrow \lambda_i<0$ {\color{red}point stable}
+	\item $s<-1 \Rightarrow Det(J(F)_{S})<0 \land Tr(J(F)_{S})>0 \Rightarrow \lambda_1<0 \land \lambda_2>0$ {\color{red}point selle}
 \end{itemize}
-\begin{figure}
-    \centering
-    \includegraphics[width=\linewidth]{fig/lv2_bif3Dx10.eps}
-    \caption{Diagramme de bifurcation autour de $s=1$ eq.\ref{eq:RSs}}
-    \label{fig:bif2}
-\end{figure}
-On a obtenu toutes les informations nécessaires à la production d'un diagramme des bifurcations de notre système défini eq.\ref{eq:RSs}. Sur la figure.\ref{fig:dessinlv2}, nous avons produit un schema de l'évolution des points fixes en fonction de $s \in [-1,4]$, pour nous limité à un diagramme à deux dimensions nous avons pris en ordonnée la norme 1 $||X||_1$ de la position des points fixes.
 \begin{figure}
     \centering
     \includegraphics[width=\linewidth]{fig/dessin.jpg}
     \caption{Schéma du diagramme de bifurcation autour de $s=1$ eq.\ref{eq:RSs}}
     \label{fig:dessinlv2}
 \end{figure}
+On a obtenu toutes les informations nécessaires à la production d'un diagramme des bifurcations de notre système défini eq.\ref{eq:RSs}. Sur la figure.\ref{fig:dessinlv2}, nous avons produit un schema de l'évolution des points fixes en fonction de $s \in [-1,4]$, pour nous limiter à un diagramme à deux dimensions nous avons pris en ordonnée la norme 1 $||X||_1$ de la position des points fixes.
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{fig/lv2_bif3Dx10.eps}
+    \caption{Diagramme de bifurcation autour de $s=1$ eq.\ref{eq:RSs}}
+    \label{fig:bif2}
+\end{figure}
 Il est intéressant de le comparer à son pendant numérique. La figure \ref{fig:bif2} est le résultat de l'évolution d'une centaine de points tel que $(x_0,y_0) \in [0,1]$ et cela pour chaque valeur de $s \in [-0.5,4]$. On retrouve bien la stabilité de M et N pour $s > 1$ et la stabilité de S pour $(-1<)s<1$. \\
-Le comportement que l'on vient d'étudier est intéressant, mais c'est dans les dimensions supérieurs des équations de Lotka-Volterra que se déploient les phénomènes les plus fascinants. Une partie de l'explication de la pauvreté des phénomènes en 2D se trouve dans l'unicité des solutions, les trajectoires ne peuvent se couper, se qui est très limitant en 2D, mais facile à contourner en dimension supérieure. Nous allons donc étudier un système à 4 espèces en interactions directes dans cette prochaine section.
+Le comportement que l'on vient d'étudier est intéressant, mais c'est dans les dimensions supérieurs des équations de Lotka-Volterra que se déploient les phénomènes les plus fascinants. Une partie de l'explication de la pauvreté des phénomènes en 2D se trouve dans l'unicité des solutions, les trajectoires ne peuvent se couper, ce qui est très limitant en 2D, mais facile à contourner en dimension supérieure. Nous allons donc étudier un système à 4 espèces en interactions directes dans cette prochaine section.
 \section{Chaos en 4D}
 \subsection{introduction aux attracteurs}
 \begin{figure}
@@ -242,19 +248,19 @@ Le comportement que l'on vient d'étudier est intéressant, mais c'est dans les 
     \caption{Exemples d'attracteurs (a) $S=0.8$ (b) $S=0.95$ (c) $S=1$ (voir equation \ref{eq:lv4s})}
     \label{fig:exemple}
 \end{figure}
-Sans introduction, voyons directement sur la figure.\ref{fig:example} une trajectoire prise dans différents systèmes LV de dimension 4, on observe la variété des comportements que nous allons étudier. Ces objects plus généraux que les points fixes sont des attracteurs. Définissons les comme suit, Soit A un sous ensemble de l'espace des phases $(x_1,x_2,x_3,x_4)$ :
+Sans introduction, voyons directement sur la figure.\ref{fig:exemple} une trajectoire prise dans différents systèmes LV de dimension 4, on observe la variété des comportements que nous allons étudier. Ces objets plus généraux que les points fixes sont des attracteurs. Définissons les comme suit, Soit A un sous ensemble de l'espace des phases $(x_1,x_2,x_3,x_4)$ :
 \begin{itemize}
 	\item Toute trajectoire dans A reste dans A pour des temps croissants.
 	\item Il existe un ensemble B, le bassin d'attraction, contenant A, tel que toute trajectoire de B tend vers A.
 	\item Alors A est un attracteur.
 \end{itemize}
 Les points fixes sont des exemples d'attracteurs réduits à un singleton, le bestiaire ne s'arrête pourtant pas là, on parle aussi de cycle limite dans le cas d'une orbite périodique et d'attracteur étrange, objet souvent caractérisant un système chaotique (de petits changements entrainent de grandes conséquences), nous réviendrons sur ce dernier terme. \\
-Il peut être très dur de trouver des comportements extra-ordinaires dans l'espace des paramètres, ainsi nous avons examiner la recherche sur le sujet qui nous a mis sur de nombreuses pistes, en particuliers \cite{vano2006}. L'équation \ref{eq:chaos} donne les paramètres d'un système comprenant un attracteur étrange, ce sera notre base d'étude. Après une première observation, nous étudirons son diagramme de bifurcation, les comportements qui précèdent son apparition, sa capacité chaotique et son bassin d'attraction. 
+Il peut être très dur de trouver des comportements extra-ordinaires dans l'espace des paramètres, ainsi nous avons examiné la recherche sur le sujet qui nous a mis sur de nombreuses pistes, en particulier \cite{vano2006}. L'équation \ref{eq:chaos} donne les paramètres d'un système comprenant un attracteur étrange, ce sera notre base d'étude. Après une première observation, nous étudierons son diagramme de bifurcation, les comportements qui précèdent son apparition, sa capacité chaotique et son bassin d'attraction. 
 \begin{equation}
 R={\begin{bmatrix}1\\0.72\\1.53\\1.27\end{bmatrix}}\quad A =-{\begin{bmatrix}1&1.09&1.52&0\\0&0.72&0.3168&0.9792\\3.5649&0&1.53&0.7191\\1.5367&0.6477&0.4445&1.27\end{bmatrix}}
 \label{eq:chaos}
 \end{equation}
-L'attracteur étrange déjà aperçu fig.\ref{fig:example}(c) est isolé fig.\ref{fig:ae4}. On observe sur cette figure une seule trajectoire qui semble converger dans une spirale étrange vers un centre puis repart dans la périphérie de l'attracteur. Ce centre est un point fixe de coordonnées $\begin{bmatrix}0.3013&0.4587&0.1308&0.3557\end{bmatrix}$, par curiosité on peut regarder les valeurs propres de sa matrice Jacobienne $\begin{bmatrix}0.0414+0.1904j&0.0414-0.1904j&-0.3343&-1.032\end{bmatrix}$. On a deux valeurs conjugées principalements complexes qui sous tendent un comportement rotatif, puis deux valeurs réelles de signes opposées supposement une cause de ce mouvement de va et vient de la trajectoire. 
+L'attracteur étrange déjà aperçu fig.\ref{fig:exemple}(c) est isolé fig.\ref{fig:ae4}. On observe sur cette figure une seule trajectoire qui semble converger dans une spirale étrange vers un centre puis repart dans la périphérie de l'attracteur. Ce centre est un point fixe de coordonnées $\begin{bmatrix}0.3013&0.4587&0.1308&0.3557\end{bmatrix}$, par curiosité on peut regarder les valeurs propres de sa matrice Jacobienne $\begin{bmatrix}0.0414+0.1904j&0.0414-0.1904j&-0.3343&-1.032\end{bmatrix}$. On a deux valeurs conjugées principalement complexes qui sous-tendent un comportement rotatif, puis deux valeurs réelles de signes opposées supposement une cause de ce mouvement de va et vient de la trajectoire. 
 \begin{figure}
     \centering
     \includegraphics[width=\linewidth]{fig/lv4_ae4.png}
@@ -262,12 +268,12 @@ L'attracteur étrange déjà aperçu fig.\ref{fig:example}(c) est isolé fig.\re
     \label{fig:ae4}
 \end{figure}
 \subsection{bifurcations}
-Cet object spectaculaire qu'est l'attracteur étrange doit survenir de conditions biens précises, qu'est qui détermine l'apparition d'un tel objet. Nos réponses vont être biens maigres, néanmoins la pertubation des paramètres autour de ce système ouvre des pistes de réflexions fascinantes.
+Cet objets spectaculaire qu'est l'attracteur étrange doit survenir de conditions biens précises, qu'est ce qui détermine l'apparition d'un tel objet. Nos réponses vont être biens maigres, néanmoins la pertubation des paramètres autour de ce système ouvre des pistes de réflexions fascinantes.
 \begin{equation}
 R={\begin{bmatrix}1\\0.72\\1.53\\1.27\end{bmatrix}}\quad A =-{\begin{bmatrix}1&1.09s&1.52s&0\\0&0.72&0.3168s&0.9792s\\3.5649s&0&1.53&0.7191s\\1.5367s&0.6477s&0.4445s&1.27\end{bmatrix}}
 \label{eq:lv4s}
 \end{equation}
-Nous allons, comme précédemment, introduire un paramètre s dans la matrice $A$ hors de la diagonale, voir éq.\ref{eq:lv4s}. Les interactions entre espèces sont sensiblement les mêmes avec des ordres de grandeurs différents. L'analyse sera ici numérique, pour chaque valeur de $s\in [0.8,1.3]$ (avec un pas de XXX), nous allons simuler la trajectoire d'une centaine de points, après un temps donné, les points seront sur l'attracteur, ses coordonnées sont alors enregistrées pendant un lapse de temps $\Delta t$, finalement la figure résultante (fig.\ref{fig:bif4}) est le maximum de la coordonnée $x_0$ sur ce lapse de temps en fonction de $s$. 
+Nous allons, comme précédemment, introduire un paramètre s dans la matrice $A$ hors de la diagonale, voir éq.\ref{eq:lv4s}. Les interactions entre espèces sont sensiblement les mêmes avec des ordres de grandeurs différents. L'analyse sera ici numérique, pour chaque valeur de $s\in [0.8,1.3]$ (avec un pas de 0.005), nous allons simuler la trajectoire d'une centaine de points, après un temps donné, les points seront sur l'attracteur, ses coordonnées sont alors enregistrées pendant un laps de temps $\Delta t$, finalement la figure résultante (fig.\ref{fig:bif4}) est le maximum de la coordonnée $x_1$ sur ce laps de temps en fonction de $s$. 
 \begin{figure}
     \centering
     \includegraphics[width=\linewidth]{fig/lv4_bif.png}
@@ -276,7 +282,7 @@ Nous allons, comme précédemment, introduire un paramètre s dans la matrice $A
 \end{figure}
 Quelles informations peut on extraire d'une telle simulation, quelques valeurs sont remarquables : 
 \\ \\
- En amont de $s=0.82$, on demeure dans un régime constant, toutes les trajectoires se concentrent en un point, comme on peut l'intuiter il s'agit en fait d'un point stable (P). N'oublions pas que les coordonnées de P sont sensibles aux variations de s, prenons le temps de regarder la relation qui les lie, les résultats visibles figure.\ref{fig:x0S} ne se supperposent qu'avant $s=0.82$  puis vont à l'encontre du diagramme de bifurcation, sur ce dernier la fonction devient croissante, d'un autre côté la composante en $x$ de $P$ décroit. Le point fixe n'est plus attracteur, un cycle limite est en train de s'élargir autour du point fixe (voir fig.\ref{fig:1cl4}). C'est ce qu'on appelle une bifurcation de Hopf. Les trajectoires suivent une orbite périodique, toute similaire, ce qui implique que le maximum de $x_0$ est le même (Le lapse de temps est plus long que la période de l'orbite), et donc l'unique point du diagram pour $\forall 0.82<s<0.93$.  \\ \\
+ En amont de $s=0.82$, on demeure dans un régime constant, toutes les trajectoires se concentrent en un point, comme on peut l'intuiter il s'agit en fait d'un point stable (P). N'oublions pas que les coordonnées de P sont sensibles aux variations de s, prenons le temps de regarder la relation qui les lie, les résultats visibles figure.\ref{fig:x0S} ne se supperposent qu'avant $s=0.82$  puis vont à l'encontre du diagramme de bifurcation, sur ce dernier la fonction devient croissante, d'un autre côté la composante en $x$ de $P$ décroit. Le point fixe n'est plus attracteur, un cycle limite est en train de s'élargir autour du point fixe (voir fig.\ref{fig:1cl4}). C'est ce qu'on appelle une bifurcation de Hopf. Les trajectoires suivent une orbite périodique, toutes similaires, ce qui implique que le maximum de $x_0$ est le même (Le laps de temps est plus long que la période de l'orbite), et donc l'unique point du diagramme pour $\forall 0.82<s<0.93$.  \\ \\
  \begin{figure}
     \centering
     \includegraphics[width=\linewidth]{fig/lv4_x0S.png}
@@ -289,7 +295,7 @@ Quelles informations peut on extraire d'une telle simulation, quelques valeurs s
     \caption{Trajectoire sur le cycle limite en $s=0.82$}
     \label{fig:1cl4}
 \end{figure}
-À partir de $s=0.93$ tous les points ne s'accordent plus sur la même valeurs, le cycle limite est il devenu trop grand, le lapse de temps $\Delta t$ ne permet plus d'en faire le tour. C'est en effet une partie de la réponse. C'est en diminuant $\delta t$ et en analysant la concentration des points que la réponse s'offre à nous (fig.\ref{fig:bifz}), le cycle s'est dédoublé (fig.\ref{fig:cl4}), formant toujours un ensemble unifié. Ce dédoublement de période continue en cascade avec s, avec pour paroxysme l'attracteur étrange.  \\ \\
+À partir de $s=0.93$ tous les points ne s'accordent plus sur la même valeurs, le cycle limite est il devenu trop grand, le laps de temps $\Delta t$ ne permet plus d'en faire le tour. C'est en effet une partie de la réponse. C'est en diminuant $\delta t$ et en analysant la concentration des points que la réponse s'offre à nous (fig.\ref{fig:bifz}), le cycle s'est dédoublé (fig.\ref{fig:cl4}), formant toujours un ensemble unifié. Ce dédoublement de période continue en cascade avec s, avec pour paroxysme l'attracteur étrange.  \\ \\
 \begin{figure}
     \centering
     \includegraphics[width=\linewidth]{fig/lv4_bifz.png}
@@ -308,7 +314,8 @@ Nous avons de nombreuses fois défini l'attracteur étrange comme un système ch
 \begin{equation}
 |\delta \mathbf {Z} (t)|\approx e^{\lambda t}|\delta \mathbf {Z} _{0}|
 \label{eq:explya}
-\end{equation}. L'exposant de lyapunov d'un attracteur est le $\lambda$ de l'eq.\ref{eq:explya}, sur des temps assez long il ne dépend pas de des conditions initiales, dans les systèmes non chaotiques il est négatif ou nul. Nous allons essayer de le calculer en utilisant l'algorithme suivant (Python): 
+\end{equation}
+L'exposant de lyapunov d'un attracteur est le $\lambda$ de l'eq.\ref{eq:explya}, sur des temps assez long il ne dépend pas des conditions initiales, dans les systèmes non chaotiques il est négatif ou nul. Nous allons essayer de le calculer en utilisant l'algorithme suivant (Python): 
 \begin{lstlisting}
 def lyapunov_exponent(x):
 # x est un point sur l'attracteur
@@ -335,20 +342,27 @@ def lyapunov_exponent(x):
     \centering
     \includegraphics[width=\linewidth]{fig/dessinLE.jpg}
     \caption{Schématisation du processus de calcul de l'exposant de Lyapunov}
-    \label{fig:dessinLE}
+    \label{fig:explya}
 \end{figure}
-En quelques mots, nous étudions la divergence de deux points localement, en particuliers nous renormalisons la distance entre ces deux points de temps en temps pour ne pas mesurer une divergence global qui rapidement peut perdre de son sens. En pratique nous faisons une seconde moyenne sur 500 points, Les résultats sont les suivants pour $s=1$ : moy=0.0197 std=0.0031 min=0.0105 max=0.0282. On a bien une valeur strictement positive de l'exposant de Lyapunov, l'attracteur est chaotique. Il serait légitime de questionner les limites du calcul numérique dans ces conditions, par exemple à chaque itération du calcul de la trajectoire une petite erreur est faite ($\alpha*dt**2$ pour la méthode d'Euler), ce delta entre la solution analytique et numérique prend rapidement des proportions énormes dans système chaotique. Les trajectoires calculées sont rapidement peu fiables, elles restent cependant un bon moyen de visualiser l'attracteur.
-\subsection{Bassin d'attraction}
-Cette dernière partie n'est qu'une ébauche, une piste de réflexion, fortement limité par les temps de calculs. Il s'agit d'étudier les vitesses de convergences du bassin d'attraction vers l'attracteur et d'en saisir les irrégularités. Quels sont les difficultés supplémentaires qu'imposent cette méthode : c'est la condition d'arrêt, autrement dit quand est ce que on est sur l'attracteur. De nombreux moyens sont à disposition, nous avons choisis de laisser converger de nombreux points dans des temps très long pour s'assurer de leur appartenance à l'attracteur, cet ensemble de points définira l'attracteur, les nouvelles trajectoires auront convergées lorsqu'elles seront à proximité de l'un des points du premier ensemble. Ce test de proximité utilise une structure d'arbre k-d pour optimiser la recherche du plus proche voisin.
+En quelques mots, nous étudions la divergence de deux points localement, en particulier nous renormalisons la distance entre ces deux points de temps en temps pour ne pas mesurer une divergence globale qui rapidement peut perdre de son sens. En pratique nous faisons une seconde moyenne sur 500 points, Les résultats sont les suivants pour $s=1$ : moy=0.0197 std=0.0031 min=0.0105 max=0.0282. On a bien une valeur strictement positive de l'exposant de Lyapunov, l'attracteur est chaotique. Il serait légitime de questionner les limites du calcul numérique dans ces conditions, par exemple à chaque itération du calcul de la trajectoire une petite erreur est faite ($\alpha*dt**2$ pour la méthode d'Euler), ce delta entre la solution analytique et numérique prend rapidement des proportions énormes dans système chaotique. Les trajectoires calculées sont rapidement peu fiables, elles restent cependant un bon moyen de visualiser l'attracteur.
 \begin{figure}
     \centering
-    \includegraphics[width=\linewidth]{fig/dessinLE.jpg}
-    \caption{Étude du temps de convergence des points du plan $x_1=0.3,x_2=0.46$ pour les paramètres \ref{eq:chaos}}
+    \includegraphics[width=\linewidth]{fig/lv4_LE.png}
+    \caption{Variation de l'exposant de Lyapunov en fonction de s}
+    \label{fig:les}
+\end{figure}
+Nous pouvons observer sur la figure.\ref{fig:les} la variation de l'exposant de Lyapunov en fonction de s, constatons les variations rapides de la fonction entre $s=1.0$ et $s=1.2$. La propriété chaotique du système est très instable sur cette partie, un cycle limite peut reprendre le dessus comme pour la valeur de $s\approx 1.08$.
+\subsection{Bassin d'attraction}
+Cette dernière partie n'est qu'une ébauche, une piste de réflexion, fortement limitée par les temps de calculs. Il s'agit d'étudier les vitesses de convergence du bassin d'attraction vers l'attracteur et d'en saisir les irrégularités. Quelles sont les difficultés supplémentaires qu'imposent cette méthode : c'est la condition d'arrêt, autrement dit quand est ce que on est sur l'attracteur. De nombreux moyens sont à disposition, nous avons choisit de laisser converger de nombreux points dans des temps très long pour s'assurer de leur appartenance à l'attracteur, cet ensemble de points définira l'attracteur, les nouvelles trajectoires auront convergées lorsqu'elles seront à proximité de l'un des points du premier ensemble. Ce test de proximité utilise une structure d'arbre k-d pour optimiser la recherche du plus proche voisin.
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{fig/lv4_ba.png}
+    \caption{Étude du temps de convergence des points du plan $x_1=0.2,x_2=0.2$ pour les paramètres \ref{eq:chaos}}
     \label{fig:ba4}
 \end{figure}
-La figure.\ref{fig:ba4}, présente les temps de convergences pour un ensemble de points du plan $x_1=0.3,x_2=0.46$. Ce premier résultat semble rejeter une vision simpliste de la convergence, qui par exemple serait fonction linéaire de la distance à l'attracteur. Nous avons ici de grande variation sur de petites distances.
+La figure.\ref{fig:ba4}, présente les temps de convergences pour un ensemble de points du plan $x_1=0.2,x_2=0.2$. Ce premier résultat semble rejeter une vision simpliste de la convergence, qui par exemple serait fonction linéaire de la distance à l'attracteur. Nous avons ici de grande variation sur de petites distances.
 \section{Conclusion}
-Ce sujet avait pour objectif d'entrer dans le champs mathématique que sont les équations différentielles, nous pensons que c'est chose faite. Bien sûr il reste bien des choses à découvrir et nous n'avons que effleuré le sujet et ses complexités. Nous aurions par exemple aimé développer la notion de dimension d'un attracteur et de fonction de Poincaré. Nous avons cependant réussi à parcourir de nombreux sujets centraux : les différents types d'attracteurs, dont certains possèdent cette propriété très étonnante qui est d'être chaotique, comment mesurer ce phénomène, nous avons aussi étudier les bifurcations de comportements de ces systèmes. Bien que nous avons résolut analytiquement quelques équations nous nous sommes rapidement tourné vers l'outil numérique. Les EDO non linéaires laissent peu de place à la résolution analyique. Fort heureusement, l'informatique a bien pris racine dans cet espace, c'était aussi une partie des raisons qui nous a amener à s'intéresser à ce sujet, nous avons pu utiliser et programmer de nombreux outils numériques pour capter des informations sur le système. Tous les codes, sources, sont disponibles sur github : \url{github.com/Myosis-R/LotkaVolterra}.
+Ce sujet avait pour objectif d'entrer dans le champs mathématique que sont les équations différentielles, nous pensons que c'est chose faite. Bien sûr il reste bien des choses à découvrir et nous n'avons que effleuré le sujet et ses complexités. Nous aurions par exemple aimé développer la notion de dimension d'un attracteur et de fonction de Poincaré. Nous avons cependant réussi à parcourir de nombreux sujets centraux : les différents types d'attracteurs, dont certains possèdent cette propriété très étonnante qui est d'être chaotique, comment mesurer ce phénomène, nous avons aussi étudié les bifurcations de comportements de ces systèmes. Bien que nous avons résolus analytiquement quelques équations nous nous sommes rapidement tourné vers l'outil numérique. Les EDO non linéaires laissent peu de place à la résolution analyique. Fort heureusement, l'informatique a bien pris racine dans cet espace, c'était aussi une partie des raisons qui nous a amené à nous intéresser à ce sujet, nous avons pu utiliser et programmer de nombreux outils numériques pour capter des informations sur le système. Tous les codes, sources, sont disponibles sur github : \url{github.com/Myosis-R/LotkaVolterra}.
 
 \section{bibliographie}
 \nocite{*}

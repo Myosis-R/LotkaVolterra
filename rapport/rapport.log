@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.12.20)  25 FEB 2023 17:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2023.3.11)  11 MAR 2023 13:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -770,71 +770,105 @@ Underfull \hbox (badness 10000) in paragraph at lines 45--46
 \T1/cmr/m/n/9 d'équations dif-féren-tielles non linéaires, his-torique-ment
  []
 
+
+Underfull \hbox (badness 1132) in paragraph at lines 45--46
+\T1/cmr/m/n/9 in-ter-ac-tions en-tre es-pèces et $\OML/cmm/m/it/9 ^^M$ \T1/cmr
+/m/n/9 sont des paramètres de
+ []
+
+<fig/lv2_t.png, id=1, 462.528pt x 346.896pt>
+File: fig/lv2_t.png Graphic file (type png)
+<use fig/lv2_t.png>
+Package pdftex.def Info: fig/lv2_t.png  used on input line 108.
+(pdftex.def)             Requested size: 251.55872pt x 188.6708pt.
 LaTeX Font Info:    Trying to load font information for T1+cmss on input line 1
-05.
+09.
 (/usr/share/texmf-dist/tex/latex/base/t1cmss.fd
 File: t1cmss.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+)
+Underfull \hbox (badness 10000) in paragraph at lines 101--112
+
+ []
+
+
+Underfull \hbox (badness 4144) in paragraph at lines 101--112
+\T1/cmr/m/n/9 Prenons le temps d'étudier cer-taines pro-priétés de ce
+ []
+
+
+Underfull \hbox (badness 1057) in paragraph at lines 101--112
+\T1/cmr/m/n/9 sys-tème non linéaire, ces pro-priétés seront val-ables pour
+ []
+
+
+Underfull \hbox (badness 3930) in paragraph at lines 101--112
+\T1/cmr/m/n/9 les général-i-sa-tions présen-tés dans la prochaine sec-tion.
+ []
+
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
 ]
-Underfull \hbox (badness 1194) in paragraph at lines 123--125
-\T1/cmr/m/n/9 Plusieurs vi-su-al-i-sa-tions du sys-tème : tra-jec-toire (flow?)
-,
- []
-
-<fig/dessins0.jpg, id=22, 4015.0pt x 3011.25pt>
+<fig/dessins0.jpg, id=24, 4015.0pt x 3011.25pt>
 File: fig/dessins0.jpg Graphic file (type jpg)
 <use fig/dessins0.jpg>
-Package pdftex.def Info: fig/dessins0.jpg  used on input line 132.
+Package pdftex.def Info: fig/dessins0.jpg  used on input line 137.
 (pdftex.def)             Requested size: 251.55872pt x 188.66214pt.
-<fig/lv2_vfs0.png, id=23, 597.6729pt x 459.6372pt>
+<fig/lv2_vfs0.png, id=25, 597.6729pt x 459.6372pt>
 File: fig/lv2_vfs0.png Graphic file (type png)
 <use fig/lv2_vfs0.png>
-Package pdftex.def Info: fig/lv2_vfs0.png  used on input line 139.
+Package pdftex.def Info: fig/lv2_vfs0.png  used on input line 144.
 (pdftex.def)             Requested size: 251.55872pt x 193.4601pt.
-<fig/lv2_ts0.png, id=25, 602.7318pt x 492.1587pt>
+<fig/lv2_ts0.png, id=26, 602.7318pt x 492.1587pt>
 File: fig/lv2_ts0.png Graphic file (type png)
 <use fig/lv2_ts0.png>
-Package pdftex.def Info: fig/lv2_ts0.png  used on input line 145.
+Package pdftex.def Info: fig/lv2_ts0.png  used on input line 150.
 (pdftex.def)             Requested size: 251.55872pt x 205.40605pt.
-<fig/lv2_vf.png, id=26, 588.2778pt x 481.3182pt>
+ [2 <./fig/lv2_t.png>]
+<fig/lv2_vf.png, id=34, 588.2778pt x 481.3182pt>
 File: fig/lv2_vf.png Graphic file (type png)
 <use fig/lv2_vf.png>
-Package pdftex.def Info: fig/lv2_vf.png  used on input line 155.
+Package pdftex.def Info: fig/lv2_vf.png  used on input line 161.
 (pdftex.def)             Requested size: 251.55872pt x 205.82442pt.
 LaTeX Font Info:    Trying to load font information for U+dsrom on input line 1
-60.
+66.
+
 (/usr/share/texmf-dist/tex/latex/doublestroke/Udsrom.fd
 File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
-) [2 <./fig/dessins0.jpg>]
+)
 
-LaTeX Warning: Command \textasciiacute invalid in math mode on input line 169.
-
-
-LaTeX Warning: Command \textasciiacute invalid in math mode on input line 169.
-
-Missing character: There is no ´ in font cmr9!
-
-LaTeX Warning: Command \textasciiacute invalid in math mode on input line 170.
+LaTeX Warning: Command \textasciiacute invalid in math mode on input line 175.
 
 
-LaTeX Warning: Command \textasciiacute invalid in math mode on input line 170.
+LaTeX Warning: Command \textasciiacute invalid in math mode on input line 175.
 
 Missing character: There is no ´ in font cmr9!
 
-LaTeX Warning: Command \textasciiacute invalid in math mode on input line 171.
+LaTeX Warning: Command \textasciiacute invalid in math mode on input line 176.
 
 
-LaTeX Warning: Command \textasciiacute invalid in math mode on input line 171.
+LaTeX Warning: Command \textasciiacute invalid in math mode on input line 176.
 
 Missing character: There is no ´ in font cmr9!
-[3 <./fig/lv2_vfs0.png> <./fig/lv2_ts0.png> <./fig/lv2_vf.png>]
-<fig/lv2_vfM.png, id=42, 703.9098pt x 465.4188pt>
+
+LaTeX Warning: Command \textasciiacute invalid in math mode on input line 177.
+
+
+LaTeX Warning: Command \textasciiacute invalid in math mode on input line 177.
+
+Missing character: There is no ´ in font cmr9!
+[3 <./fig/dessins0.jpg> <./fig/lv2_vfs0.png> <./fig/lv2_ts0.png>]
+<fig/lv2_vfM.png, id=43, 703.9098pt x 465.4188pt>
 File: fig/lv2_vfM.png Graphic file (type png)
 <use fig/lv2_vfM.png>
-Package pdftex.def Info: fig/lv2_vfM.png  used on input line 202.
+Package pdftex.def Info: fig/lv2_vfM.png  used on input line 208.
 (pdftex.def)             Requested size: 251.55872pt x 166.32204pt.
+<fig/dessin.jpg, id=44, 4015.0pt x 2790.425pt>
+File: fig/dessin.jpg Graphic file (type jpg)
+<use fig/dessin.jpg>
+Package pdftex.def Info: fig/dessin.jpg  used on input line 228.
+(pdftex.def)             Requested size: 251.55872pt x 174.82692pt.
+ [4 <./fig/lv2_vf.png> <./fig/lv2_vfM.png>]
 Package epstopdf Info: Source file: <fig/lv2_bif3Dx10.eps>
 (epstopdf)                    date: 2023-01-11 15:41:42
 (epstopdf)                    size: 1076373 bytes
@@ -843,132 +877,116 @@ Package epstopdf Info: Source file: <fig/lv2_bif3Dx10.eps>
 (epstopdf)                    size: 167213 bytes
 (epstopdf)             Command: <repstopdf --outfile=fig/lv2_bif3Dx10-eps-conve
 rted-to.pdf fig/lv2_bif3Dx10.eps>
-(epstopdf)             \includegraphics on input line 222.
+(epstopdf)             \includegraphics on input line 235.
 Package epstopdf Info: Output file is already uptodate.
-<fig/lv2_bif3Dx10-eps-converted-to.pdf, id=43, 407.5225pt x 417.56pt>
+<fig/lv2_bif3Dx10-eps-converted-to.pdf, id=51, 407.5225pt x 417.56pt>
 File: fig/lv2_bif3Dx10-eps-converted-to.pdf Graphic file (type pdf)
 <use fig/lv2_bif3Dx10-eps-converted-to.pdf>
 Package pdftex.def Info: fig/lv2_bif3Dx10-eps-converted-to.pdf  used on input l
-ine 222.
+ine 235.
 (pdftex.def)             Requested size: 251.55872pt x 257.75676pt.
-<fig/dessin.jpg, id=44, 4015.0pt x 2790.425pt>
-File: fig/dessin.jpg Graphic file (type jpg)
-<use fig/dessin.jpg>
-Package pdftex.def Info: fig/dessin.jpg  used on input line 229.
-(pdftex.def)             Requested size: 251.55872pt x 174.82692pt.
- [4 <./fig/lv2_vfM.png> <./fig/lv2_bif3Dx10-eps-converted-to.pdf>]
-<fig/lv4_ps4.png, id=66, 620.7993pt x 487.0998pt>
+<fig/lv4_ps4.png, id=52, 620.7993pt x 487.0998pt>
 File: fig/lv4_ps4.png Graphic file (type png)
 <use fig/lv4_ps4.png>
-Package pdftex.def Info: fig/lv4_ps4.png  used on input line 239.
+Package pdftex.def Info: fig/lv4_ps4.png  used on input line 245.
 (pdftex.def)             Requested size: 75.46837pt x 59.215pt.
-<fig/lv4_cl4.png, id=67, 1180.41pt x 954.56625pt>
+<fig/lv4_cl4.png, id=53, 1180.41pt x 954.56625pt>
 File: fig/lv4_cl4.png Graphic file (type png)
 <use fig/lv4_cl4.png>
-Package pdftex.def Info: fig/lv4_cl4.png  used on input line 240.
+Package pdftex.def Info: fig/lv4_cl4.png  used on input line 246.
 (pdftex.def)             Requested size: 75.46837pt x 61.01483pt.
-<fig/lv4_ae4.png, id=68, 1181.41376pt x 954.56625pt>
+<fig/lv4_ae4.png, id=54, 1181.41376pt x 954.56625pt>
 File: fig/lv4_ae4.png Graphic file (type png)
 <use fig/lv4_ae4.png>
-Package pdftex.def Info: fig/lv4_ae4.png  used on input line 241.
+Package pdftex.def Info: fig/lv4_ae4.png  used on input line 247.
 (pdftex.def)             Requested size: 75.46837pt x 60.97113pt.
-
-
-LaTeX Warning: Reference `fig:example' on page 5 undefined on input line 245.
-
-
-LaTeX Warning: Reference `fig:example' on page 5 undefined on input line 257.
-
+ [5 <./fig/dessin.jpg> <./fig/lv2_bif3Dx10-eps-converted-to.pdf> <./fig/lv4_ps4
+.png> <./fig/lv4_cl4.png> <./fig/lv4_ae4.png>]
 File: fig/lv4_ae4.png Graphic file (type png)
 <use fig/lv4_ae4.png>
-Package pdftex.def Info: fig/lv4_ae4.png  used on input line 260.
+Package pdftex.def Info: fig/lv4_ae4.png  used on input line 266.
 (pdftex.def)             Requested size: 251.55872pt x 203.24684pt.
-
-Underfull \hbox (badness 1701) in paragraph at lines 265--266
-\T1/cmr/m/n/9 venir de con-di-tions bi-ens pré-cises, qu'est qui déter-mine
- []
-
-[5 <./fig/dessin.jpg> <./fig/lv4_ps4.png> <./fig/lv4_cl4.png> <./fig/lv4_ae4.pn
-g>]
-<fig/lv4_bif.png, id=74, 552.8655pt x 398.9304pt>
+<fig/lv4_bif.png, id=76, 552.8655pt x 398.9304pt>
 File: fig/lv4_bif.png Graphic file (type png)
 <use fig/lv4_bif.png>
-Package pdftex.def Info: fig/lv4_bif.png  used on input line 273.
+Package pdftex.def Info: fig/lv4_bif.png  used on input line 279.
 (pdftex.def)             Requested size: 251.55872pt x 181.51361pt.
-<fig/lv4_x0S.png, id=75, 462.528pt x 346.896pt>
+<fig/lv4_x0S.png, id=77, 462.528pt x 346.896pt>
 File: fig/lv4_x0S.png Graphic file (type png)
 <use fig/lv4_x0S.png>
-Package pdftex.def Info: fig/lv4_x0S.png  used on input line 282.
+Package pdftex.def Info: fig/lv4_x0S.png  used on input line 288.
 (pdftex.def)             Requested size: 251.55872pt x 188.6708pt.
-<fig/lv4_1cl4.png, id=76, 605.6226pt x 479.1501pt>
+<fig/lv4_1cl4.png, id=78, 605.6226pt x 479.1501pt>
 File: fig/lv4_1cl4.png Graphic file (type png)
 <use fig/lv4_1cl4.png>
-Package pdftex.def Info: fig/lv4_1cl4.png  used on input line 288.
+Package pdftex.def Info: fig/lv4_1cl4.png  used on input line 294.
 (pdftex.def)             Requested size: 251.55872pt x 199.02637pt.
-<fig/lv4_bifz.png, id=77, 587.5551pt x 495.0495pt>
+<fig/lv4_bifz.png, id=79, 587.5551pt x 495.0495pt>
 File: fig/lv4_bifz.png Graphic file (type png)
 <use fig/lv4_bifz.png>
-Package pdftex.def Info: fig/lv4_bifz.png  used on input line 295.
+Package pdftex.def Info: fig/lv4_bifz.png  used on input line 301.
 (pdftex.def)             Requested size: 251.55872pt x 211.95311pt.
 File: fig/lv4_cl4.png Graphic file (type png)
 <use fig/lv4_cl4.png>
-Package pdftex.def Info: fig/lv4_cl4.png  used on input line 301.
+Package pdftex.def Info: fig/lv4_cl4.png  used on input line 307.
 (pdftex.def)             Requested size: 251.55872pt x 203.42162pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 269--306
+Underfull \hbox (badness 10000) in paragraph at lines 275--312
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 269--306
+Underfull \hbox (badness 10000) in paragraph at lines 275--312
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 269--306
+Underfull \hbox (badness 10000) in paragraph at lines 275--312
 
  []
 
 
-Underfull \hbox (badness 1048) in paragraph at lines 269--306
+Underfull \hbox (badness 1048) in paragraph at lines 275--312
 \T1/cmr/m/n/9 re-mar-que que de nom-breuses tra-jec-toires ten-dent à faire
  []
 
-[6 <./fig/lv4_bif.png> <./fig/lv4_x0S.png> <./fig/lv4_1cl4.png>]
+[6 <./fig/lv4_bif.png>]
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 3
-12.
-
-(/usr/share/texmf-dist/tex/latex/base/t1cmtt.fd
+19.
+ (/usr/share/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-<fig/dessinLE.jpg, id=84, 4015.0pt x 2258.4375pt>
+[7 <./fig/lv4_x0S.png> <./fig/lv4_1cl4.png> <./fig/lv4_bifz.png>]
+<fig/dessinLE.jpg, id=93, 4015.0pt x 2258.4375pt>
 File: fig/dessinLE.jpg Graphic file (type jpg)
 <use fig/dessinLE.jpg>
-Package pdftex.def Info: fig/dessinLE.jpg  used on input line 336.
+Package pdftex.def Info: fig/dessinLE.jpg  used on input line 343.
 (pdftex.def)             Requested size: 251.55872pt x 141.4966pt.
- [7 <./fig/lv4_bifz.png> <./fig/dessinLE.jpg>]
-File: fig/dessinLE.jpg Graphic file (type jpg)
-<use fig/dessinLE.jpg>
-Package pdftex.def Info: fig/dessinLE.jpg  used on input line 345.
-(pdftex.def)             Requested size: 251.55872pt x 141.4966pt.
- 
+<fig/lv4_LE.png, id=94, 484.9317pt x 351.9549pt>
+File: fig/lv4_LE.png Graphic file (type png)
+<use fig/lv4_LE.png>
+Package pdftex.def Info: fig/lv4_LE.png  used on input line 350.
+(pdftex.def)             Requested size: 251.55872pt x 182.57722pt.
+<fig/lv4_ba.png, id=95, 545.6385pt x 439.4016pt>
+File: fig/lv4_ba.png Graphic file (type png)
+<use fig/lv4_ba.png>
+Package pdftex.def Info: fig/lv4_ba.png  used on input line 359.
+(pdftex.def)             Requested size: 251.55872pt x 202.5831pt.
+ [8 <./fig/dessinLE.jpg> <./fig/lv4_LE.png>] 
 AED: lastpage setting LastPage
-[8] (./rapport.aux)
-
-LaTeX Warning: There were undefined references.
-
+[9 <./fig/lv4_ba.png>] (./rapport.aux)
 Package logreq Info: Writing requests to 'rapport.run.xml'.
 \openout1 = `rapport.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 17052 strings out of 478238
- 297852 string characters out of 5850455
- 1040116 words of memory out of 5000000
- 35022 multiletter control sequences out of 15000+600000
+ 17075 strings out of 478238
+ 298239 string characters out of 5850456
+ 1029116 words of memory out of 5000000
+ 35042 multiletter control sequences out of 15000+600000
  510474 words of font info for 89 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 87i,15n,91p,1842b,1705s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 87i,15n,91p,1842b,1949s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/t
 exmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/share/texmf-dist/font
 s/enc/dvips/base/8r.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/c
@@ -992,10 +1010,10 @@ s/type1/public/cm-super/sfti0900.pfb></usr/share/texmf-dist/fonts/type1/public/
 cm-super/sftt0900.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pf
 b></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texmf-
 dist/fonts/type1/urw/times/utmb8a.pfb>
-Output written on rapport.pdf (8 pages, 5195755 bytes).
+Output written on rapport.pdf (9 pages, 5314505 bytes).
 PDF statistics:
- 204 PDF objects out of 1000 (max. 8388607)
- 106 compressed objects within 2 object streams
+ 213 PDF objects out of 1000 (max. 8388607)
+ 108 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 76 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 91 words of extra memory for PDF output out of 10000 (max. 10000000)
 
